@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace KnifeThrower
@@ -6,13 +7,20 @@ namespace KnifeThrower
     {
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _force;
-
+        
+        private Transform _playerShuriken;
         private Vector3 _throwDirection;
 
         void Start()
         {
+            SetStartRotation();
             SetThrowDirection();
             SurikenShot();
+        }
+
+        private void Update()
+        {
+            
         }
 
         private void SetThrowDirection()
@@ -24,6 +32,12 @@ namespace KnifeThrower
         private void SurikenShot()
         {
             _rb.AddForce((_throwDirection - transform.position).normalized * _force);
+        }
+
+        private void SetStartRotation()
+        {
+            _playerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken).transform;
+            transform.rotation = _playerShuriken.transform.rotation;
         }
     }
 }
