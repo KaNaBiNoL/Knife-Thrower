@@ -23,7 +23,6 @@ namespace KnifeThrower
 
         private void SurikenShot()
         {
-            
             _rb.AddForce((_throwDirection - transform.position).normalized * _force);
         }
     }
