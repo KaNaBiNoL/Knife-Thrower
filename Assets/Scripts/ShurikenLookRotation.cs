@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,16 +7,23 @@ namespace KnifeThrower
 {
     public class ShurikenLookRotation : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        [SerializeField] private InputPosition _inputPosition;
         
+        private Vector3 previousMousePosition;
+
+        private void Start()
+        {
+            transform.Rotate(0,0,90);
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-        
+            RotaionWithInput();
+        }
+
+        private void RotaionWithInput()
+        {
+            transform.LookAt(_inputPosition.MousePoint);
         }
     }
 }
