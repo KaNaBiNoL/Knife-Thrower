@@ -31,8 +31,14 @@ namespace KnifeThrower
             
             if (ShurikenCount <= 0)
             {
-                ShurikenSpawn.OnShurikenThrowed.RemoveListener(DecreaseCount);
+                GameEventsEnd();
             }
+        }
+
+        private void GameEventsEnd()
+        {
+            ShurikenSpawn.OnShurikenThrowed.RemoveAllListeners();
+            ShurikenCollision.OnShurikenCollide.RemoveAllListeners();
         }
     }
 }

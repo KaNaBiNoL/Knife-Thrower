@@ -8,6 +8,7 @@ TagManager:
   - Environment
   - ShurikenModel
   - PlayerShuriken
+  - Border
   layers:
   - Default
   - TransparentFX

@@ -37,7 +37,6 @@ namespace KnifeThrower
         private void SetStartRotation()
         {
             _playerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken).transform;
-            transform.rotation = _playerShuriken.transform.rotation;
         }
     }
 }

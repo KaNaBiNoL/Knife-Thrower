@@ -9,12 +9,19 @@ namespace KnifeThrower
     public class ShurikenSpawn : MonoBehaviour
     {
         [SerializeField] private GameObject _shuriken;
-        [SerializeField] private Vector3 _spawnPoint;
-
         [SerializeField] private RemainingShurikens _remainingShurikens;
+        [SerializeField] private ActiveShurikenController _activeShurikenController;
         
 
+        private GameObject _playershuriken;
+        private MeshRenderer _playerMesh;
+        
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
+
+        private void Start()
+        {
+            _playershuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
+        }
 
         private void Update()
         {
@@ -22,15 +29,16 @@ namespace KnifeThrower
             {
                 return;
             }
+
             SpawnToThrow();
         }
 
         private void SpawnToThrow()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && _activeShurikenController.PlayerMesh.enabled)
             {
                 OnShurikenThrowed.Invoke();
-                GameObject clone = Instantiate(_shuriken, _spawnPoint, Quaternion.identity);
+                GameObject clone = Instantiate(_shuriken, _playershuriken.transform.position, Quaternion.identity);
             }
         }
     }
