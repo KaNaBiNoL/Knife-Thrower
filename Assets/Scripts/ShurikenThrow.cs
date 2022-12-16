@@ -7,7 +7,10 @@ namespace KnifeThrower
     {
         [SerializeField] private Rigidbody _rb;
         [SerializeField] private float _force;
-        
+        [SerializeField] private float _rotationAngle;
+
+        [SerializeField] private ShurikenCollision _shurikenCollision;
+
         private Transform _playerShuriken;
         private Vector3 _throwDirection;
 
@@ -20,12 +23,15 @@ namespace KnifeThrower
 
         private void Update()
         {
-            
+            if (_shurikenCollision.AllowRotation)
+            {
+                transform.Rotate(Vector3.up, _rotationAngle, Space.Self);
+            }
         }
 
         private void SetThrowDirection()
         {
-            InputPosition inputPosition = (InputPosition)FindObjectOfType(typeof(InputPosition));
+            InputPosition inputPosition = (InputPosition) FindObjectOfType(typeof(InputPosition));
             _throwDirection = inputPosition.MousePoint;
         }
 

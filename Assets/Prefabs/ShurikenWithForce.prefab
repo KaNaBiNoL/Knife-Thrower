@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3106132114971907338}
-  m_Mesh: {fileID: -2187994571776894485, guid: c116556b465605349bd52e21d8b20428, type: 3}
+  m_Mesh: {fileID: -2187994571776894485, guid: 058d586ddcbfcf04cb6eac6170eee261, type: 3}
 --- !u!23 &3466591678007801055
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 2871708190745530889}
   _force: 1500
+  _rotationAngle: 15
+  _shurikenCollision: {fileID: 4471640468870632525}
 --- !u!114 &4471640468870632525
 MonoBehaviour:
   m_ObjectHideFlags: 0

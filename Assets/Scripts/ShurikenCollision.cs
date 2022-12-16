@@ -9,12 +9,15 @@ namespace KnifeThrower
     public class ShurikenCollision : MonoBehaviour
     {
         private Rigidbody _rb;
+        
+        public bool AllowRotation { get; private set; }
 
         public static UnityEvent OnShurikenCollide = new UnityEvent();
 
         private void Start()
         {
             _rb = GetComponent<Rigidbody>();
+            AllowRotation = true;
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -22,6 +25,7 @@ namespace KnifeThrower
             if (collision.gameObject.CompareTag(Tags.Target) || collision.gameObject.CompareTag(Tags.Environment))
             {
                 OnShurikenCollide?.Invoke();
+                AllowRotation = false;
                 Destroy(_rb);
                 transform.parent = collision.transform;
             }
