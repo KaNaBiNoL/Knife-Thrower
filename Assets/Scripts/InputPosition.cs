@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace KnifeThrower
 {
-    public class InputPosition : MonoBehaviour
+    public class InputPosition : MonoBehaviour, IInputPosition
     {
-        [SerializeField] private Camera _mainCamera;
+        private Camera _mainCamera;
 
         private Vector3 _mousePoint;
 
@@ -14,6 +15,11 @@ namespace KnifeThrower
         {
             get;
             private set;
+        }
+
+        public void Init()
+        {
+            _mainCamera = Camera.main;
         }
 
         void Update()

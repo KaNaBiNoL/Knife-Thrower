@@ -8,6 +8,10 @@ namespace KnifeThrower.Infrastructure
         public override void InstallBindings()
         {
            PauseServiceInstaller.Install(Container);
+           ActiveShurikenControllerInstaller.Install(Container);
+           RemainingShurikensInstaller.Install(Container);
+           InputPositionInstaller.Install(Container);
+           ShurikenSpawnInstaller.Install(Container);
         }
     }
 }

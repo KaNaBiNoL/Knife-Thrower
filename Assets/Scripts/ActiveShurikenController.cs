@@ -5,13 +5,14 @@ using UnityEngine;
 
 namespace KnifeThrower
 {
-    public class ActiveShurikenController : MonoBehaviour
+    public class ActiveShurikenController : MonoBehaviour, IActiveShurikenController
     {
         private GameObject _playerShuriken;
         public MeshRenderer PlayerMesh { get; private set; }
 
-        private void Start()
+        public void Init()
         {
+            Debug.Log("Work");
             _playerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
             PlayerMesh = _playerShuriken.GetComponent<MeshRenderer>();
             ShurikenSpawn.OnShurikenThrowed.AddListener(ThrowImpossible);

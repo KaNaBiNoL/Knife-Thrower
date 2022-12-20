@@ -1,6 +1,6 @@
 ﻿using KnifeThrower.Infrastructure;
 
-namespace KnifeThrower.Systems
+namespace KnifeThrower.Services
 {
     public interface ISceneLoadingService
     {

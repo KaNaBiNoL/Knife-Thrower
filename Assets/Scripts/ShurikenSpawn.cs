@@ -1,24 +1,34 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using KnifeThrower.Game;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
 
 namespace KnifeThrower
 {
-    public class ShurikenSpawn : MonoBehaviour
+    public class ShurikenSpawn : MonoBehaviour, IShurikenSpawn
     {
-        [SerializeField] private GameObject _shuriken;
-        [SerializeField] private RemainingShurikens _remainingShurikens;
-        [SerializeField] private ActiveShurikenController _activeShurikenController;
-        
+        private IRemainingShurikens _remainingShurikens;
+        private IActiveShurikenController _activeShurikenController;
 
         private GameObject _playershuriken;
         private MeshRenderer _playerMesh;
-        
+
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
 
-        private void Start()
+        [Inject] 
+        private Shuriken.Factory _shurikenFactory;
+
+        [Inject]
+        public void Construct(IActiveShurikenController activeShurikenController,
+            IRemainingShurikens remainingShurikens)
+        {
+            _activeShurikenController = activeShurikenController;
+            _remainingShurikens = remainingShurikens;
+        }
+
+        public void Init()
         {
             _playershuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
         }
@@ -38,8 +48,8 @@ namespace KnifeThrower
             if (Input.GetButtonDown("Fire1") && _activeShurikenController.PlayerMesh.enabled)
             {
                 OnShurikenThrowed.Invoke();
-                GameObject clone = Instantiate(_shuriken, _playershuriken.transform.position, Quaternion.identity);
+                Shuriken shuriken = _shurikenFactory.Create();
             }
         }
     }
-}
+} 

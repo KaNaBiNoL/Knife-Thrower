@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace KnifeThrower
 {
@@ -13,6 +14,14 @@ namespace KnifeThrower
 
         private Transform _playerShuriken;
         private Vector3 _throwDirection;
+        private IInputPosition _inputPosition;
+
+        [Inject]
+        public void Construct(IInputPosition inputPosition)
+        {
+            Debug.Log("Input connected in construct");
+            _inputPosition = inputPosition;
+        }
 
         void Start()
         {
@@ -31,8 +40,7 @@ namespace KnifeThrower
 
         private void SetThrowDirection()
         {
-            InputPosition inputPosition = (InputPosition) FindObjectOfType(typeof(InputPosition));
-            _throwDirection = inputPosition.MousePoint;
+            _throwDirection = _inputPosition.MousePoint;
         }
 
         private void SurikenShot()

@@ -2,12 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace KnifeThrower
 {
     public class ShurikenLookRotation : MonoBehaviour
     {
-        [SerializeField] private InputPosition _inputPosition;
+         private IInputPosition _inputPosition;
+
+         [Inject]
+         public void Construct(IInputPosition inputPosition)
+         {
+             Debug.Log("LookInput");
+             _inputPosition = inputPosition;
+         }
 
         private void Update()
         {

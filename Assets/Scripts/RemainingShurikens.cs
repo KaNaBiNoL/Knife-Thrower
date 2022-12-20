@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace KnifeThrower
 {
-    public class RemainingShurikens : MonoBehaviour
+    public class RemainingShurikens : MonoBehaviour, IRemainingShurikens
     {
         private GameObject[] _shurikenList;
         public int ShurikenCount { get; private set; }
-        
+
         private int _index = 0;
 
-        private void Start()
+        public void Init()
         {
             _shurikenList = GameObject.FindGameObjectsWithTag(Tags.ShurikenModel);
             ShurikenCount = _shurikenList.Length + 1; // +1 is a player started shuriken
@@ -26,9 +26,10 @@ namespace KnifeThrower
             {
                 Destroy(_shurikenList[_index]);
             }
+
             _index++;
             ShurikenCount--;
-            
+
             if (ShurikenCount <= 0)
             {
                 GameEventsEnd();

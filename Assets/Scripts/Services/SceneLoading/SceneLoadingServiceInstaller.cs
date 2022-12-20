@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using KnifeThrower.Services;
+using Zenject;
 
 namespace KnifeThrower.Systems
 {
