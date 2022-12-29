@@ -17,7 +17,7 @@ namespace KnifeThrower
 
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
 
-        [Inject] 
+        [Inject]
         private Shuriken.Factory _shurikenFactory;
 
         [Inject]
@@ -49,7 +49,8 @@ namespace KnifeThrower
             {
                 OnShurikenThrowed.Invoke();
                 Shuriken shuriken = _shurikenFactory.Create();
+                shuriken.transform.position = new Vector3(0, 2.87f, -9.57f);
             }
         }
     }
-} 
+}

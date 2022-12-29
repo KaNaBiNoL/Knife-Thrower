@@ -6,7 +6,7 @@ namespace KnifeThrower.Infrastructure
 {
     public abstract class BaseLauncher : MonoBehaviour
     {
-        public bool isReady { get; protected set; }
+        public bool IsReady { get; protected set; }
         private void Start()
         {
             Launch();

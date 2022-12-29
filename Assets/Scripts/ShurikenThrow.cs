@@ -19,7 +19,6 @@ namespace KnifeThrower
         [Inject]
         public void Construct(IInputPosition inputPosition)
         {
-            Debug.Log("Input connected in construct");
             _inputPosition = inputPosition;
         }
 
@@ -51,6 +50,7 @@ namespace KnifeThrower
         private void SetStartRotation()
         {
             _playerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken).transform;
+            transform.rotation = _playerShuriken.rotation;
         }
     }
 }

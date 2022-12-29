@@ -21,7 +21,7 @@ namespace KnifeThrower.Infrastructure
 
 
 
-            isReady = true;
+            IsReady = true;
         }
     }
 }

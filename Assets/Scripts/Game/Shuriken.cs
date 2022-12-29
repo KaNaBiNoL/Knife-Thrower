@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
@@ -12,6 +13,7 @@ namespace KnifeThrower.Game
         {
             _inputPosition = inputPosition;
         }
+        
 
         public class Factory : PlaceholderFactory<Shuriken>
         {

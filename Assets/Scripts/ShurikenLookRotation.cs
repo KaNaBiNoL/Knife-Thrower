@@ -8,14 +8,13 @@ namespace KnifeThrower
 {
     public class ShurikenLookRotation : MonoBehaviour
     {
-         private IInputPosition _inputPosition;
+        private IInputPosition _inputPosition;
 
-         [Inject]
-         public void Construct(IInputPosition inputPosition)
-         {
-             Debug.Log("LookInput");
-             _inputPosition = inputPosition;
-         }
+        [Inject]
+        public void Construct(IInputPosition inputPosition)
+        {
+            _inputPosition = inputPosition;
+        }
 
         private void Update()
         {
