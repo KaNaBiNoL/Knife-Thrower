@@ -30,7 +30,8 @@ namespace KnifeThrower
         private void GetMouseCoordinates()
         {
             Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit,15f, 
+                    LayerMask.GetMask("MouseInput")))
             {
                 MousePoint = raycastHit.point;
             }

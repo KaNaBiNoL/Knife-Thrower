@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 2871708190745530889}
-  _force: 1500
+  _force: 700
   _rotationAngle: 15
   _shurikenCollision: {fileID: 4471640468870632525}
 --- !u!114 &4471640468870632525

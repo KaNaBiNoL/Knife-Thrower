@@ -21,6 +21,9 @@ namespace KnifeThrower
         private Shuriken.Factory _shurikenFactory;
 
         [Inject]
+        private ThrowArea _throwArea;
+
+        [Inject]
         public void Construct(IActiveShurikenController activeShurikenController,
             IRemainingShurikens remainingShurikens)
         {
@@ -40,12 +43,17 @@ namespace KnifeThrower
                 return;
             }
 
-            SpawnToThrow();
+            if (_throwArea.IsThrowPrepared)
+            {
+                SpawnToThrow();
+            }
+
+            return;
         }
 
         private void SpawnToThrow()
         {
-            if (Input.GetButtonDown("Fire1") && _activeShurikenController.PlayerMesh.enabled)
+            if (Input.GetButtonUp("Fire1") && _activeShurikenController.PlayerMesh.enabled)
             {
                 OnShurikenThrowed.Invoke();
                 Shuriken shuriken = _shurikenFactory.Create();

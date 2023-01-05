@@ -15,6 +15,8 @@ namespace KnifeThrower
         private Transform _playerShuriken;
         private Vector3 _throwDirection;
         private IInputPosition _inputPosition;
+        [Inject]
+        private ThrowArea _throwArea;
 
         [Inject]
         public void Construct(IInputPosition inputPosition)
@@ -44,7 +46,7 @@ namespace KnifeThrower
 
         private void SurikenShot()
         {
-            _rb.AddForce((_throwDirection - transform.position).normalized * _force);
+            _rb.AddForce((_throwDirection - transform.position).normalized * _force * _throwArea.MouseYDistance);
         }
 
         private void SetStartRotation()

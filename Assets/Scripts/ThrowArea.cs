@@ -7,12 +7,14 @@ namespace KnifeThrower
     public class ThrowArea : MonoBehaviour
     {
         public float MouseYDistance { get; private set; }
-        private IInputPosition _inputPosition;
 
         private Vector3 _startMousePosition;
         private Vector3 _endMousePosition;
 
         private bool _isOnStartPosition = false;
+        private IInputPosition _inputPosition;
+
+        public bool IsThrowPrepared { get; private set; }
 
         [Inject]
         public void Construct(IInputPosition inputPosition)
@@ -40,8 +42,9 @@ namespace KnifeThrower
         {
             if (_isOnStartPosition && Input.GetButtonDown("Fire1"))
             {
+                IsThrowPrepared = true;
                 _startMousePosition = _inputPosition.MousePoint;
-                Debug.Log($"StartPosSet");
+                Debug.Log($"StartPosSet {_startMousePosition}");
             }
         }
 
@@ -49,8 +52,10 @@ namespace KnifeThrower
         {
             if (Input.GetButtonUp("Fire1"))
             {
+                IsThrowPrepared = false;
                 _endMousePosition = _inputPosition.MousePoint;
                 CalculateMouseMagnitude();
+                Debug.Log($"EndPosSet {_endMousePosition}");
             }
         }
 
