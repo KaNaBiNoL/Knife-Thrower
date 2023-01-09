@@ -10,6 +10,7 @@ namespace KnifeThrower.Infrastructure
         {
             CoroutineRunnerInstaller.Install(Container);
             SceneLoadingServiceInstaller.Install(Container);
+            UIServiceInstaller.Install(Container);
         }
     }
 }
