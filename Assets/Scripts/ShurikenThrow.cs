@@ -29,6 +29,7 @@ namespace KnifeThrower
             SetStartRotation();
             SetThrowDirection();
             SurikenShot();
+            
         }
 
         private void Update()
@@ -47,6 +48,7 @@ namespace KnifeThrower
         private void SurikenShot()
         {
             _rb.AddForce((_throwDirection - transform.position).normalized * _force * _throwArea.MouseYDistance);
+            Debug.Log("Done");
         }
 
         private void SetStartRotation()

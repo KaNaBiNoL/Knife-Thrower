@@ -12,7 +12,7 @@ namespace KnifeThrower
         private IRemainingShurikens _remainingShurikens;
         private IActiveShurikenController _activeShurikenController;
 
-        private GameObject _playershuriken;
+       
         private MeshRenderer _playerMesh;
 
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
@@ -31,10 +31,7 @@ namespace KnifeThrower
             _remainingShurikens = remainingShurikens;
         }
 
-        public void Init()
-        {
-            _playershuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
-        }
+        
 
         private void Update()
         {

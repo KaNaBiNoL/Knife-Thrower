@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 2871708190745530889}
-  _force: 700
-  _rotationAngle: 15
+  _force: 500
+  _rotationAngle: 3
   _shurikenCollision: {fileID: 4471640468870632525}
 --- !u!114 &4471640468870632525
 MonoBehaviour:
@@ -155,6 +155,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2187994571776894485, guid: 058d586ddcbfcf04cb6eac6170eee261, type: 3}

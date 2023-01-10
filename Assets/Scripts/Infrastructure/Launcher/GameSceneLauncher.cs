@@ -5,6 +5,8 @@ namespace KnifeThrower.Infrastructure
 {
     public class GameSceneLauncher : BaseLauncher
     {
+        public const string SceneName = "SampleScene";
+    
         private IActiveShurikenController _activeShurikenController;
         private IRemainingShurikens _remainingShurikens;
         private IInputPosition _inputPosition;

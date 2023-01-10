@@ -6,8 +6,9 @@ namespace KnifeThrower.Infrastructure
 {
     public class MenuLauncher : BaseLauncher
     {
-        private ISceneLoadingService _sceneLoadingService;
         public const string SceneName = "MenuScene";
+        
+        private ISceneLoadingService _sceneLoadingService;
 
         [Inject]
         public void Construct(ISceneLoadingService sceneLoadingService)

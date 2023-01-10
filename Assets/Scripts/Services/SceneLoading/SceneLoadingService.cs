@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using KnifeThrower.Infrastructure;
-using KnifeThrower.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace KnifeThrower.Systems
+namespace KnifeThrower.Services
 {
     public class SceneLoadingService : ISceneLoadingService
     {

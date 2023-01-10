@@ -12,7 +12,6 @@ namespace KnifeThrower
 
         public void Init()
         {
-            Debug.Log("Work");
             PlayerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
             PlayerMesh = PlayerShuriken.GetComponent<MeshRenderer>();
             ShurikenSpawn.OnShurikenThrowed.AddListener(ThrowImpossible);

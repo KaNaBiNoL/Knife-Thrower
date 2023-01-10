@@ -17,7 +17,7 @@ namespace KnifeThrower.Game
             }
         }
 
-        private void TogglePause()
+        public void TogglePause()
         {
             IsPaused = !IsPaused;
             Time.timeScale = IsPaused ? 0 : 1;
