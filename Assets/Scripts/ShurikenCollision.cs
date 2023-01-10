@@ -1,18 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using KnifeThrower.Game;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
 
 namespace KnifeThrower
 {
     public class ShurikenCollision : MonoBehaviour
     {
         private Rigidbody _rb;
-        
+        private IScoreService _scoreService;
+
         public bool AllowRotation { get; private set; }
 
         public static UnityEvent OnShurikenCollide = new UnityEvent();
+
+        [Inject]
+        public void Construct(IScoreService scoreService)
+        {
+            _scoreService = scoreService;
+        }
 
         private void Start()
         {
@@ -28,6 +37,12 @@ namespace KnifeThrower
                 AllowRotation = false;
                 Destroy(_rb);
                 transform.parent = collision.transform;
+                
+            }
+
+            if (collision.gameObject.CompareTag(Tags.Target))
+            {
+                _scoreService.IncrementScore(1000,1);
             }
         }
 

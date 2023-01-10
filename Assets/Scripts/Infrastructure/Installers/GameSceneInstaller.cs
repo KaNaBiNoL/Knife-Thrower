@@ -12,6 +12,7 @@ namespace KnifeThrower.Infrastructure
            RemainingShurikensInstaller.Install(Container);
            InputPositionInstaller.Install(Container);
            ShurikenSpawnInstaller.Install(Container);
+           ScoreServiceInstaller.Install(Container);
         }
     }
 }
