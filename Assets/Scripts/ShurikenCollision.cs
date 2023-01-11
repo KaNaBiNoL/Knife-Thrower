@@ -37,7 +37,8 @@ namespace KnifeThrower
                 AllowRotation = false;
                 Destroy(_rb);
                 transform.parent = collision.transform;
-                
+                this.enabled = false;
+
             }
 
             if (collision.gameObject.CompareTag(Tags.Target))

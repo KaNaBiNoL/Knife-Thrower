@@ -9,6 +9,7 @@ TagManager:
   - ShurikenModel
   - PlayerShuriken
   - Border
+  - ShurikenWithForce
   layers:
   - Default
   - TransparentFX

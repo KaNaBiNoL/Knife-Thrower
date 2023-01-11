@@ -7,5 +7,6 @@
         public const string Environment = "Environment";
         public const string ShurikenModel= "ShurikenModel";
         public const string Border= "Border";
+        public const string ShurikenWithForce= "ShurikenWithForce";
     }
 }
