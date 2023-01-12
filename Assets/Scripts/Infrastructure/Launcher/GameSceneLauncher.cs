@@ -1,4 +1,5 @@
-﻿using KnifeThrower.Services;
+﻿using KnifeThrower.Game;
+using KnifeThrower.Services;
 using Zenject;
 
 namespace KnifeThrower.Infrastructure
@@ -11,12 +12,14 @@ namespace KnifeThrower.Infrastructure
         private IRemainingShurikens _remainingShurikens;
         private IInputPosition _inputPosition;
         private IShurikenSpawn _shurikenSpawn;
+        private IRemainingTargetsService _remainingTargetsService;
 
         [Inject]
         public void Construct(IActiveShurikenController
             activeShurikenController, IRemainingShurikens remainingShurikens, IInputPosition inputPosition,
-            IShurikenSpawn shurikenSpawn)
+            IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService)
         {
+            _remainingTargetsService = remainingTargetsService;
             _shurikenSpawn = shurikenSpawn;
             _inputPosition = inputPosition;
             _activeShurikenController = activeShurikenController;
@@ -25,10 +28,12 @@ namespace KnifeThrower.Infrastructure
 
         protected override void Launch()
         {
+            _remainingTargetsService.Init();
             _shurikenSpawn.Init();
             _inputPosition.Init();
             _activeShurikenController.Init();
             _remainingShurikens.Init();
+            
         }
     }
 }

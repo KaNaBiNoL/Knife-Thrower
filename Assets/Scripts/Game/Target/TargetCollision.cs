@@ -1,20 +1,28 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 namespace KnifeThrower.Game
 {
     public class TargetCollision : MonoBehaviour
     {
         [SerializeField] private Rigidbody _rb;
-        private float _force = 20f;
+        private IRemainingTargetsService _remainingTargetsService;
 
+        [Inject]
+        public void Construct(IRemainingTargetsService remainingTargetsService)
+        {
+            _remainingTargetsService = remainingTargetsService;
+        }
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(Tags.ShurikenWithForce))
             {
-                gameObject.transform.SetParent(null);
-                _rb.AddForce(Vector3.down * _force);
+                _rb.isKinematic = false;
+                _remainingTargetsService.RemainingTargets--;
+                Debug.Log($"{_remainingTargetsService.RemainingTargets}");
+                Destroy(this);
             }
         }
     }

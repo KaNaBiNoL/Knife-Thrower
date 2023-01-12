@@ -14,17 +14,26 @@ namespace KnifeThrower
         private IScoreService _scoreService;
 
         public bool AllowRotation { get; private set; }
+        
 
         public static UnityEvent OnShurikenCollide = new UnityEvent();
 
+        private bool _isThatShurikenLast = false;
+        private IRemainingShurikens _remainingShurikens;
+        private ILevelLostService _levelLostService;
+
         [Inject]
-        public void Construct(IScoreService scoreService)
+        public void Construct(IScoreService scoreService, IRemainingShurikens remainingShurikens, 
+            ILevelLostService levelLostService)
         {
+            _levelLostService = levelLostService;
+            _remainingShurikens = remainingShurikens;
             _scoreService = scoreService;
         }
 
         private void Start()
         {
+            _remainingShurikens.OnLastShurikenSet += ShurikenSetAsLast;
             _rb = GetComponent<Rigidbody>();
             AllowRotation = true;
         }
@@ -37,13 +46,18 @@ namespace KnifeThrower
                 AllowRotation = false;
                 Destroy(_rb);
                 transform.parent = collision.transform;
-                this.enabled = false;
+                Destroy(this);
+                if (_isThatShurikenLast)
+                {
+                    _levelLostService.IsGameEnd = true;
+                }
 
             }
 
             if (collision.gameObject.CompareTag(Tags.Target))
             {
                 _scoreService.IncrementScore(1000,1);
+                
             }
         }
 
@@ -54,6 +68,11 @@ namespace KnifeThrower
                 OnShurikenCollide?.Invoke();
                 Destroy(gameObject);
             }
+        }
+
+        private void ShurikenSetAsLast()
+        {
+            _isThatShurikenLast = true;
         }
     }
 }
