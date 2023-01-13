@@ -15,7 +15,7 @@ namespace KnifeThrower.Infrastructure
         }
         protected override void Launch()
         {
-            _sceneLoadingService.Load(MenuLauncher.SceneName);
+            _sceneLoadingService.Load(1);
         }
     }
 }

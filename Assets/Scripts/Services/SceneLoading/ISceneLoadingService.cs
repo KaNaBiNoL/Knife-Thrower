@@ -4,7 +4,7 @@ namespace KnifeThrower.Services
 {
     public interface ISceneLoadingService
     {
-        void Load(string sceneName);
+        void Load(int buildIndex);
         void SetLauncher(BaseLauncher launcher);
     }
 }

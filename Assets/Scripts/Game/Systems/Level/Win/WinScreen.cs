@@ -48,17 +48,18 @@ namespace KnifeThrower.Game
 
         private void ToNextLevel()
         {
-            
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         private void ReloadLevel()
         {
-            _sceneLoadingService.Load(SceneManager.GetActiveScene().name);
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void Quit()
         {
             throw new NotImplementedException();
         }
+        
     }
 }

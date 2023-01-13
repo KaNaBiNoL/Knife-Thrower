@@ -55,7 +55,7 @@ namespace KnifeThrower.Game
 
         private void RestartLevel()
         {
-            _sceneLoadingService.Load("SampleScene");
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
             _pauseService.TogglePause();
         }
     }

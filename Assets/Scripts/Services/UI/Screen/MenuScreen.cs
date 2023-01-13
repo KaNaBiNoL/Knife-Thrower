@@ -23,7 +23,7 @@ namespace KnifeThrower.Services
 
         private void OnPlayButtonClicked()
         {
-            _sceneLoadingService.Load("SampleScene");
+            _sceneLoadingService.Load(2);
         }
     }
 }

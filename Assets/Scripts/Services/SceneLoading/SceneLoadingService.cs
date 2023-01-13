@@ -16,9 +16,9 @@ namespace KnifeThrower.Services
         }
         
 
-        public void Load(string sceneName)
+        public void Load(int buildIndex)
         {
-            _coroutineRunner.StartCoroutine(LoadAsync(sceneName));
+            _coroutineRunner.StartCoroutine(LoadAsync(buildIndex));
             
         }
 
@@ -27,9 +27,9 @@ namespace KnifeThrower.Services
             _launcher = launcher;
         }
 
-        public IEnumerator LoadAsync(string sceneName)
+        public IEnumerator LoadAsync(int buildIndex)
         {
-            AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(sceneName);
+            AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(buildIndex);
 
             while (!loadSceneAsync.isDone)
             {

@@ -47,12 +47,12 @@ namespace KnifeThrower.Game
 
         private void RestartLevel()
         {
-            _sceneLoadingService.Load(SceneManager.GetActiveScene().name);
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void OpenMenuScene()
         {
-            _sceneLoadingService.Load("MenuScene");
+            _sceneLoadingService.Load(1);
         }
 
         private void QuitGame()
