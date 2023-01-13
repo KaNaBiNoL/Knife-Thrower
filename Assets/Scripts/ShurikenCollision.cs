@@ -17,8 +17,8 @@ namespace KnifeThrower
         
 
         public static UnityEvent OnShurikenCollide = new UnityEvent();
-
-        private bool _isThatShurikenLast = false;
+        public static UnityEvent OnLastShurikenCollide = new UnityEvent();
+        
         private IRemainingShurikens _remainingShurikens;
         private ILevelLostService _levelLostService;
 
@@ -33,7 +33,6 @@ namespace KnifeThrower
 
         private void Start()
         {
-            _remainingShurikens.OnLastShurikenSet += ShurikenSetAsLast;
             _rb = GetComponent<Rigidbody>();
             AllowRotation = true;
         }
@@ -42,15 +41,17 @@ namespace KnifeThrower
         {
             if (collision.gameObject.CompareTag(Tags.Target) || collision.gameObject.CompareTag(Tags.Environment))
             {
+                if (_remainingShurikens.IsLastShurikenWillBeThrowed)
+                {
+                    OnLastShurikenCollide?.Invoke();
+                }
+
                 OnShurikenCollide?.Invoke();
                 AllowRotation = false;
                 Destroy(_rb);
-                transform.parent = collision.transform;
+                transform.parent = collision.transform; 
                 Destroy(this);
-                if (_isThatShurikenLast)
-                {
-                    _levelLostService.IsGameEnd = true;
-                }
+                
 
             }
 
@@ -69,10 +70,6 @@ namespace KnifeThrower
                 Destroy(gameObject);
             }
         }
-
-        private void ShurikenSetAsLast()
-        {
-            _isThatShurikenLast = true;
-        }
+        
     }
 }

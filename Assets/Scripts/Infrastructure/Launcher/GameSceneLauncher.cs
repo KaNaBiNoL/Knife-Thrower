@@ -13,12 +13,15 @@ namespace KnifeThrower.Infrastructure
         private IInputPosition _inputPosition;
         private IShurikenSpawn _shurikenSpawn;
         private IRemainingTargetsService _remainingTargetsService;
+        private ILevelLostService _levelLostService;
 
         [Inject]
         public void Construct(IActiveShurikenController
             activeShurikenController, IRemainingShurikens remainingShurikens, IInputPosition inputPosition,
-            IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService)
+            IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService, 
+            ILevelLostService levelLostService)
         {
+            _levelLostService = levelLostService;
             _remainingTargetsService = remainingTargetsService;
             _shurikenSpawn = shurikenSpawn;
             _inputPosition = inputPosition;
@@ -33,6 +36,7 @@ namespace KnifeThrower.Infrastructure
             _inputPosition.Init();
             _activeShurikenController.Init();
             _remainingShurikens.Init();
+            _levelLostService.Init();
             
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace KnifeThrower.Game
@@ -7,29 +8,33 @@ namespace KnifeThrower.Game
     public class LevelLostService : MonoBehaviour, ILevelLostService
     {
         private IRemainingTargetsService _remainingTargetsService;
-        private IRemainingTargetsService _remainingTargetsService1;
         public bool IsGameEnd { get; set; }
         public bool IsGameLost { get; set; }
 
         [Inject]
         public void Construct(IRemainingTargetsService remainingTargetsService)
         {
-            _remainingTargetsService1 = remainingTargetsService;
+            _remainingTargetsService = remainingTargetsService;
         }
 
-         private void Start()
+         public void Init()
          {
+             ShurikenCollision.OnLastShurikenCollide.AddListener(EndGame);
              IsGameEnd = false;
              IsGameLost = false;
          }
 
-      /*   private void Update()
+         private void Update()
          {
-             if (_remainingTargetsService.RemainingTargets > 0)
+             if (IsGameEnd && _remainingTargetsService.RemainingTargets > 0)
              {
                  IsGameLost = true;
-                 Debug.Log("Game Lost");
              }
-         } */
+         }
+
+         private void EndGame()
+         {
+             IsGameEnd = true;
+         }
     }
 }

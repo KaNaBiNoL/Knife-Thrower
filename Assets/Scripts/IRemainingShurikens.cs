@@ -5,7 +5,7 @@ namespace KnifeThrower
     public interface IRemainingShurikens
     {
         public int ShurikenCount { get; }
-        event Action OnLastShurikenSet;
+        bool IsLastShurikenWillBeThrowed { get; }
 
         public void Init()
         {

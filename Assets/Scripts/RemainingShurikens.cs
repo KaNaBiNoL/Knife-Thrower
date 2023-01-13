@@ -10,7 +10,7 @@ namespace KnifeThrower
     {
         private GameObject[] _shurikenList;
         public int ShurikenCount { get; private set; }
-        public event Action OnLastShurikenSet;
+        public bool IsLastShurikenWillBeThrowed { get; private set; }
 
         private int _index = 0;
 
@@ -31,9 +31,10 @@ namespace KnifeThrower
             _index++;
             ShurikenCount--;
 
+
             if (ShurikenCount <= 0)
             {
-                OnLastShurikenSet?.Invoke();
+                IsLastShurikenWillBeThrowed = true;
                 GameEventsEnd();
             }
         }

@@ -1,5 +1,7 @@
 ﻿using System;
+using KnifeThrower.Services;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,11 +13,14 @@ namespace KnifeThrower.Game
         [SerializeField] private Button _nextLevelButton;
         [SerializeField] private Button _retryButton;
         [SerializeField] private Button _exitButton;
+        
         private IRemainingTargetsService _remainingTargetsService;
+        private ISceneLoadingService _sceneLoadingService;
 
         [Inject]
-        public void Construct(IRemainingTargetsService remainingTargetsService)
+        public void Construct(IRemainingTargetsService remainingTargetsService, ISceneLoadingService sceneLoadingService)
         {
+            _sceneLoadingService = sceneLoadingService;
             _remainingTargetsService = remainingTargetsService;
         }
         private void Awake()
@@ -48,7 +53,7 @@ namespace KnifeThrower.Game
 
         private void ReloadLevel()
         {
-            throw new NotImplementedException();
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().name);
         }
 
         private void Quit()

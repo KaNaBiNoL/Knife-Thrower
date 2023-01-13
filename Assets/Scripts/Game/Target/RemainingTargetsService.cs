@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace KnifeThrower.Game
 {
-    public class RemainingTargetsService: MonoBehaviour, IRemainingTargetsService
+    public class RemainingTargetsService : MonoBehaviour, IRemainingTargetsService
     {
         public int RemainingTargets { get; set; }
         public bool IsGameWon { get; private set; }
@@ -27,11 +27,6 @@ namespace KnifeThrower.Game
             if (RemainingTargets <= 0)
             {
                 SendWinMessage();
-            }
-
-            else
-            {
-                Debug.Log($"{RemainingTargets}");
             }
         }
 
