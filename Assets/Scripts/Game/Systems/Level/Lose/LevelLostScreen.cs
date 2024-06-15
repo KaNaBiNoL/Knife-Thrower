@@ -13,8 +13,7 @@ namespace KnifeThrower.Game
         [SerializeField] private GameObject _innerContainer;
         [SerializeField] private Button _retryButton;
         [SerializeField] private Button _menuButton;
-        [SerializeField] private Button _exitButton;
-        
+
         private ILevelLostService _levelLostService;
         private ISceneLoadingService _sceneLoadingService;
 
@@ -34,7 +33,6 @@ namespace KnifeThrower.Game
         {
             _retryButton.onClick.AddListener(RestartLevel);
             _menuButton.onClick.AddListener(OpenMenuScene);
-            _exitButton.onClick.AddListener(QuitGame);
         }
 
         private void Update()
@@ -53,11 +51,6 @@ namespace KnifeThrower.Game
         private void OpenMenuScene()
         {
             _sceneLoadingService.Load(1);
-        }
-
-        private void QuitGame()
-        {
-            throw new NotImplementedException();
         }
     }
 }

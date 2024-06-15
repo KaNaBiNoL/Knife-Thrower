@@ -11,7 +11,7 @@ namespace KnifeThrower.Game
     {
         [SerializeField] private GameObject _innerObject;
         [SerializeField] private Button _nextLevelButton;
-        [SerializeField] private Button _retryButton;
+       // [SerializeField] private Button _retryButton;
         [SerializeField] private Button _exitButton;
         
         private IRemainingTargetsService _remainingTargetsService;
@@ -32,7 +32,7 @@ namespace KnifeThrower.Game
         {
             _remainingTargetsService.OnWin += ShowWinScreen;
             _nextLevelButton.onClick.AddListener(ToNextLevel);
-            _retryButton.onClick.AddListener(ReloadLevel);
+         //   _retryButton.onClick.AddListener(ReloadLevel);
             _exitButton.onClick.AddListener(Quit);
         }
 
