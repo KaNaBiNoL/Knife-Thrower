@@ -43,7 +43,7 @@ namespace KnifeThrower
             if (_isOnStartPosition && Input.GetButtonDown("Fire1"))
             {
                 IsThrowPrepared = true;
-                _startMousePosition = _inputPosition.MousePoint;
+                _startMousePosition = _inputPosition.MouseYPoint;
                 Debug.Log($"StartPosSet {_startMousePosition}");
             }
         }
@@ -53,7 +53,7 @@ namespace KnifeThrower
             if (Input.GetButtonUp("Fire1"))
             {
                 IsThrowPrepared = false;
-                _endMousePosition = _inputPosition.MousePoint;
+                _endMousePosition = _inputPosition.MouseYPoint;
                 CalculateMouseMagnitude();
                 Debug.Log($"EndPosSet {_endMousePosition}");
             }
