@@ -18,6 +18,7 @@ namespace KnifeThrower
         {
             _shurikenList = GameObject.FindGameObjectsWithTag(Tags.ShurikenModel);
             ShurikenCount = _shurikenList.Length + 1; // +1 is a player started shuriken
+            Debug.Log("set");
             ShurikenSpawn.OnShurikenThrowed.AddListener(DecreaseCount);
         }
 

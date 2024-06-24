@@ -15,6 +15,7 @@ namespace KnifeThrower.Infrastructure
            ScoreServiceInstaller.Install(Container);
            RemainingTargetsServiceInstaller.Install(Container);
            LevelLostServiceInstaller.Install(Container);
+           LevelTimerInstaller.Install(Container);
         }
     }
 }

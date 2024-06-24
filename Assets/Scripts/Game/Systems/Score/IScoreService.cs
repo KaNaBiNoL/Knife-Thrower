@@ -3,7 +3,15 @@
     public interface IScoreService
     {
         int LevelScore { get; set; }
+        int ScoreForShot { get; set; }
+        
+        public void Init()
+        {
+            
+        }
 
-        void IncrementScore(int score, int multiplier);
+        void IncrementScore();
+
+        public void ScoreToDefault();
     }
 }

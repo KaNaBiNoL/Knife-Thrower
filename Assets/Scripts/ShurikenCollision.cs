@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using KnifeThrower.Game;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -10,17 +11,20 @@ namespace KnifeThrower
 {
     public class ShurikenCollision : MonoBehaviour
     {
+        [SerializeField] private TextMeshProUGUI _shotScoreText;
         private Rigidbody _rb;
-        private IScoreService _scoreService;
 
         public bool AllowRotation { get; private set; }
         
 
         public static UnityEvent OnShurikenCollide = new UnityEvent();
+        public static UnityEvent OnShurikenCollideWithTarget = new UnityEvent();
+        public static UnityEvent OnShurikenCollideNotWithTarget = new UnityEvent();
         public static UnityEvent OnLastShurikenCollide = new UnityEvent();
         
         private IRemainingShurikens _remainingShurikens;
         private ILevelLostService _levelLostService;
+        private IScoreService _scoreService;
 
         [Inject]
         public void Construct(IScoreService scoreService, IRemainingShurikens remainingShurikens, 
@@ -33,6 +37,7 @@ namespace KnifeThrower
 
         private void Start()
         {
+            _shotScoreText.text = "";
             _rb = GetComponent<Rigidbody>();
             AllowRotation = true;
         }
@@ -57,8 +62,15 @@ namespace KnifeThrower
 
             if (collision.gameObject.CompareTag(Tags.Target))
             {
-                _scoreService.IncrementScore(1000,1);
-                
+                OnShurikenCollideWithTarget.Invoke();
+                _shotScoreText.transform.LookAt(Camera.main.transform.position);
+                _shotScoreText.transform.Rotate(0,180.0f,0);
+                _shotScoreText.text = _scoreService.ScoreForShot.ToString();
+
+            }
+            else
+            {
+                OnShurikenCollideNotWithTarget.Invoke();
             }
         }
 
@@ -67,6 +79,7 @@ namespace KnifeThrower
             if (other.gameObject.CompareTag(Tags.Border))
             {
                 OnShurikenCollide?.Invoke();
+                OnShurikenCollideNotWithTarget.Invoke();
                 Destroy(gameObject);
             }
         }
