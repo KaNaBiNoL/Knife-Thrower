@@ -21,7 +21,7 @@ namespace KnifeThrower.Game
 
         public void TimerTick()
         {
-            if (Timer > 0)
+            if (Timer > 0 )
             {
                 Timer -= Time.deltaTime;
             }

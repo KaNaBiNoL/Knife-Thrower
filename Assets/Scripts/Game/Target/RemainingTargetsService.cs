@@ -7,6 +7,7 @@ namespace KnifeThrower.Game
     {
         public int RemainingTargets { get; set; }
         public bool IsGameWon { get; private set; }
+        private bool _isWinMessageCanBeSend;
         public event Action<bool> OnWin;
 
         private GameObject[] _allTargets;
@@ -14,6 +15,7 @@ namespace KnifeThrower.Game
         private void Awake()
         {
             IsGameWon = false;
+            _isWinMessageCanBeSend = true;
         }
 
         public void Init()
@@ -24,9 +26,10 @@ namespace KnifeThrower.Game
 
         private void Update()
         {
-            if (RemainingTargets <= 0)
+            if (RemainingTargets <= 0 && _isWinMessageCanBeSend)
             {
                 SendWinMessage();
+                _isWinMessageCanBeSend = false;
             }
         }
 
