@@ -31,11 +31,12 @@ namespace KnifeThrower.Game
         private IRemainingShurikens _remainingShurikens;
         private ILevelTimer _levelTimer;
         private IGoldForLevel _goldForLevel;
+        private IGUIControl _guiControl;
 
         [Inject]
         public void Construct(IRemainingTargetsService remainingTargetsService, ISceneLoadingService sceneLoadingService,
             IScoreService scoreService, IRemainingShurikens remainingShurikens, ILevelTimer levelTimer, 
-            IGoldForLevel goldForLevel)
+            IGoldForLevel goldForLevel, IGUIControl guiControl)
         {
             _sceneLoadingService = sceneLoadingService;
             _remainingTargetsService = remainingTargetsService;
@@ -43,6 +44,7 @@ namespace KnifeThrower.Game
             _remainingShurikens = remainingShurikens;
             _levelTimer = levelTimer;
             _goldForLevel = goldForLevel;
+            _guiControl = guiControl;
         }
         private void Awake()
         {
@@ -65,6 +67,8 @@ namespace KnifeThrower.Game
         private void ShowWinScreen(bool isGameWon)
         {
             _innerObject.SetActive(isGameWon);
+            _guiControl.IsGameOn = false;
+            _guiControl.IsGameWinOrLost = true;
 
             if (isGameWon)
             {

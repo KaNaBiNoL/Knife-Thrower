@@ -16,13 +16,15 @@ namespace KnifeThrower
         private Vector3 _throwDirection;
         private Vector3 _throwForce;
         private IInputPosition _inputPosition;
+        private IGUIControl _guiControl;
         [Inject]
         private ThrowArea _throwArea;
 
         [Inject]
-        public void Construct(IInputPosition inputPosition)
+        public void Construct(IInputPosition inputPosition, IGUIControl guiControl)
         {
             _inputPosition = inputPosition;
+            _guiControl = guiControl;
         }
 
         void Start()
@@ -47,13 +49,16 @@ namespace KnifeThrower
 
         private void SurikenShot()
         {
-            _throwForce = (_throwDirection - transform.position).normalized * (_force * _throwArea.MouseYDistance);
-            if (_throwForce.z > 1500)
+            if (_guiControl.IsGameOn)
             {
-                _throwForce.z = 1500;
+                _throwForce = (_throwDirection - transform.position).normalized * (_force * _throwArea.MouseYDistance);
+                if (_throwForce.z > 1500)
+                {
+                    _throwForce.z = 1500;
+                }
+
+                _rb.AddForce(_throwForce);
             }
-            _rb.AddForce(_throwForce);
-            Debug.Log($"Done, Force = {_throwForce}");
         }
 
         private void SetStartRotation()

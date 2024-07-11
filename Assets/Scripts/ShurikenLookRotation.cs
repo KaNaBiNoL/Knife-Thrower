@@ -9,16 +9,21 @@ namespace KnifeThrower
     public class ShurikenLookRotation : MonoBehaviour
     {
         private IInputPosition _inputPosition;
+        private IGUIControl _guiControl;
 
         [Inject]
-        public void Construct(IInputPosition inputPosition)
+        public void Construct(IInputPosition inputPosition, IGUIControl guiControl)
         {
             _inputPosition = inputPosition;
+            _guiControl = guiControl;
         }
 
         private void Update()
         {
-            RotaionWithInput();
+            if (_guiControl.IsGameOn)
+            {
+                RotaionWithInput();
+            }
         }
 
         private void RotaionWithInput()

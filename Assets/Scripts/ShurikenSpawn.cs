@@ -11,8 +11,8 @@ namespace KnifeThrower
     {
         private IRemainingShurikens _remainingShurikens;
         private IActiveShurikenController _activeShurikenController;
+        private IGUIControl _guiControl;
 
-       
         private MeshRenderer _playerMesh;
 
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
@@ -25,27 +25,29 @@ namespace KnifeThrower
 
         [Inject]
         public void Construct(IActiveShurikenController activeShurikenController,
-            IRemainingShurikens remainingShurikens)
+            IRemainingShurikens remainingShurikens, IGUIControl guiControl)
         {
             _activeShurikenController = activeShurikenController;
             _remainingShurikens = remainingShurikens;
+            _guiControl = guiControl;
         }
-
-        
 
         private void Update()
         {
-            if (_remainingShurikens.ShurikenCount <= 0)
+            if (_guiControl.IsGameOn)
             {
+                if (_remainingShurikens.ShurikenCount <= 0)
+                {
+                    return;
+                }
+
+                if (_throwArea.IsThrowPrepared)
+                {
+                    SpawnToThrow();
+                }
+
                 return;
             }
-
-            if (_throwArea.IsThrowPrepared)
-            {
-                SpawnToThrow();
-            }
-
-            return;
         }
 
         private void SpawnToThrow()

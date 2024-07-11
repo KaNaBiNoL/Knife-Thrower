@@ -14,16 +14,18 @@ namespace KnifeThrower.Game
         [SerializeField] private Button _restartButton;
         [SerializeField] private Button _selectLevelButton;
         [SerializeField] private Button _ExitButton;
-        
-        
+
         private IPauseService _pauseService;
         private ISceneLoadingService _sceneLoadingService;
+        private IGUIControl _guiControl;
 
         [Inject]
-        public void Construct(IPauseService pauseService, ISceneLoadingService sceneLoadingService)
+        public void Construct(IPauseService pauseService, ISceneLoadingService sceneLoadingService,
+            IGUIControl guiControl)
         {
             _sceneLoadingService = sceneLoadingService;
             _pauseService = pauseService;
+            _guiControl = guiControl;
         }
 
         private void Awake()
@@ -45,12 +47,17 @@ namespace KnifeThrower.Game
 
         private void PauseChanged(bool isPaused)
         {
-            _innerObject.SetActive(isPaused);
+            if (_guiControl.IsGameOn)
+            {
+                _innerObject.SetActive(isPaused);
+            }
         }
 
         private void ResumeGame()
         {
             _pauseService.TogglePause();
+            _guiControl.IsGamePaused = false;
+            _guiControl.IsGameOn = true;
         }
 
         private void RestartLevel()

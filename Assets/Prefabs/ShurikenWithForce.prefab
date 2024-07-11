@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -4923508129441568839}
   - component: {fileID: 4817081225462053964}
   - component: {fileID: 1462740728134727427}
+  - component: {fileID: 3170946487308779539}
   m_Layer: 0
   m_Name: ShurikenWithForce
   m_TagString: ShurikenWithForce
@@ -203,7 +204,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: b1ca011c5f92d4fd4b5aeac44fd607c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -295,6 +296,20 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &3170946487308779539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3106132114971907338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd2162e02d546618b859de19325930a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shurikenCollision: {fileID: 4471640468870632525}
+  _rb: {fileID: 2871708190745530889}
 --- !u!1 &4919834246967281539
 GameObject:
   m_ObjectHideFlags: 0

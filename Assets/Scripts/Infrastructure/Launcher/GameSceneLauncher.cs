@@ -18,14 +18,16 @@ namespace KnifeThrower.Infrastructure
         private ILevelTimer _levelTimer;
         private IScoreService _scoreService;
         private IGoldForLevel _goldForLevel;
+        private IGUIControl _guiControl;
 
         [Inject]
         public void Construct(IActiveShurikenController
             activeShurikenController, IRemainingShurikens remainingShurikens, IInputPosition inputPosition,
             IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService, 
             ILevelLostService levelLostService, ILevelTimer levelTimer, IScoreService scoreService, 
-            IGoldForLevel goldForLevel)
+            IGoldForLevel goldForLevel, IGUIControl guiControl)
         {
+            _guiControl = guiControl;
             _levelLostService = levelLostService;
             _remainingTargetsService = remainingTargetsService;
             _shurikenSpawn = shurikenSpawn;
@@ -39,6 +41,7 @@ namespace KnifeThrower.Infrastructure
 
         protected override void Launch()
         {
+            _guiControl.Init();
             _remainingTargetsService.Init();
             _shurikenSpawn.Init();
             _inputPosition.Init();

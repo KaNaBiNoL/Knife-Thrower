@@ -30,6 +30,7 @@ namespace KnifeThrower.Game
              {
                  IsGameLost = true;
              }
+             
          }
 
          private void EndGame()
