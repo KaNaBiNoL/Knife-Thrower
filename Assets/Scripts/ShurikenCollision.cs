@@ -14,6 +14,9 @@ namespace KnifeThrower
     {
         [SerializeField] private TextMeshProUGUI _shotScoreText;
         [SerializeField] private GameObject _canvasHolder;
+        [SerializeField] private GameObject _shotEffect;
+        [SerializeField] private AudioSource _hitSound;
+        
         private Transform _scoreTransform;
 
         private Rigidbody _rb;
@@ -48,11 +51,13 @@ namespace KnifeThrower
 
         private void OnCollisionEnter(Collision collision)
         {
+            AllowToAppear(_shotEffect.transform);
+            _shotEffect.transform.SetParent(null);
+            _shotEffect.SetActive(true);
             if (collision.gameObject.CompareTag(Tags.Target))
             {
                 OnShurikenCollideWithTarget.Invoke();
-                _shotScoreText.transform.LookAt(Camera.main.transform.position);
-                _shotScoreText.transform.Rotate(0, 180.0f, 0);
+                AllowToAppear(_shotScoreText.transform);
                 _shotScoreText.text = _scoreService.ScoreForShot.ToString();
                 _canvasHolder.transform.SetParent(null);
                 _isScoreCanShow = true;
@@ -64,6 +69,7 @@ namespace KnifeThrower
 
             if (collision.gameObject.CompareTag(Tags.Target) || collision.gameObject.CompareTag(Tags.Environment))
             {
+                _hitSound.Play();
                 if (_remainingShurikens.IsLastShurikenWillBeThrowed)
                 {
                     OnLastShurikenCollide?.Invoke();
@@ -85,6 +91,12 @@ namespace KnifeThrower
                 OnShurikenCollideNotWithTarget.Invoke();
                 Destroy(gameObject);
             }
+        }
+
+        private void AllowToAppear(Transform trans)
+        {
+            trans.LookAt(Camera.main.transform.position);
+            trans.Rotate(0, 180.0f, 0);
         }
     }
 }
