@@ -11,10 +11,10 @@ namespace KnifeThrower.Game
     public class WinScreen : MonoBehaviour
     {
         public int FullLevelScore { get; set; }
-        
+
         [SerializeField] private GameObject _innerObject;
         [SerializeField] private Button _nextLevelButton;
-       // [SerializeField] private Button _retryButton;
+        // [SerializeField] private Button _retryButton;
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _adsButton;
         [SerializeField] private TextMeshProUGUI _scoreForShotsText;
@@ -22,9 +22,7 @@ namespace KnifeThrower.Game
         [SerializeField] private TextMeshProUGUI _scoreForTimeText;
         [SerializeField] private TextMeshProUGUI _levelScoreText;
         [SerializeField] private TextMeshProUGUI _levelGoldText;
-        
-        
-        
+
         private IRemainingTargetsService _remainingTargetsService;
         private ISceneLoadingService _sceneLoadingService;
         private IScoreService _scoreService;
@@ -34,8 +32,9 @@ namespace KnifeThrower.Game
         private IGUIControl _guiControl;
 
         [Inject]
-        public void Construct(IRemainingTargetsService remainingTargetsService, ISceneLoadingService sceneLoadingService,
-            IScoreService scoreService, IRemainingShurikens remainingShurikens, ILevelTimer levelTimer, 
+        public void Construct(IRemainingTargetsService remainingTargetsService,
+            ISceneLoadingService sceneLoadingService,
+            IScoreService scoreService, IRemainingShurikens remainingShurikens, ILevelTimer levelTimer,
             IGoldForLevel goldForLevel, IGUIControl guiControl)
         {
             _sceneLoadingService = sceneLoadingService;
@@ -46,6 +45,7 @@ namespace KnifeThrower.Game
             _goldForLevel = goldForLevel;
             _guiControl = guiControl;
         }
+
         private void Awake()
         {
             _innerObject.SetActive(false);
@@ -55,7 +55,7 @@ namespace KnifeThrower.Game
         {
             _remainingTargetsService.OnWin += ShowWinScreen;
             _nextLevelButton.onClick.AddListener(ToNextLevel);
-         //   _retryButton.onClick.AddListener(ReloadLevel);
+            //   _retryButton.onClick.AddListener(ReloadLevel);
             _exitButton.onClick.AddListener(Quit);
         }
 
@@ -66,6 +66,7 @@ namespace KnifeThrower.Game
 
         private void ShowWinScreen(bool isGameWon)
         {
+            UnlockNewLevel();
             _innerObject.SetActive(isGameWon);
             _guiControl.IsGameOn = false;
             _guiControl.IsGameWinOrLost = true;
@@ -80,7 +81,29 @@ namespace KnifeThrower.Game
                     (Convert.ToInt32(_levelTimer.Timer) * 10);
                 _levelScoreText.text = $"{FullLevelScore}";
                 _levelGoldText.text = $"{_goldForLevel.GoldReward + 30}";
+                SaveScore();
+            }
+        }
 
+        private void SaveScore()
+        {
+            string sceneNumber = (SceneManager.GetActiveScene().buildIndex - 1).ToString();
+            string levelPrefsName = $"Level{sceneNumber}Score";
+            if (FullLevelScore > PlayerPrefs.GetInt(levelPrefsName, 1))
+            {
+                PlayerPrefs.SetInt(levelPrefsName, FullLevelScore);
+                PlayerPrefs.Save();
+            }
+        }
+
+        private void UnlockNewLevel()
+        {
+            if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt(PlayerPrefsStrings.ReachedLevelIndex))
+            {
+                PlayerPrefs.SetInt(PlayerPrefsStrings.ReachedLevelIndex, SceneManager.GetActiveScene().buildIndex + 1);
+                PlayerPrefs.SetInt(PlayerPrefsStrings.UnlockedLevelCount, PlayerPrefs.GetInt(PlayerPrefsStrings
+                    .UnlockedLevelCount, 1) + 1);
+                PlayerPrefs.Save();
             }
         }
 
@@ -98,6 +121,5 @@ namespace KnifeThrower.Game
         {
             throw new NotImplementedException();
         }
-        
     }
 }
