@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace KnifeThrower
 {
@@ -11,7 +12,8 @@ namespace KnifeThrower
 
         void Awake()
         {
-            int unlockedLevel = PlayerPrefs.GetInt(PlayerPrefsStrings.UnlockedLevelCount, 1);
+            PlayerPrefs.DeleteAll();
+            int unlockedLevel = YandexGame.savesData.UnlockedLevels;
             for (int i = 0; i < _buttons.Length; i++)
             {
                 _buttons[i].interactable = false;

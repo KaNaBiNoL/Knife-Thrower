@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 using Zenject;
 
 namespace KnifeThrower.Game
@@ -87,23 +88,20 @@ namespace KnifeThrower.Game
 
         private void SaveScore()
         {
-            string sceneNumber = (SceneManager.GetActiveScene().buildIndex - 1).ToString();
-            string levelPrefsName = $"Level{sceneNumber}Score";
-            if (FullLevelScore > PlayerPrefs.GetInt(levelPrefsName, 1))
+            int sceneNumber = (SceneManager.GetActiveScene().buildIndex - 1);
+            if (FullLevelScore > YandexGame.savesData.LevelScores[sceneNumber])
             {
-                PlayerPrefs.SetInt(levelPrefsName, FullLevelScore);
-                PlayerPrefs.Save();
+                YandexGame.savesData.LevelScores[sceneNumber] = FullLevelScore;
+                YandexGame.SaveProgress();
             }
         }
 
         private void UnlockNewLevel()
         {
-            if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt(PlayerPrefsStrings.ReachedLevelIndex))
+            if (SceneManager.GetActiveScene().buildIndex >= YandexGame.savesData.UnlockedLevels)
             {
-                PlayerPrefs.SetInt(PlayerPrefsStrings.ReachedLevelIndex, SceneManager.GetActiveScene().buildIndex + 1);
-                PlayerPrefs.SetInt(PlayerPrefsStrings.UnlockedLevelCount, PlayerPrefs.GetInt(PlayerPrefsStrings
-                    .UnlockedLevelCount, 1) + 1);
-                PlayerPrefs.Save();
+                YandexGame.savesData.UnlockedLevels = SceneManager.GetActiveScene().buildIndex;
+                YandexGame.SaveProgress();
             }
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using YG;
 
 namespace KnifeThrower
 {
@@ -15,7 +16,7 @@ namespace KnifeThrower
 
         private void Start()
         {
-            _recordText.text = $"Рекорд: {PlayerPrefs.GetInt($"Level{_levelNumber}Score", 0)}";
+            _recordText.text = $"Рекорд: {YandexGame.savesData.LevelScores[_levelNumber]}";
         }
     }
 }
