@@ -19,6 +19,7 @@ namespace YG
         public int PlayerMoney = 0;
         public int UnlockedLevels = 1;
         public int[] LevelScores = new int[10];
+        public int LevelsScoreSum = 0;
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
