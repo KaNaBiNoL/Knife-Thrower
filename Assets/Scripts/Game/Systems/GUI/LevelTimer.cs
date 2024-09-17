@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +9,9 @@ namespace KnifeThrower.Game
     public class LevelTimer : MonoBehaviour, ILevelTimer
     {
         public float Timer { get; set; }
-        private float timeStart = 59f;
+        private float _timeStart = 59f;
+        private float _timeStop = 10f;
+        private bool _isTimeStoppedByBooster = false;
         private IGUIControl _guiControl;
 
         [Inject]
@@ -19,7 +22,8 @@ namespace KnifeThrower.Game
 
         public void Init()
         {
-            Timer = timeStart;
+            BoostersService.TimeStopPressed.AddListener(BoosterTimeStop);
+            Timer = _timeStart;
         }
 
         private void Update()
@@ -29,9 +33,38 @@ namespace KnifeThrower.Game
 
         public void TimerTick()
         {
-            if (Timer > 0 && _guiControl.IsGameOn)
+            if (_isTimeStoppedByBooster == false)
             {
-                Timer -= Time.deltaTime;
+                if (Timer > 0 && _guiControl.IsGameOn)
+                {
+                    Timer -= Time.deltaTime;
+                }
+            }
+        }
+
+        public void BoosterTimeStop()
+        {
+            _isTimeStoppedByBooster = true;
+            StartCoroutine(Booster());
+        }
+
+        private void OnDisable()
+        {
+            BoostersService.TimeStopPressed.RemoveAllListeners();
+        }
+
+        IEnumerator Booster()
+        {
+            for (int i = 10; i >= 0; i--)
+            {
+                _timeStop--;
+                if (_timeStop == 0)
+                {
+                    _isTimeStoppedByBooster = false;
+                    StopCoroutine(Booster());
+                }
+
+                yield return new WaitForSeconds(1f);
             }
         }
     }

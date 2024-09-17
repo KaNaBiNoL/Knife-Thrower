@@ -20,6 +20,7 @@ namespace YG
         public int UnlockedLevels = 1;
         public int[] LevelScores = new int[10];
         public int LevelsScoreSum = 0;
+        public int[] BoostersCount = new int[4];
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
@@ -35,7 +36,12 @@ namespace YG
             LevelScores[5] = 0;
             LevelScores[6] = 0;
             LevelScores[7] = 0;
-            
+
+            BoostersCount[0] = 0;
+            BoostersCount[1] = 0;
+            BoostersCount[2] = 0;
+            BoostersCount[3] = 0;
+
         }
     }
 }

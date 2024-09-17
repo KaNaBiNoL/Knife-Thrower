@@ -9,5 +9,7 @@
         }
 
         void TimerTick();
+
+        void BoosterTimeStop();
     }
 }

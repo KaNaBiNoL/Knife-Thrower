@@ -1,5 +1,5 @@
 {
-    "idSave": 5,
+    "idSave": 6,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -17,5 +17,6 @@
         1280,
         1020,
         0
-    ]
+    ],
+    "LevelsScoreSum": 2300
 }
