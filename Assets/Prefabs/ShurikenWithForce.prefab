@@ -137,6 +137,7 @@ MonoBehaviour:
   _force: 300
   _rotationAngle: 3
   _shurikenCollision: {fileID: 4471640468870632525}
+  _wind: {fileID: 3170946487308779539}
 --- !u!114 &4471640468870632525
 MonoBehaviour:
   m_ObjectHideFlags: 0

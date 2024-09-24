@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 77d05b9f7b28a9548a041442f6c575fc,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 7d93fc7458c872446935660d5d8a0cb2,
     type: 2}
 --- !u!196 &4
@@ -7026,6 +7027,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980947582}
   m_CullTransparentMesh: 1
+--- !u!1 &986992076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986992078}
+  - component: {fileID: 986992077}
+  m_Layer: 0
+  m_Name: CloneShurikenFactortInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &986992077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986992076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625316e26b654a9aa5a3efb97abafe0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shuriken: {fileID: 6154486427824060249, guid: f275b3ce7960acd44994d7b95ad13839,
+    type: 3}
+--- !u!4 &986992078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986992076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1319517009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030606461
 GameObject:
   m_ObjectHideFlags: 0
@@ -7719,6 +7766,7 @@ Transform:
   - {fileID: 1599648752}
   - {fileID: 191167113}
   - {fileID: 1152573631}
+  - {fileID: 986992078}
   m_Father: {fileID: 2025910735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1352896090
@@ -9279,6 +9327,7 @@ MonoBehaviour:
   - {fileID: 1599648751}
   - {fileID: 191167114}
   - {fileID: 1152573632}
+  - {fileID: 986992077}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

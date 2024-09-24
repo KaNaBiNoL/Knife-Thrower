@@ -27,5 +27,11 @@ namespace KnifeThrower
         {
             PlayerMesh.enabled = true;
         }
+
+        private void OnDisable()
+        {
+            ShurikenSpawn.OnShurikenThrowed.RemoveListener(ThrowImpossible);
+            ShurikenCollision.OnShurikenCollide.RemoveListener(ThrowPossible);
+        }
     }
 }

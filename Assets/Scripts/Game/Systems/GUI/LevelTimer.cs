@@ -48,10 +48,7 @@ namespace KnifeThrower.Game
             StartCoroutine(Booster());
         }
 
-        private void OnDisable()
-        {
-            BoostersService.TimeStopPressed.RemoveAllListeners();
-        }
+        
 
         IEnumerator Booster()
         {
@@ -66,6 +63,11 @@ namespace KnifeThrower.Game
 
                 yield return new WaitForSeconds(1f);
             }
+        }
+        
+        private void OnDisable()
+        {
+            BoostersService.TimeStopPressed.RemoveListener(BoosterTimeStop);
         }
     }
 }

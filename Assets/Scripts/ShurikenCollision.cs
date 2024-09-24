@@ -16,7 +16,7 @@ namespace KnifeThrower
         [SerializeField] private GameObject _canvasHolder;
         [SerializeField] private GameObject _shotEffect;
         [SerializeField] private AudioSource _hitSound;
-        
+
         private Transform _scoreTransform;
 
         private Rigidbody _rb;
@@ -64,7 +64,10 @@ namespace KnifeThrower
             }
             else
             {
-                OnShurikenCollideNotWithTarget.Invoke();
+                if (gameObject.CompareTag("ShurikenWithForce"))
+                {
+                    OnShurikenCollideNotWithTarget.Invoke();
+                }
             }
 
             if (collision.gameObject.CompareTag(Tags.Target) || collision.gameObject.CompareTag(Tags.Environment))
@@ -88,7 +91,11 @@ namespace KnifeThrower
             if (other.gameObject.CompareTag(Tags.Border))
             {
                 OnShurikenCollide?.Invoke();
-                OnShurikenCollideNotWithTarget.Invoke();
+                if (gameObject.CompareTag("ShurikenWithForce"))
+                {
+                    OnShurikenCollideNotWithTarget.Invoke();
+                }
+
                 Destroy(gameObject);
             }
         }

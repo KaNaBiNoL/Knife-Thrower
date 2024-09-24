@@ -44,7 +44,6 @@ namespace KnifeThrower
             _windStopCount = YandexGame.savesData.BoostersCount[1];
             _multiShurikenCount = YandexGame.savesData.BoostersCount[2];
             _powerShotCount = YandexGame.savesData.BoostersCount[3];
-            
         }
 
         void Start()

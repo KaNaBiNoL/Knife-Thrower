@@ -11,6 +11,7 @@ namespace KnifeThrower
         [SerializeField] private float _rotationAngle;
 
         [SerializeField] private ShurikenCollision _shurikenCollision;
+        [SerializeField] private WindInfluence _wind;
 
         private Transform _playerShuriken;
         private Vector3 _throwDirection;
@@ -44,17 +45,46 @@ namespace KnifeThrower
 
         private void SetThrowDirection()
         {
-            _throwDirection = _inputPosition.MousePoint;
+            switch (gameObject.tag)
+            {
+                case Tags.ShurikenWithForce:
+                    _throwDirection = _inputPosition.MousePoint;
+                    break;
+                case Tags.LeftShurikenClone:
+                    _throwDirection = _inputPosition.ClonesMousePoint0;
+                    break;
+                case Tags.RightShurikenClone:
+                    _throwDirection = _inputPosition.ClonesMousePoint1;
+                    break;
+                case Tags.UpShurikenClone:
+                    _throwDirection = _inputPosition.ClonesMousePoint2;
+                    break;
+                case Tags.DownShurikenClone:
+                    _throwDirection = _inputPosition.ClonesMousePoint3;
+                    break;
+            }
         }
 
         private void SurikenShot()
         {
             if (_guiControl.IsGameOn)
             {
-                _throwForce = (_throwDirection - transform.position).normalized * (_force * _throwArea.MouseYDistance);
-                if (_throwForce.z > 1500)
+                if (_inputPosition.IsPowerShotUsed)
                 {
-                    _throwForce.z = 1500;
+                    _throwForce = (_throwDirection - transform.position).normalized *
+                        (_force * 10);
+                    _rb.useGravity = false;
+                    _wind.enabled = false;
+                    _inputPosition.IsPowerShotUsed = false;
+                }
+                else
+                {
+                    _throwForce = (_throwDirection - transform.position).normalized *
+                        (_force * _throwArea.MouseYDistance);
+                    if (_throwForce.z > 1500)
+                    {
+                        _throwForce.z = 1500;
+                    }
                 }
 
                 _rb.AddForce(_throwForce);

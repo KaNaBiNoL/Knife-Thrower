@@ -8,6 +8,13 @@ namespace KnifeThrower
     public class InputPosition : MonoBehaviour, IInputPosition
     {
         private Camera _mainCamera;
+        private bool _isMultiBoosterPressed = false;
+
+        public bool IsPowerShotUsed
+        {
+            get;
+            set;
+        }
 
         public Vector3 MousePoint
         {
@@ -20,10 +27,34 @@ namespace KnifeThrower
             private set;
         }
 
+        public Vector3 ClonesMousePoint0
+        {
+            get; set;
+        }
+        public Vector3 ClonesMousePoint1
+        {
+            get; set;
+        }
+        public Vector3 ClonesMousePoint2
+        {
+            get; set;
+        }
+        public Vector3 ClonesMousePoint3
+        {
+            get; set;
+        }
+        
+        
+
         public void Init()
         {
+            BoostersService.MultiShurikenPressed.AddListener(AllowToGetClonesCoordinates);
+            BoostersService.PowerShotPressed.AddListener(AllowBoosterPowerShot);
             _mainCamera = Camera.main;
+            IsPowerShotUsed = false;
         }
+
+        
 
         void Update()
         {
@@ -49,6 +80,24 @@ namespace KnifeThrower
             {
                 MousePoint = raycastHit.point;
             }
+
+            if (_isMultiBoosterPressed)
+            {
+                ClonesMousePoint0 = MousePoint + Vector3.left;
+                ClonesMousePoint1 = MousePoint + Vector3.right;
+                ClonesMousePoint2 = MousePoint + Vector3.up;
+                ClonesMousePoint3 = MousePoint + Vector3.down;
+            }
+        }
+        
+        private void AllowToGetClonesCoordinates()
+        {
+            _isMultiBoosterPressed = true;
+        }
+        
+        private void AllowBoosterPowerShot()
+        {
+            IsPowerShotUsed = true;
         }
 
         private void OnDrawGizmos()
@@ -57,6 +106,12 @@ namespace KnifeThrower
             Gizmos.DrawLine(_mainCamera.transform.position, MousePoint);
             Gizmos.color = Color.red;
             Gizmos.DrawLine(_mainCamera.transform.position, MouseYPoint);
+        }
+
+        private void OnDisable()
+        {
+            BoostersService.MultiShurikenPressed.RemoveListener(AllowToGetClonesCoordinates);
+            BoostersService.PowerShotPressed.RemoveListener(AllowBoosterPowerShot);
         }
     }
 }

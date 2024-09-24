@@ -10,13 +10,37 @@
         true,
         false
     ],
-    "PlayerMoney": 0,
-    "UnlockedLevels": 3,
+    "PlayerMoney": 20,
+    "UnlockedLevels": 1,
     "LevelScores": [
         0,
-        1280,
-        1020,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0
     ],
-    "LevelsScoreSum": 2300
+    "LevelsScoreSum": 0,
+    "BoostersCount": [
+        0,
+        1,
+        3,
+        0
+    ],
+    "IsShurikenPurchased": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false
+    ]
 }

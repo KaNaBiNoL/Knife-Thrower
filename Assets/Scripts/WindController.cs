@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -15,11 +16,17 @@ namespace KnifeThrower
         [SerializeField] private Transform _rightWindTargetTransform;
         [SerializeField] private Transform _leftParticleTargetTransform;
         [SerializeField] private Transform _rightParticleTargetTransform;
+        private int _boosterTime = 10;
 
         public static float WindSpeed { get; set; }
 
         private ParticleSystem windParticleSystem;
         private WindZone windZone;
+
+        private void OnEnable()
+        {
+            BoostersService.WindStopPressed.AddListener(OffWind);
+        }
 
         private void Awake()
         {
@@ -46,23 +53,55 @@ namespace KnifeThrower
             }
         }
 
-        private void SetWindSide()
+        private void OffWind()
         {
-            if (IsWindStartsOnLeftSide)
+            IsWindActive = false;
+            StartCoroutine(Booster());
+            SetWind();
+        }
+
+        IEnumerator Booster()
+        {
+            
+            for (int i = 10; i >= 0; i--)
+        {
+            _boosterTime--;
+            if (_boosterTime == 0)
             {
-                windZoneGameObject.transform.position = _leftWindTargetTransform.position;
-                windParticlesGameObject.transform.position = _leftParticleTargetTransform.position;
-                windZoneGameObject.transform.rotation = _leftWindTargetTransform.rotation;
-                windParticlesGameObject.transform.rotation = _leftParticleTargetTransform.rotation;
+                IsWindActive = true;
+                SetWind();
+                StopCoroutine(Booster());
             }
 
-            else
-            {
-                windZoneGameObject.transform.position = _rightWindTargetTransform.position;
-                windParticlesGameObject.transform.position = _rightParticleTargetTransform.position;
-                windZoneGameObject.transform.rotation = _rightWindTargetTransform.rotation;
-                windParticlesGameObject.transform.rotation = _rightParticleTargetTransform.rotation;
-            }
+            yield return new WaitForSeconds(1f);
         }
     }
+
+    private void SetWindSide()
+    {
+        if (IsWindStartsOnLeftSide)
+        {
+            windZoneGameObject.transform.position = _leftWindTargetTransform.position;
+            windParticlesGameObject.transform.position = _leftParticleTargetTransform.position;
+            windZoneGameObject.transform.rotation = _leftWindTargetTransform.rotation;
+            windParticlesGameObject.transform.rotation = _leftParticleTargetTransform.rotation;
+        }
+
+        else
+        {
+            windZoneGameObject.transform.position = _rightWindTargetTransform.position;
+            windParticlesGameObject.transform.position = _rightParticleTargetTransform.position;
+            windZoneGameObject.transform.rotation = _rightWindTargetTransform.rotation;
+            windParticlesGameObject.transform.rotation = _rightParticleTargetTransform.rotation;
+        }
+        
+        
+    }
+
+    private void OnDisable()
+    {
+        BoostersService.WindStopPressed.RemoveListener(OffWind);
+    }
+    }
+
 }

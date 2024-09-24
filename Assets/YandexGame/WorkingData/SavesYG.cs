@@ -21,6 +21,8 @@ namespace YG
         public int[] LevelScores = new int[10];
         public int LevelsScoreSum = 0;
         public int[] BoostersCount = new int[4];
+
+        public bool[] IsShurikenPurchased = new bool[10];
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
@@ -41,6 +43,17 @@ namespace YG
             BoostersCount[1] = 0;
             BoostersCount[2] = 0;
             BoostersCount[3] = 0;
+
+            IsShurikenPurchased[0] = false;
+            IsShurikenPurchased[1] = false;
+            IsShurikenPurchased[2] = false;
+            IsShurikenPurchased[3] = false;
+            IsShurikenPurchased[4] = false;
+            IsShurikenPurchased[5] = false;
+            IsShurikenPurchased[6] = false;
+            IsShurikenPurchased[7] = false;
+            IsShurikenPurchased[8] = false;
+            IsShurikenPurchased[9] = false;
 
         }
     }

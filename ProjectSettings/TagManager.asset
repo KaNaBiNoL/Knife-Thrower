@@ -10,6 +10,11 @@ TagManager:
   - PlayerShuriken
   - Border
   - ShurikenWithForce
+  - ShurikenBoosterClone
+  - LeftShurikenClone
+  - RightShurikenClone
+  - UpShurikenClone
+  - DownShurikenClone
   layers:
   - Default
   - TransparentFX
