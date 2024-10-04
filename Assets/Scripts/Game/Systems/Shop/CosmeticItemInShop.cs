@@ -11,6 +11,8 @@ namespace KnifeThrower
 {
     public class CosmeticItemInShop : MonoBehaviour
     {
+        [SerializeField] private Button _setThisItemActiveButton;
+        
         [SerializeField] private GameObject _purchaseLabel;
         [SerializeField] private GameObject _setItemButton;
         [SerializeField] private Button _purchaseButton;
@@ -23,8 +25,14 @@ namespace KnifeThrower
         [SerializeField] private int _ItemSerialNumber;
         [SerializeField] private int _ItemPurchasePrice;
 
+        [SerializeField] private int _NumberInShopCategory;
+        
+        
+        
+
         private void OnEnable()
         {
+            _setThisItemActiveButton.onClick.AddListener(SetThisItemActive);
             _purchaseButton.onClick.AddListener(OpenConfirmLabel);
             _confirmButton.onClick.AddListener(FinishPurchase);
             _declineButton.onClick.AddListener(DeclinePurchase);
@@ -35,7 +43,7 @@ namespace KnifeThrower
 
         private void Awake()
         {
-            switch (YandexGame.savesData.IsShurikenPurchased[_ItemSerialNumber])
+            switch (YandexGame.savesData.IsItemPurchased[_ItemSerialNumber])
             {
                 case false:
                     _purchaseLabel.SetActive(true);
@@ -56,6 +64,20 @@ namespace KnifeThrower
             BuyAvailableCheck(_purchaseButton, _ItemPurchasePrice);
             _purchasePriceText.text = $"{_ItemPurchasePrice}";
         }
+        
+        private void SetThisItemActive()
+        {
+            switch (gameObject.tag)
+            {
+                case Tags.ShurikenInShop:
+                    CosmeticShop.ShopShurikenNumber = _NumberInShopCategory;
+                    break;
+                case Tags.TrailInShop:
+                    CosmeticShop.ShopTrailNumber = _NumberInShopCategory;
+                    break;
+            }
+            CosmeticShop.IsSetButtonPressed.Invoke();
+        }
 
         private void OpenConfirmLabel()
         {
@@ -64,7 +86,7 @@ namespace KnifeThrower
         
         private void FinishPurchase()
         {
-            YandexGame.savesData.IsShurikenPurchased[_ItemSerialNumber] = true;
+            YandexGame.savesData.IsItemPurchased[_ItemSerialNumber] = true;
             ShopConsumablesService.PlayerCash -= _ItemPurchasePrice;
             _purchaseLabel.SetActive(false);
             _setItemButton.SetActive(true);
@@ -92,6 +114,7 @@ namespace KnifeThrower
 
         private void OnDisable()
         {
+            _setThisItemActiveButton.onClick.RemoveListener(SetThisItemActive);
             _purchaseButton.onClick.RemoveListener(OpenConfirmLabel);
             _confirmButton.onClick.RemoveListener(FinishPurchase);
             _declineButton.onClick.RemoveListener(DeclinePurchase);

@@ -50,7 +50,10 @@ namespace KnifeThrower
             _buyThirdBoosterButton.onClick.AddListener(ThirdBoosterBuy);
             _buyFourthBoosterButton.onClick.AddListener(FourthBoosterBuy);
             _testGetPlayerCash.onClick.AddListener(GetCash);
+            CosmeticShop.IsPurchaseDone.AddListener(CheckInteractible);
         }
+
+        
 
         private void GetCash()
         {
@@ -69,10 +72,7 @@ namespace KnifeThrower
 
         void Start()
         {
-            BuyAvailableCheck(_buyFirstBoosterButton, _firstBoosterPrice);
-            BuyAvailableCheck(_buySecondBoosterButton, _secondBoosterPrice);
-            BuyAvailableCheck(_buyThirdBoosterButton, _thirdBoosterPrice);
-            BuyAvailableCheck(_buyFourthBoosterButton, _fourthBoosterPrice);
+            CheckInteractible();
             _firstBoosterPriceText.text = $"{_firstBoosterPrice}";
             _secondBoosterPriceText.text = $"{_secondBoosterPrice}";
             _thirdBoosterPriceText.text = $"{_thirdBoosterPrice}";
@@ -82,6 +82,13 @@ namespace KnifeThrower
             SetCountOfBooster(_thirdBoosterCountText, _thirdBoosterCount);
             SetCountOfBooster(_fourthBoosterCountText, _fourthBoosterCount);
             SetPlayerCash();
+        }
+        private void CheckInteractible()
+        {
+            BuyAvailableCheck(_buyFirstBoosterButton, _firstBoosterPrice);
+            BuyAvailableCheck(_buySecondBoosterButton, _secondBoosterPrice);
+            BuyAvailableCheck(_buyThirdBoosterButton, _thirdBoosterPrice);
+            BuyAvailableCheck(_buyFourthBoosterButton, _fourthBoosterPrice);
         }
 
         private void BuyAvailableCheck(Button button, int boosterPrice)
@@ -106,7 +113,7 @@ namespace KnifeThrower
         {
             PlayerCash -= _firstBoosterPrice;
             _firstBoosterCount++;
-            BuyAvailableCheck(_buyFirstBoosterButton, _firstBoosterPrice);
+            CosmeticShop.IsPurchaseDone.Invoke();
             SetCountOfBooster(_firstBoosterCountText, _firstBoosterCount);
             SetPlayerCash();
         }
@@ -115,7 +122,7 @@ namespace KnifeThrower
         {
             PlayerCash -= _secondBoosterPrice;
             _secondBoosterCount++;
-            BuyAvailableCheck(_buySecondBoosterButton, _secondBoosterPrice);
+            CosmeticShop.IsPurchaseDone.Invoke();
             SetCountOfBooster(_secondBoosterCountText, _secondBoosterCount);
             SetPlayerCash();
         }
@@ -124,7 +131,7 @@ namespace KnifeThrower
         {
             PlayerCash -= _thirdBoosterPrice;
             _thirdBoosterCount++;
-            BuyAvailableCheck(_buyThirdBoosterButton, _thirdBoosterPrice);
+            CosmeticShop.IsPurchaseDone.Invoke();
             SetCountOfBooster(_thirdBoosterCountText, _thirdBoosterCount);
             SetPlayerCash();
         }
@@ -133,7 +140,7 @@ namespace KnifeThrower
         {
             PlayerCash -= _fourthBoosterPrice;
             _fourthBoosterCount++;
-            BuyAvailableCheck(_buyFourthBoosterButton, _fourthBoosterPrice);
+            CosmeticShop.IsPurchaseDone.Invoke();
             SetCountOfBooster(_fourthBoosterCountText, _fourthBoosterCount);
             SetPlayerCash();
         }
@@ -150,6 +157,9 @@ namespace KnifeThrower
             _buySecondBoosterButton.onClick.RemoveListener(SecondBoosterBuy);
             _buyThirdBoosterButton.onClick.RemoveListener(ThirdBoosterBuy);
             _buyFourthBoosterButton.onClick.RemoveListener(FourthBoosterBuy);
+            CosmeticShop.IsPurchaseDone.RemoveListener(CheckInteractible);
+
+            
         }
     }
 }

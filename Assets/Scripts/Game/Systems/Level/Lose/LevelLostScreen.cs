@@ -24,6 +24,12 @@ namespace KnifeThrower.Game
             _levelLostService = levelLostService;
         }
 
+        private void OnEnable()
+        {
+            _retryButton.onClick.AddListener(RestartLevel);
+            _menuButton.onClick.AddListener(OpenMenuScene);
+        }
+
         private void Awake()
         {
             _innerContainer.SetActive(false);
@@ -31,8 +37,7 @@ namespace KnifeThrower.Game
 
         private void Start()
         {
-            _retryButton.onClick.AddListener(RestartLevel);
-            _menuButton.onClick.AddListener(OpenMenuScene);
+            
         }
 
         private void Update()
@@ -51,6 +56,12 @@ namespace KnifeThrower.Game
         private void OpenMenuScene()
         {
             _sceneLoadingService.Load(1);
+        }
+
+        private void OnDisable()
+        {
+            _retryButton.onClick.RemoveListener(RestartLevel);
+            _menuButton.onClick.RemoveListener(OpenMenuScene);
         }
     }
 }

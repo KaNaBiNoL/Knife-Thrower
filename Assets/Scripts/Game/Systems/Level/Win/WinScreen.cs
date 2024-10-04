@@ -15,7 +15,7 @@ namespace KnifeThrower.Game
 
         [SerializeField] private GameObject _innerObject;
         [SerializeField] private Button _nextLevelButton;
-        // [SerializeField] private Button _retryButton;
+        [SerializeField] private Button _retryButton;
         [SerializeField] private Button _exitButton;
         [SerializeField] private Button _adsButton;
         [SerializeField] private TextMeshProUGUI _scoreForShotsText;
@@ -47,18 +47,20 @@ namespace KnifeThrower.Game
             _guiControl = guiControl;
         }
 
+        private void OnEnable()
+        {
+            _remainingTargetsService.OnWin += ShowWinScreen;
+            _nextLevelButton.onClick.AddListener(ToNextLevel);
+            _retryButton.onClick.AddListener(ReloadLevel);
+            _exitButton.onClick.AddListener(GoToMenu);
+        }
+
         private void Awake()
         {
             _innerObject.SetActive(false);
         }
 
-        private void Start()
-        {
-            _remainingTargetsService.OnWin += ShowWinScreen;
-            _nextLevelButton.onClick.AddListener(ToNextLevel);
-            //   _retryButton.onClick.AddListener(ReloadLevel);
-            _exitButton.onClick.AddListener(Quit);
-        }
+        
 
         private void OnDestroy()
         {
@@ -114,10 +116,20 @@ namespace KnifeThrower.Game
         {
             _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
         }
-
-        private void Quit()
+        
+        private void GoToMenu()
         {
-            throw new NotImplementedException();
+            _sceneLoadingService.Load(1);
         }
+
+        private void OnDisable()
+        {
+            _remainingTargetsService.OnWin -= ShowWinScreen;
+            _nextLevelButton.onClick.RemoveListener(ToNextLevel);
+            _retryButton.onClick.RemoveListener(ReloadLevel);
+            _exitButton.onClick.RemoveListener(GoToMenu);
+        }
+
+        
     }
 }

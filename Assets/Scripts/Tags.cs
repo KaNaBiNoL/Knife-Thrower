@@ -12,5 +12,7 @@
         public const string RightShurikenClone= "RightShurikenClone";
         public const string UpShurikenClone= "UpShurikenClone";
         public const string DownShurikenClone= "DownShurikenClone";
+        public const string ShurikenInShop= "ShurikenInShop";
+        public const string TrailInShop= "TrailInShop";
     }
 }

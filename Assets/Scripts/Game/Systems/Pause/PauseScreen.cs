@@ -1,4 +1,5 @@
-﻿using KnifeThrower.Services;
+﻿using System;
+using KnifeThrower.Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ namespace KnifeThrower.Game
 
         [SerializeField] private Button _resumeButton;
         [SerializeField] private Button _restartButton;
-        [SerializeField] private Button _selectLevelButton;
         [SerializeField] private Button _ExitButton;
 
         private IPauseService _pauseService;
@@ -28,22 +28,24 @@ namespace KnifeThrower.Game
             _guiControl = guiControl;
         }
 
+        private void OnEnable()
+        {
+            _resumeButton.onClick.AddListener(ResumeGame);
+            _restartButton.onClick.AddListener(RestartLevel);
+            _ExitButton.onClick.AddListener(GoToMenu);
+            _pauseService.OnChanged += PauseChanged;
+        }
+
+        
+
         private void Awake()
         {
             _innerObject.SetActive(false);
         }
 
-        private void Start()
-        {
-            _pauseService.OnChanged += PauseChanged;
-            _resumeButton.onClick.AddListener(ResumeGame);
-            _restartButton.onClick.AddListener(RestartLevel);
-        }
+        
 
-        private void OnDestroy()
-        {
-            _pauseService.OnChanged -= PauseChanged;
-        }
+        
 
         private void PauseChanged(bool isPaused)
         {
@@ -62,8 +64,23 @@ namespace KnifeThrower.Game
 
         private void RestartLevel()
         {
-            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
             _pauseService.TogglePause();
+            _sceneLoadingService.Load(SceneManager.GetActiveScene().buildIndex);
+            
+        }
+        
+        private void GoToMenu()
+        {
+            _pauseService.TogglePause();
+            _sceneLoadingService.Load(1);
+            
+        }
+
+        private void OnDisable()
+        {
+            _resumeButton.onClick.RemoveListener(ResumeGame);
+            _restartButton.onClick.RemoveListener(RestartLevel);
+            _pauseService.OnChanged -= PauseChanged;
         }
     }
 }

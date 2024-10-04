@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine.Serialization;
+
 namespace YG
 {
     [System.Serializable]
@@ -22,7 +24,9 @@ namespace YG
         public int LevelsScoreSum = 0;
         public int[] BoostersCount = new int[4];
 
-        public bool[] IsShurikenPurchased = new bool[10];
+        public bool[] IsItemPurchased = new bool[11];
+        public int ShopNumberOfSetShuriken = 0;
+        public int ShopNumberOfSetTrail = 0;
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {
@@ -44,16 +48,17 @@ namespace YG
             BoostersCount[2] = 0;
             BoostersCount[3] = 0;
 
-            IsShurikenPurchased[0] = false;
-            IsShurikenPurchased[1] = false;
-            IsShurikenPurchased[2] = false;
-            IsShurikenPurchased[3] = false;
-            IsShurikenPurchased[4] = false;
-            IsShurikenPurchased[5] = false;
-            IsShurikenPurchased[6] = false;
-            IsShurikenPurchased[7] = false;
-            IsShurikenPurchased[8] = false;
-            IsShurikenPurchased[9] = false;
+            IsItemPurchased[0] = true;
+            IsItemPurchased[1] = false;
+            IsItemPurchased[2] = false;
+            IsItemPurchased[3] = false;
+            IsItemPurchased[4] = false;
+            IsItemPurchased[5] = false;
+            IsItemPurchased[6] = true;
+            IsItemPurchased[7] = false;
+            IsItemPurchased[8] = false;
+            IsItemPurchased[9] = false;
+            IsItemPurchased[10] = false;
 
         }
     }

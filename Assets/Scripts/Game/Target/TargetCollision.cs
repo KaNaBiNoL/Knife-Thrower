@@ -10,19 +10,32 @@ namespace KnifeThrower.Game
         [SerializeField] private Rigidbody _rb;
         private IRemainingTargetsService _remainingTargetsService;
 
+        private bool _isTargetHit;
+
         [Inject]
         public void Construct(IRemainingTargetsService remainingTargetsService)
         {
             _remainingTargetsService = remainingTargetsService;
         }
+
+        private void Start()
+        {
+            _isTargetHit = false;
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag(Tags.ShurikenWithForce))
+            if (_isTargetHit == false)
             {
-                _rb.isKinematic = false;
-                _remainingTargetsService.RemainingTargets--;
-                Debug.Log($"{_remainingTargetsService.RemainingTargets}");
-                Destroy(this);
+                if (collision.gameObject.CompareTag(Tags.ShurikenWithForce))
+                {
+                    _rb.isKinematic = false;
+                    _remainingTargetsService.RemainingTargets--;
+                    Debug.Log($"{_remainingTargetsService.RemainingTargets}");
+                    _isTargetHit = true;
+                    gameObject.tag = Tags.Environment;
+                    Destroy(this);
+                }
             }
         }
     }

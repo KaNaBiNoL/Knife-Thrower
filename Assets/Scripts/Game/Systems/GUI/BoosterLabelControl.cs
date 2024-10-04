@@ -41,5 +41,10 @@ namespace KnifeThrower
             _showButton.gameObject.SetActive(true);
             _rt.DOAnchorPosX(_endPosforLeft, _duration);
         }
+
+        private void OnDisable()
+        {
+            _showButton.onClick.RemoveListener(ShowLabel);
+        }
     }
 }
