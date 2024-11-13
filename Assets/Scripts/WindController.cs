@@ -16,7 +16,7 @@ namespace KnifeThrower
         [SerializeField] private Transform _rightWindTargetTransform;
         [SerializeField] private Transform _leftParticleTargetTransform;
         [SerializeField] private Transform _rightParticleTargetTransform;
-        private int _boosterTime = 10;
+        private float _boosterTime = 10f;
 
         public static float WindSpeed { get; set; }
 
@@ -63,14 +63,16 @@ namespace KnifeThrower
         IEnumerator Booster()
         {
             
-            for (int i = 10; i >= 0; i--)
+            for (int i = 10; i > 0; i--)
         {
             _boosterTime--;
             if (_boosterTime == 0)
             {
                 IsWindActive = true;
+                windParticlesGameObject.SetActive(true);
                 SetWind();
                 StopCoroutine(Booster());
+                _boosterTime = 10f;
             }
 
             yield return new WaitForSeconds(1f);

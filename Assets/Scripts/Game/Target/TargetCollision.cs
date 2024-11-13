@@ -27,7 +27,11 @@ namespace KnifeThrower.Game
         {
             if (_isTargetHit == false)
             {
-                if (collision.gameObject.CompareTag(Tags.ShurikenWithForce))
+                if (collision.gameObject.CompareTag(Tags.ShurikenWithForce) || 
+                    collision.gameObject.CompareTag(Tags.LeftShurikenClone) ||
+                    collision.gameObject.CompareTag(Tags.UpShurikenClone) ||
+                    collision.gameObject.CompareTag(Tags.DownShurikenClone) ||
+                    collision.gameObject.CompareTag(Tags.RightShurikenClone))
                 {
                     _rb.isKinematic = false;
                     _remainingTargetsService.RemainingTargets--;

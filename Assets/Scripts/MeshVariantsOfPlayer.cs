@@ -50,6 +50,9 @@ namespace KnifeThrower
                 case 3:
                     _meshComponent.mesh = _ShurikenMeshes[3];
                     break;
+                case 4:
+                    _meshComponent.mesh = _ShurikenMeshes[4];
+                    break;
             }
         }
     }

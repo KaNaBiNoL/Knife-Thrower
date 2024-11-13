@@ -13,6 +13,9 @@ namespace KnifeThrower
 {
     public class BoostersService : MonoBehaviour
     {
+        [SerializeField] private Texture2D _crosshairCursor;
+        [SerializeField] private Vector2 _crosshairOffset;
+
         [SerializeField] private Button _timeStopButton;
         [SerializeField] private Button _windStopButton;
         [SerializeField] private Button _multiShurikenButton;
@@ -30,12 +33,22 @@ namespace KnifeThrower
         public static UnityEvent MultiShurikenPressed = new UnityEvent();
         public static UnityEvent PowerShotPressed = new UnityEvent();
 
+        public static bool IsPowerShotPressed
+        {
+            get;
+            private set;
+        }
+
         private void OnEnable()
         {
             _timeStopButton.onClick.AddListener(TimeStopPressed.Invoke);
             _windStopButton.onClick.AddListener(WindStopPressed.Invoke);
             _multiShurikenButton.onClick.AddListener(MultiShurikenPressed.Invoke);
             _powerShotButton.onClick.AddListener(PowerShotPressed.Invoke);
+            PowerShotPressed.AddListener(PowerShotLink);
+            PowerShotPressed.AddListener(CursorToCrosshair);
+            ShurikenCollision.OnShurikenCollide.AddListener(EndPowerShotLink);
+            ShurikenCollision.OnShurikenCollide.AddListener(CursorToDefault);
         }
 
         private void Awake()
@@ -44,14 +57,15 @@ namespace KnifeThrower
             _windStopCount = YandexGame.savesData.BoostersCount[1];
             _multiShurikenCount = YandexGame.savesData.BoostersCount[2];
             _powerShotCount = YandexGame.savesData.BoostersCount[3];
-        }
-
-        void Start()
-        {
             UpdateBoosterLabel(_timeStopCountText, _timeStopCount);
             UpdateBoosterLabel(_windStopCountText, _windStopCount);
             UpdateBoosterLabel(_multiShurikenCountText, _multiShurikenCount);
             UpdateBoosterLabel(_powerShotCountText, _powerShotCount);
+        }
+
+        void Start()
+        {
+            CursorToDefault();
         }
 
         void Update()
@@ -61,6 +75,26 @@ namespace KnifeThrower
         private void UpdateBoosterLabel(TextMeshProUGUI label, int count)
         {
             label.text = $"{count}";
+        }
+
+        private void CursorToDefault()
+        {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        }
+
+        private void CursorToCrosshair()
+        {
+            Cursor.SetCursor(_crosshairCursor, _crosshairOffset, CursorMode.Auto);
+        }
+
+        private void PowerShotLink()
+        {
+            IsPowerShotPressed = true;
+        }
+
+        private void EndPowerShotLink()
+        {
+            IsPowerShotPressed = false;
         }
 
         public void DecreaseCountOfBooster1()
@@ -89,10 +123,18 @@ namespace KnifeThrower
 
         private void OnDisable()
         {
+            YandexGame.savesData.BoostersCount[0] = _timeStopCount;
+            YandexGame.savesData.BoostersCount[1] = _windStopCount;
+            YandexGame.savesData.BoostersCount[2] = _multiShurikenCount;
+            YandexGame.savesData.BoostersCount[3] = _powerShotCount;
+            YandexGame.SaveProgress();
             _timeStopButton.onClick.RemoveAllListeners();
             _windStopButton.onClick.RemoveAllListeners();
             _multiShurikenButton.onClick.RemoveAllListeners();
             _powerShotButton.onClick.RemoveAllListeners();
+            PowerShotPressed.RemoveListener(PowerShotLink);
+            ShurikenCollision.OnShurikenCollide.RemoveListener(EndPowerShotLink);
+            ShurikenCollision.OnShurikenCollide.RemoveListener(CursorToDefault);
         }
     }
 }

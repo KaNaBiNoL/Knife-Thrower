@@ -52,12 +52,13 @@ namespace KnifeThrower.Game
 
         IEnumerator Booster()
         {
-            for (int i = 10; i >= 0; i--)
+            for (int i = 10; i > 0; i--)
             {
                 _timeStop--;
                 if (_timeStop == 0)
                 {
                     _isTimeStoppedByBooster = false;
+                    _timeStop = 10f;
                     StopCoroutine(Booster());
                 }
 

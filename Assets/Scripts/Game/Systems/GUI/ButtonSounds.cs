@@ -12,8 +12,7 @@ namespace KnifeThrower
         private Button _thisButton;
         [SerializeField] private AudioSource _pushSound;
         [SerializeField] private AudioSource _selectSound;
-        
-        
+
         void Start()
         {
             _thisButton = gameObject.GetComponent<Button>();
@@ -22,17 +21,26 @@ namespace KnifeThrower
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _selectSound.Play();
+            if (_thisButton.interactable)
+            {
+                _selectSound.Play();
+            }
         }
 
         private void PlayPushSound()
         {
-            _pushSound.Play();
+            if (_thisButton.interactable)
+            {
+                _pushSound.Play();
+            }
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            _thisButton.onClick.RemoveListener(PlayPushSound);
+            if (gameObject.activeInHierarchy)
+            {
+                _thisButton.onClick.RemoveAllListeners();
+            }
         }
     }
 }

@@ -10,17 +10,22 @@ namespace KnifeThrower
     {
         [SerializeField] private TrailRenderer _trailComponent;
         [SerializeField] private MeshFilter _meshComponent;
+        [SerializeField] private GameObject _lightning;
+        
         
         [SerializeField] private Material[] _TrailMaterials;
         [SerializeField] private Mesh[] _ShurikenMeshes;
 
         private int _currentShurikenVariant;
         private int _currentTrailVariant;
+        private bool _isPowerShotUsed;
 
         private void OnEnable()
         {
             
         }
+
+        
 
         private void Awake()
         {
@@ -31,6 +36,7 @@ namespace KnifeThrower
         private void Start()
         {
             SetCurrentMeshAndMaterial();
+            SwitchTrailByPowerShot();
         }
 
         private void SetCurrentMeshAndMaterial()
@@ -50,6 +56,9 @@ namespace KnifeThrower
                 case 3:
                     _trailComponent.material = _TrailMaterials[3];
                     break;
+                case 4:
+                    _trailComponent.material = _TrailMaterials[4];
+                    break;
             }
 
             switch (_currentShurikenVariant)
@@ -67,7 +76,27 @@ namespace KnifeThrower
                 case 3:
                     _meshComponent.mesh = _ShurikenMeshes[3];
                     break;
+                case 4:
+                    _meshComponent.mesh = _ShurikenMeshes[4];
+                    break;
             }
+        }
+        
+        
+
+        private void SwitchTrailByPowerShot()
+        {
+            if (BoostersService.IsPowerShotPressed)
+            {
+                _trailComponent.enabled = false;
+                _lightning.SetActive(true);
+            }
+            
+        }
+
+        private void OnDisable()
+        {
+           
         }
     }
 }
