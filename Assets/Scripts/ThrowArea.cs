@@ -12,6 +12,7 @@ namespace KnifeThrower
         private Vector3 _endMousePosition;
 
         private bool _isOnStartPosition = false;
+        private bool _isPowerShotBoosterUsed = false;
         private IInputPosition _inputPosition;
 
         public bool IsThrowPrepared { get; private set; }
@@ -20,6 +21,11 @@ namespace KnifeThrower
         public void Construct(IInputPosition inputPosition)
         {
             _inputPosition = inputPosition;
+        }
+
+        private void OnEnable()
+        {
+            BoostersService.PowerShotPressed.AddListener(BoosterUseReaction);
         }
 
         private void Update()
@@ -38,13 +44,22 @@ namespace KnifeThrower
             _isOnStartPosition = false;
         }
 
+        private void BoosterUseReaction()
+        {
+            _isPowerShotBoosterUsed = true;
+        }
+
         private void SetStartMousePosition()
         {
-            if (_isOnStartPosition && Input.GetButtonDown("Fire1"))
+            if (_isPowerShotBoosterUsed && Input.GetButtonDown("Fire1"))
+            {
+                IsThrowPrepared = true;
+                _isPowerShotBoosterUsed = false;
+            }
+            else if (_isOnStartPosition && Input.GetButtonDown("Fire1"))
             {
                 IsThrowPrepared = true;
                 _startMousePosition = _inputPosition.MouseYPoint;
-                Debug.Log($"StartPosSet {_startMousePosition}");
             }
         }
 
@@ -55,14 +70,17 @@ namespace KnifeThrower
                 IsThrowPrepared = false;
                 _endMousePosition = _inputPosition.MouseYPoint;
                 CalculateMouseMagnitude();
-                Debug.Log($"EndPosSet {_endMousePosition}");
             }
         }
 
         private void CalculateMouseMagnitude()
         {
             MouseYDistance = _endMousePosition.y - _startMousePosition.y;
-            Debug.Log($"Distance = {MouseYDistance}");
+        }
+
+        private void OnDisable()
+        {
+            BoostersService.PowerShotPressed.RemoveListener(BoosterUseReaction);
         }
     }
 }

@@ -176,6 +176,8 @@ MonoBehaviour:
   _rightWindTargetTransform: {fileID: 128008217976703678}
   _leftParticleTargetTransform: {fileID: 4013412064995507632}
   _rightParticleTargetTransform: {fileID: 7973821892804443099}
+  _windDirectionImage: {fileID: 0}
+  _windSpeedText: {fileID: 0}
 --- !u!1 &1879412536501701215
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +565,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2729
+  m_VersionIndex: 2732
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

@@ -27,6 +27,8 @@ namespace YG
         public bool[] IsItemPurchased = new bool[11];
         public int ShopNumberOfSetShuriken = 0;
         public int ShopNumberOfSetTrail = 0;
+
+        public float GlobalVolumeValue = 1f;
         // Вы можете выполнить какие то действия при загрузке сохранений
         public SavesYG()
         {

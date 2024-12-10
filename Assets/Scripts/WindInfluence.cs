@@ -5,7 +5,6 @@ namespace KnifeThrower
 {
     public class WindInfluence : MonoBehaviour
     {
-        [SerializeField] private ShurikenCollision _shurikenCollision;
         [SerializeField] private Rigidbody _rb;
         private WindController _windController;
 

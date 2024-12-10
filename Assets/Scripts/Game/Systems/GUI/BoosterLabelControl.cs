@@ -35,7 +35,7 @@ namespace KnifeThrower
         private void ShowLabel()
         {
             _showButton.gameObject.SetActive(false);
-            _rt.DOAnchorPosX(_endPosforLeft + 150f, _duration);
+            _rt.DOAnchorPosX(_endPosforLeft + 250f, _duration);
         }
 
         public void OnPointerExit(PointerEventData eventData)

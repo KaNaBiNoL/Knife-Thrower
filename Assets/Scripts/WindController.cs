@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -16,12 +18,15 @@ namespace KnifeThrower
         [SerializeField] private Transform _rightWindTargetTransform;
         [SerializeField] private Transform _leftParticleTargetTransform;
         [SerializeField] private Transform _rightParticleTargetTransform;
+        [SerializeField] private GameObject _windDirectionImage;
+        [SerializeField] private TextMeshProUGUI _windSpeedText;
         private float _boosterTime = 10f;
+        private Vector3 _rightRotation = new Vector3(0, 0, 180f);
 
         public static float WindSpeed { get; set; }
 
         private ParticleSystem windParticleSystem;
-        private WindZone windZone;
+        private WindZone _windZone;
 
         private void OnEnable()
         {
@@ -31,14 +36,17 @@ namespace KnifeThrower
         private void Awake()
         {
             windParticleSystem = windParticlesGameObject.GetComponent<ParticleSystem>();
-            windZone = windZoneGameObject.GetComponent<WindZone>();
-            WindSpeed = windZone.windMain;
+            _windZone = windZoneGameObject.GetComponent<WindZone>();
+            WindSpeed = _windZone.windMain;
         }
 
         private void Start()
         {
             SetWind();
+            
         }
+
+        
 
         private void SetWind()
         {
@@ -50,6 +58,35 @@ namespace KnifeThrower
             else
             {
                 windParticlesGameObject.SetActive(false);
+            }
+            SetDirectionImage();
+            SetWindSpeedText();
+        }
+
+        private void SetWindSpeedText()
+        {
+            if (IsWindActive)
+            {
+                _windSpeedText.text = $"{WindSpeed} m/s";
+            }
+
+            else
+            {
+                _windSpeedText.text = "0 m/s";
+            }
+            
+        }
+
+        private void SetDirectionImage()
+        {
+            _windDirectionImage.SetActive(IsWindActive);
+            if (IsWindStartsOnLeftSide)
+            {
+                _windDirectionImage.transform.DORotate(Vector3.zero, 0.01f, RotateMode.Fast);
+            }
+            else
+            {
+                _windDirectionImage.transform.DORotate(_rightRotation, 0.01f, RotateMode.Fast);
             }
         }
 

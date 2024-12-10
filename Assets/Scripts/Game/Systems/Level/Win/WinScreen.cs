@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using KnifeThrower.Services;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,12 @@ namespace KnifeThrower.Game
         [SerializeField] private TextMeshProUGUI _scoreForTimeText;
         [SerializeField] private TextMeshProUGUI _levelScoreText;
         [SerializeField] private TextMeshProUGUI _levelGoldText;
+        [SerializeField] private RectTransform _adRewardedTextRectTransform;
+        [SerializeField] private TextMeshProUGUI _adRewardedText;
+        [SerializeField] private float _adRewardedTextFadeDuration;
+        [SerializeField] private Ease _adRewardedTextFadeEase;
+        
+        
 
         private IRemainingTargetsService _remainingTargetsService;
         private ISceneLoadingService _sceneLoadingService;
@@ -53,7 +60,10 @@ namespace KnifeThrower.Game
             _nextLevelButton.onClick.AddListener(ToNextLevel);
             _retryButton.onClick.AddListener(ReloadLevel);
             _exitButton.onClick.AddListener(GoToMenu);
+            YandexGame.RewardVideoEvent += Rewarded;
         }
+
+        
 
         private void Awake()
         {
@@ -76,16 +86,28 @@ namespace KnifeThrower.Game
 
             if (isGameWon)
             {
-                _scoreForShotsText.text = $"Очки за сбитые мишени - {_scoreService.LevelScore}";
-                _scoreForRemainingShurikensText.text = $"Бонус за оставшиеся сюрикены - " +
-                    $"{(_remainingShurikens.ShurikenCount - 1) * 100}";
-                _scoreForTimeText.text = $"Бонус за время - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                _scoreForShotsText.text = $" {_scoreService.LevelScore}";
+                _scoreForRemainingShurikensText.text = $" {(_remainingShurikens.ShurikenCount - 1) * 100}";
+                _scoreForTimeText.text = $" {Convert.ToInt32(_levelTimer.Timer) * 10}";
                 FullLevelScore = _scoreService.LevelScore + ((_remainingShurikens.ShurikenCount - 1) * 100) +
                     (Convert.ToInt32(_levelTimer.Timer) * 10);
                 _levelScoreText.text = $"{FullLevelScore}";
-                _levelGoldText.text = $"{_goldForLevel.GoldReward + 30}";
+                _goldForLevel.GoldReward += 30;
+                _levelGoldText.text = $"{_goldForLevel.GoldReward}";
                 SaveScore();
             }
+        }
+        
+        private void Rewarded(int id)
+        {
+            id = 0;
+            _adRewardedText.text = $"+{_goldForLevel.GoldReward}";
+            _goldForLevel.GoldReward *= 2;
+            _levelGoldText.text = $"{_goldForLevel.GoldReward}";
+            _adRewardedText.gameObject.SetActive(true);
+            _adsButton.gameObject.SetActive(false);
+            _adRewardedTextRectTransform.DOAnchorPosY(0.2f, _adRewardedTextFadeDuration);
+            _adRewardedText.DOFade(0, _adRewardedTextFadeDuration + 0.5f).SetEase(_adRewardedTextFadeEase);
         }
 
         private void SaveScore()
@@ -128,6 +150,7 @@ namespace KnifeThrower.Game
             _nextLevelButton.onClick.RemoveListener(ToNextLevel);
             _retryButton.onClick.RemoveListener(ReloadLevel);
             _exitButton.onClick.RemoveListener(GoToMenu);
+            YandexGame.RewardVideoEvent -= Rewarded;
         }
 
         

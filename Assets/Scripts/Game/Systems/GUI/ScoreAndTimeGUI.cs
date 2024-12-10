@@ -37,7 +37,7 @@ namespace KnifeThrower.Game
 
         private void Update()
         {
-            _scoreText.text = $"Score: {_scoreService.LevelScore}";
+            _scoreText.text = $" {_scoreService.LevelScore}";
             _timerText.text = "0:" + Mathf.Round(_levelTimer.Timer);
         }
     }

@@ -16,7 +16,7 @@ namespace KnifeThrower
 
         private void Start()
         {
-            _recordText.text = $"Рекорд: {YandexGame.savesData.LevelScores[_levelNumber]}";
+            _recordText.text = $"{YandexGame.savesData.LevelScores[_levelNumber]}";
         }
     }
 }

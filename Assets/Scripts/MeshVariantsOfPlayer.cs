@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using YG;
 
 namespace KnifeThrower
 {
     public class MeshVariantsOfPlayer : MonoBehaviour
     {
+        [SerializeField] private GameObject _LightningEffect;
+        [SerializeField] private MeshRenderer _playerMesh;
+        
         
         [SerializeField] private MeshFilter _meshComponent;
         
@@ -18,8 +22,11 @@ namespace KnifeThrower
 
         private void OnEnable()
         {
-            
+            BoostersService.PowerShotPressed.AddListener(SetLightningActive);
+            ShurikenCollision.OnShurikenCollide.AddListener(OffLightning);
         }
+
+        
 
         private void Awake()
         {
@@ -29,6 +36,7 @@ namespace KnifeThrower
         private void Start()
         {
             SetCurrentMesh();
+            _LightningEffect.SetActive(false);
         }
 
         private void SetCurrentMesh()
@@ -55,5 +63,39 @@ namespace KnifeThrower
                     break;
             }
         }
+        
+        private void SetLightningActive()
+        {
+            StartCoroutine(LightningCoroutine());
+        }
+        
+        private void OffLightning()
+        {
+            StartCoroutine(LightningOffCoroutine());
+        }
+        
+        IEnumerator LightningOffCoroutine()
+        {
+            while (_playerMesh.enabled)
+            {
+                yield return new WaitForSeconds(1f);
+            }
+            _LightningEffect.SetActive(false);
+            StopCoroutine(LightningOffCoroutine());
+            yield return null;
+        }
+
+        IEnumerator LightningCoroutine()
+        {
+            while (_playerMesh.enabled == false)
+            {
+                yield return new WaitForSeconds(1f);
+            }
+            _LightningEffect.SetActive(true);
+            StopCoroutine(LightningCoroutine());
+            yield return null;
+        }
+
+        
     }
 }
