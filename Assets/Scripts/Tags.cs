@@ -14,5 +14,6 @@
         public const string DownShurikenClone= "DownShurikenClone";
         public const string ShurikenInShop= "ShurikenInShop";
         public const string TrailInShop= "TrailInShop";
+        public const string CurrentGoldText= "CurrentGoldText";
     }
 }

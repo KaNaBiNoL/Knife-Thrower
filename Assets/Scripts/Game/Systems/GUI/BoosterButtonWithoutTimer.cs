@@ -1,12 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace KnifeThrower
 {
     public class BoosterButtonWithoutTimer : BoosterButton
     {
+        [SerializeField] private Image _imageOfNeighborBooster;
+        [SerializeField] private TextMeshProUGUI _neighborBoosterTextCount;
+        
+        
         private bool _canBeActive;
 
         private void OnEnable()
@@ -33,13 +39,27 @@ namespace KnifeThrower
             {
                 DarkImage.gameObject.SetActive(false);
                 CheckAvailabilityByCount();
+                MakeNeibhorButtonActive();
                 _canBeActive = false;
+            }
+        }
+
+        private void MakeNeibhorButtonActive()
+        {
+            if (int.Parse(_neighborBoosterTextCount.text) < 1)
+            {
+                _imageOfNeighborBooster.gameObject.SetActive(true);
+            }
+            else
+            {
+                _imageOfNeighborBooster.gameObject.SetActive(false);
             }
         }
 
         private void PushProcess()
         {
             StartCoroutine(StartDelay());
+            _imageOfNeighborBooster.gameObject.SetActive(true);
         }
 
         IEnumerator StartDelay()
@@ -60,6 +80,7 @@ namespace KnifeThrower
         {
             OnDisable();
             ShurikenCollision.OnShurikenCollide.RemoveListener(MakeButtonActive);
+            Button.onClick.RemoveListener(PushProcess);
         }
     }
 }

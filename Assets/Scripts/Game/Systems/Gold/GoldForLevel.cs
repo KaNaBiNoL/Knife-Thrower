@@ -10,7 +10,7 @@ namespace KnifeThrower
     {
         public int GoldReward { get; set; }
         private int _randomMin = 2;
-        private int _randomMax = 5;
+        private int _randomMax = 4;
         private int _shotGold;
 
         public void Init()

@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameLB: Leaders
-  maxQuantityPlayers: 20
-  quantityTop: 3
-  quantityAround: 3
-  updateLBMethod: 1
+  maxQuantityPlayers: 9
+  quantityTop: 5
+  quantityAround: 2
+  updateLBMethod: 0
   entriesText: {fileID: 0}
   advanced: 1
   rootSpawnPlayersData: {fileID: 5617650574114587148}
@@ -71,7 +71,7 @@ MonoBehaviour:
     type: 3}
   playerPhoto: 0
   isHiddenPlayerPhoto: {fileID: 0}
-  timeTypeConvert: 1
+  timeTypeConvert: 0
   decimalSize: 2
   onUpdateData:
     m_PersistentCalls:
@@ -175,6 +175,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5617650574114587148}
     m_Modifications:
+    - target: {fileID: 377795016618464896, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 377795016618464896, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658253050422, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658253050422, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.622
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658427018932, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658427018932, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658427018939, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7442660658558515364, guid: c66c7bac89f010b47979344bbb77584b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.742
+      objectReference: {fileID: 0}
     - target: {fileID: 7442660659306160117, guid: c66c7bac89f010b47979344bbb77584b,
         type: 3}
       propertyPath: m_Name

@@ -16,7 +16,7 @@ namespace YG
         // Можно удалить этот код, но тогда удалите и демо (папка Example)
         public int money = 1;                       // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
-        public bool[] openLevels = new bool[3];
+        public bool[] openLevels = new bool[6];
 
         public int PlayerMoney = 0;
         public int UnlockedLevels = 1;
@@ -27,6 +27,8 @@ namespace YG
         public bool[] IsItemPurchased = new bool[11];
         public int ShopNumberOfSetShuriken = 0;
         public int ShopNumberOfSetTrail = 0;
+
+        public int AdsCounter = 0;
 
         public float GlobalVolumeValue = 1f;
         // Вы можете выполнить какие то действия при загрузке сохранений

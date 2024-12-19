@@ -1,50 +1,54 @@
 {
-    "idSave": 273,
+    "idSave": 361,
     "isFirstSession": false,
-    "language": "de",
+    "language": "ru",
     "promptDone": false,
     "money": 1,
     "newPlayerName": "Hello!",
     "openLevels": [
         false,
         true,
+        false,
+        false,
+        false,
         false
     ],
-    "PlayerMoney": 1130,
-    "UnlockedLevels": 3,
+    "PlayerMoney": 1292,
+    "UnlockedLevels": 9,
     "LevelScores": [
-        1160,
-        1270,
-        1030,
         0,
-        0,
-        0,
-        0,
-        0,
+        870,
+        960,
+        1200,
+        750,
+        820,
+        1260,
+        740,
+        930,
+        0
+    ],
+    "LevelsScoreSum": 7530,
+    "BoostersCount": [
+        2,
+        1,
         0,
         0
     ],
-    "LevelsScoreSum": 3460,
-    "BoostersCount": [
-        11,
-        14,
-        22,
-        8
-    ],
     "IsItemPurchased": [
         true,
-        true,
-        true,
+        false,
         true,
         false,
         false,
+        false,
         true,
-        true,
+        false,
         false,
         false,
         false
     ],
-    "ShopNumberOfSetShuriken": 1,
-    "ShopNumberOfSetTrail": 1,
-    "GlobalVolumeValue": -7.456935882568359
+    "ShopNumberOfSetShuriken": 0,
+    "ShopNumberOfSetTrail": 0,
+    "AdsCounter": 2,
+    "GlobalVolumeValue": -6.477057456970215
 }

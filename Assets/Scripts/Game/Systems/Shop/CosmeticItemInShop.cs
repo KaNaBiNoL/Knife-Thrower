@@ -26,6 +26,9 @@ namespace KnifeThrower
         [SerializeField] private int _ItemPurchasePrice;
 
         [SerializeField] private int _NumberInShopCategory;
+
+        private GameObject _currentGoldGameObject;
+        private TextMeshProUGUI _currentGoldText;
         
         
         
@@ -63,6 +66,8 @@ namespace KnifeThrower
             _confirmLabel.SetActive(false);
             BuyAvailableCheck(_purchaseButton, _ItemPurchasePrice);
             _purchasePriceText.text = $"{_ItemPurchasePrice}";
+            _currentGoldGameObject = GameObject.FindGameObjectWithTag(Tags.CurrentGoldText);
+            _currentGoldText = _currentGoldGameObject.GetComponent<TextMeshProUGUI>();
         }
         
         private void SetThisItemActive()
@@ -88,6 +93,7 @@ namespace KnifeThrower
         {
             YandexGame.savesData.IsItemPurchased[_ItemSerialNumber] = true;
             ShopConsumablesService.PlayerCash -= _ItemPurchasePrice;
+            _currentGoldText.text = $"{ShopConsumablesService.PlayerCash}";
             _purchaseLabel.SetActive(false);
             _setItemButton.SetActive(true);
             CosmeticShop.IsPurchaseDone.Invoke();

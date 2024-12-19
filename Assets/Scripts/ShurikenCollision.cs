@@ -16,6 +16,7 @@ namespace KnifeThrower
         [SerializeField] private GameObject _canvasHolder;
         [SerializeField] private GameObject _shotEffect;
         [SerializeField] private AudioSource _hitSound;
+        [SerializeField] private GameObject _trailHolder;
 
         private Transform _scoreTransform;
 
@@ -82,8 +83,8 @@ namespace KnifeThrower
                 AllowRotation = false;
                 Destroy(_rb);
                 transform.parent = collision.transform;
-                Destroy(this);
             }
+            StartCoroutine(TrailOff());
         }
 
         private void OnTriggerEnter(Collider other)
@@ -104,6 +105,21 @@ namespace KnifeThrower
         {
             trans.LookAt(Camera.main.transform.position);
             trans.Rotate(0, 180.0f, 0);
+        }
+
+        IEnumerator TrailOff()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (i == 1)
+                {
+                    _trailHolder.SetActive(false);
+                    Destroy(this);
+                    StopCoroutine(TrailOff());
+                }
+
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
 }

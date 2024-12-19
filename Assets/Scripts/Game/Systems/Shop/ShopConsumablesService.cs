@@ -35,7 +35,7 @@ namespace KnifeThrower
         private int _firstBoosterPrice = 50;
         private int _secondBoosterPrice = 80;
         private int _thirdBoosterPrice = 100;
-        private int _fourthBoosterPrice = 150;
+        private int _fourthBoosterPrice = 120;
 
         public static int PlayerCash
         {

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using YG;
 using Zenject;
 
 namespace KnifeThrower.Game
@@ -28,6 +30,7 @@ namespace KnifeThrower.Game
         {
             _remainingShurikensText.text = $" = {_startShurikensText} ";
             ShurikenSpawn.OnShurikenThrowed.AddListener(SwitchShurikenCountText);
+            ShurikenSpawn.OnShurikenThrowed.AddListener(SetScoreText);
         }
 
         private void SwitchShurikenCountText()
@@ -37,8 +40,52 @@ namespace KnifeThrower.Game
 
         private void Update()
         {
-            _scoreText.text = $" {_scoreService.LevelScore}";
             _timerText.text = "0:" + Mathf.Round(_levelTimer.Timer);
+        }
+
+        private void SetScoreText()
+        {
+            StartCoroutine(ScoreTextChange());
+        }
+
+        IEnumerator ScoreTextChange()
+        {
+            for (int i = 4; i >= 0; i--)
+            {
+                switch (YandexGame.EnvironmentData.language)
+                {
+                    case "ru":
+                        _scoreText.text = $"Счет: {_scoreService.LevelScore}";
+                        break;
+                    case "en":
+                        _scoreText.text = $"Score: {_scoreService.LevelScore}";
+                        break;
+                    case "tr":
+                        _scoreText.text = $"Gol: {_scoreService.LevelScore}";
+                        break;
+                    case "es":
+                        _scoreText.text = $"Puntaje: {_scoreService.LevelScore}";
+                        break;
+                    case "de":
+                        _scoreText.text = $"Punktzahl: {_scoreService.LevelScore}";
+                        break;
+                }
+
+                if (i == 0)
+                {
+                    StopCoroutine(ScoreTextChange());
+                }
+
+                yield return new WaitForSeconds(0.5f);
+            }
+            
+
+        }
+
+        private void OnDisable()
+        {
+            ShurikenSpawn.OnShurikenThrowed.RemoveListener(SwitchShurikenCountText);
+            ShurikenSpawn.OnShurikenThrowed.RemoveListener(SetScoreText);
         }
     }
 }

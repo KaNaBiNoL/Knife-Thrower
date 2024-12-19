@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using YG;
 
 namespace KnifeThrower
 {
@@ -21,7 +22,7 @@ namespace KnifeThrower
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_thisButton.interactable)
+            if (_thisButton.interactable && YandexGame.EnvironmentData.isDesktop)
             {
                 _selectSound.Play();
             }

@@ -8,6 +8,8 @@ namespace KnifeThrower
 {
     public class MeshVariantsOfPlayer : MonoBehaviour
     {
+        [SerializeField] private AudioSource _lightningSound;
+        
         [SerializeField] private GameObject _LightningEffect;
         [SerializeField] private MeshRenderer _playerMesh;
         
@@ -67,11 +69,13 @@ namespace KnifeThrower
         private void SetLightningActive()
         {
             StartCoroutine(LightningCoroutine());
+            _lightningSound.Play();
         }
         
         private void OffLightning()
         {
             StartCoroutine(LightningOffCoroutine());
+            _lightningSound.Stop();
         }
         
         IEnumerator LightningOffCoroutine()

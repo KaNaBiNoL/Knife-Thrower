@@ -33,6 +33,7 @@ namespace KnifeThrower.Game
                     collision.gameObject.CompareTag(Tags.DownShurikenClone) ||
                     collision.gameObject.CompareTag(Tags.RightShurikenClone))
                 {
+                    gameObject.transform.SetParent(null);
                     _rb.isKinematic = false;
                     _remainingTargetsService.RemainingTargets--;
                     Debug.Log($"{_remainingTargetsService.RemainingTargets}");

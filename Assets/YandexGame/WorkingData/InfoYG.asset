@@ -18,7 +18,7 @@ MonoBehaviour:
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
-    language: de
+    language: ru
     name: Player this
     uniqueID: 000
     photo: https://justplaygames.ru/public/icon_player.png
@@ -26,10 +26,10 @@ MonoBehaviour:
     serverTime: 1721201231000
   AdWhenLoadingScene: 0
   showFirstAd: 1
-  rewardedAfterClosing: 1
+  rewardedAfterClosing: 0
   adDisplayCalls: 0
-  fullscreenAdInterval: 60
-  durationOfAdSimulation: 0.5
+  fullscreenAdInterval: 300
+  durationOfAdSimulation: 3
   loadAdWithDelaySimulation: 0
   testErrorOfRewardedAdsInEditor: 0
   saveCloud: 1
@@ -79,8 +79,7 @@ MonoBehaviour:
     de: 1
     hi: 0
   fonts:
-    defaultFont:
-    - {fileID: 0}
+    defaultFont: []
     ru: []
     en: []
     tr: []
@@ -109,7 +108,8 @@ MonoBehaviour:
     de: []
     hi: []
   fontsTMP:
-    defaultFont: []
+    defaultFont:
+    - {fileID: 11400000, guid: f098ecd22df56fd42bfb52373705d2e4, type: 2}
     ru: []
     en: []
     tr: []

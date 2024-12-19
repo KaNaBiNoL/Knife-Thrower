@@ -17,6 +17,7 @@ TagManager:
   - DownShurikenClone
   - ShurikenInShop
   - TrailInShop
+  - CurrentGoldText
   layers:
   - Default
   - TransparentFX

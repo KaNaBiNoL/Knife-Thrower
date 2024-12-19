@@ -86,13 +86,46 @@ namespace KnifeThrower.Game
 
             if (isGameWon)
             {
-                _scoreForShotsText.text = $" {_scoreService.LevelScore}";
-                _scoreForRemainingShurikensText.text = $" {(_remainingShurikens.ShurikenCount - 1) * 100}";
-                _scoreForTimeText.text = $" {Convert.ToInt32(_levelTimer.Timer) * 10}";
-                FullLevelScore = _scoreService.LevelScore + ((_remainingShurikens.ShurikenCount - 1) * 100) +
+                switch (YandexGame.EnvironmentData.language)
+                {
+                    case "ru":
+                        _scoreForShotsText.text = $"Очки за сбитые мишени - {_scoreService.LevelScore}";
+                        _scoreForRemainingShurikensText.text = "Бонус за оставшиеся сюрикены - " +
+                            $"{_remainingShurikens.ShurikenCount * 100}";
+                        _scoreForTimeText.text = $"Бонус за время - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                        break;
+                    case "en":
+                        _scoreForShotsText.text = $"Points for downed targets - {_scoreService.LevelScore}";
+                        _scoreForRemainingShurikensText.text = "Bonus for remaining shurikens - " +
+                            $"{_remainingShurikens.ShurikenCount * 100}";
+                        _scoreForTimeText.text = $"Time bonus - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                        break;
+                    case "es":
+                        _scoreForShotsText.text = $"Puntos por objetivos derribados - {_scoreService.LevelScore}";
+                        _scoreForRemainingShurikensText.text = "Bonificación por los shurikens restantes - " +
+                            $"{_remainingShurikens.ShurikenCount * 100}";
+                        _scoreForTimeText.text = $"Bonificación de tiempo - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                        break;
+                    case "de":
+                        _scoreForShotsText.text = $"Punkte für abgeschossene Ziele - {_scoreService.LevelScore}";
+                        _scoreForRemainingShurikensText.text = "Bonus für verbleibende Shuriken – " +
+                            $"{_remainingShurikens.ShurikenCount * 100}";
+                        _scoreForTimeText.text = $"Zeitbonus - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                        break;
+                    case "tr":
+                        _scoreForShotsText.text = $"Düşen hedefler için puanlar - {_scoreService.LevelScore}";
+                        _scoreForRemainingShurikensText.text = "Kalan shurikenler için bonus - " +
+                            $"{_remainingShurikens.ShurikenCount * 100}";
+                        _scoreForTimeText.text = $"Zaman bonusu - {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                        break;
+                }
+              //  _scoreForShotsText.text = $" {_scoreService.LevelScore}";
+               // _scoreForRemainingShurikensText.text = $" {(_remainingShurikens.ShurikenCount - 1) * 100}";
+              //  _scoreForTimeText.text = $" {Convert.ToInt32(_levelTimer.Timer) * 10}";
+                FullLevelScore = _scoreService.LevelScore + ((_remainingShurikens.ShurikenCount) * 100) +
                     (Convert.ToInt32(_levelTimer.Timer) * 10);
                 _levelScoreText.text = $"{FullLevelScore}";
-                _goldForLevel.GoldReward += 30;
+                _goldForLevel.GoldReward += 20;
                 _levelGoldText.text = $"{_goldForLevel.GoldReward}";
                 SaveScore();
             }
@@ -150,7 +183,9 @@ namespace KnifeThrower.Game
             _nextLevelButton.onClick.RemoveListener(ToNextLevel);
             _retryButton.onClick.RemoveListener(ReloadLevel);
             _exitButton.onClick.RemoveListener(GoToMenu);
+            YandexGame.savesData.PlayerMoney += _goldForLevel.GoldReward;
             YandexGame.RewardVideoEvent -= Rewarded;
+            YandexGame.SaveProgress();
         }
 
         

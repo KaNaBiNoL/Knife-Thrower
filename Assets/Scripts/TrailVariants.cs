@@ -19,6 +19,8 @@ namespace KnifeThrower
         private int _currentShurikenVariant;
         private int _currentTrailVariant;
         private bool _isPowerShotUsed;
+        private Vector2 _defaultTextureScale = new Vector2(1f, 1f);
+        private Vector2 _lightningTextureScale = new Vector2(0.4f, 0.4f);
 
         private void OnEnable()
         {
@@ -45,19 +47,24 @@ namespace KnifeThrower
             {
                 case 0:
                     _trailComponent.material = _TrailMaterials[0];
+                    _trailComponent.textureScale = _defaultTextureScale;
                     break;
                 
                 case 1:
                     _trailComponent.material = _TrailMaterials[1];
+                    _trailComponent.textureScale = _defaultTextureScale;
                     break;
                 case 2:
                     _trailComponent.material = _TrailMaterials[2];
+                    _trailComponent.textureScale = _defaultTextureScale;
                     break;
                 case 3:
                     _trailComponent.material = _TrailMaterials[3];
+                    _trailComponent.textureScale = _defaultTextureScale;
                     break;
                 case 4:
                     _trailComponent.material = _TrailMaterials[4];
+                    _trailComponent.textureScale = _lightningTextureScale;
                     break;
             }
 
