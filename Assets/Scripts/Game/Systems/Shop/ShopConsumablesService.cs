@@ -11,7 +11,6 @@ namespace KnifeThrower
 {
     public class ShopConsumablesService : MonoBehaviour
     {
-        [SerializeField] private Button _testGetPlayerCash;
 
         [SerializeField] private Button _buyFirstBoosterButton;
         [SerializeField] private Button _buySecondBoosterButton;
@@ -49,7 +48,6 @@ namespace KnifeThrower
             _buySecondBoosterButton.onClick.AddListener(SecondBoosterBuy);
             _buyThirdBoosterButton.onClick.AddListener(ThirdBoosterBuy);
             _buyFourthBoosterButton.onClick.AddListener(FourthBoosterBuy);
-            _testGetPlayerCash.onClick.AddListener(GetCash);
             CosmeticShop.IsPurchaseDone.AddListener(CheckInteractible);
         }
 

@@ -36,10 +36,10 @@ RectTransform:
   - {fileID: 2123116293127931085}
   m_Father: {fileID: 5027763353778953581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.10345728, y: 0.5294088}
-  m_AnchorMax: {x: 0.91800004, y: 0.7617275}
-  m_AnchoredPosition: {x: -11.999634, y: 1.0999756}
-  m_SizeDelta: {x: -92, y: -5}
+  m_AnchorMin: {x: 0.11054443, y: 0.60562384}
+  m_AnchorMax: {x: 0.8878839, y: 0.85800004}
+  m_AnchoredPosition: {x: 3.0003662, y: 1}
+  m_SizeDelta: {x: -44, y: -25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6752576106667897497
 CanvasRenderer:
@@ -456,6 +456,7 @@ RectTransform:
   - {fileID: 9179838661120819683}
   - {fileID: 5557906281565380710}
   - {fileID: 5689718846638704277}
+  - {fileID: 79913853877534053}
   m_Father: {fileID: 4997414296080052188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20400001, y: 0.088851854}
@@ -501,6 +502,423 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5268246345965667024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9035789596439687173}
+  - component: {fileID: 420280292048617178}
+  - component: {fileID: 4072901849793015978}
+  - component: {fileID: 1557618286678042771}
+  m_Layer: 5
+  m_Name: Advice5Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &9035789596439687173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268246345965667024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &420280292048617178
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268246345965667024}
+  m_CullTransparentMesh: 1
+--- !u!114 &4072901849793015978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268246345965667024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442:\n\u0423\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u044C
+    \"\u041C\u043E\u0449\u043D\u044B\u0439 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\"
+    \u043C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u043E \u0440\u0435\u0448\u0438\u0442 
+    \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443 \u0441 \u0431\u043E\u043B\u044C\u0448\u043E\u0439
+    \u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u0435\u0439 \u0434\u043E \u043C\u0438\u0448\u0435\u043D\u0438!"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1557618286678042771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5268246345965667024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 4072901849793015978}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442:\n\u0423\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u044C
+    \"\u041C\u043E\u0449\u043D\u044B\u0439 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\"
+    \u043C\u0433\u043D\u043E\u0432\u0435\u043D\u043D\u043E \u0440\u0435\u0448\u0438\u0442 
+    \u043F\u0440\u043E\u0431\u043B\u0435\u043C\u0443 \u0441 \u0431\u043E\u043B\u044C\u0448\u043E\u0439
+    \u0434\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u0435\u0439 \u0434\u043E \u043C\u0438\u0448\u0435\u043D\u0438!"
+  en: 'Advice:
+
+    The "PowerShot" booster will instantly solve the problem with
+    a long distance to the target!'
+  tr: "\u0130pucu:\n\"G\xFC\xE7l\xFC at\u0131\u015F\" \u0131n g\xFC\xE7lendirilmesi,
+    hedefe olan uzun mesafe sorununu an\u0131nda \xE7\xF6zecektir!"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo:\n\xA1La ganancia de \"disparo poderoso\" resolver\xE1 instant\xE1neamente
+    el problema de la larga distancia al objetivo!"
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat:\nDie Verst\xE4rkung eines \"m\xE4chtigen Schusses\" l\xF6st sofort das
+    Problem der gro\xDFen Entfernung zum Ziel!"
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5
+--- !u!1 &5392331364406837266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2863153860015196866}
+  - component: {fileID: 8794406903723517816}
+  - component: {fileID: 781145555157945532}
+  - component: {fileID: 9193330903043401746}
+  m_Layer: 5
+  m_Name: Advice4Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2863153860015196866
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392331364406837266}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8794406903723517816
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392331364406837266}
+  m_CullTransparentMesh: 1
+--- !u!114 &781145555157945532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392331364406837266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442:\n\u0415\u0441\u043B\u0438 \u0432\u0430\u043C
+    \u0447\u0442\u043E-\u0442\u043E \u043D\u0435\u043F\u043E\u043D\u044F\u0442\u043D\u043E,
+    \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0440\u0430\u0437\u0434\u0435\u043B
+    \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u044F \u0432 \u043C\u0435\u043D\u044E
+    \u0438\u0433\u0440\u044B."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9193330903043401746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392331364406837266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 781145555157945532}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442:\n\u0415\u0441\u043B\u0438 \u0432\u0430\u043C
+    \u0447\u0442\u043E-\u0442\u043E \u043D\u0435\u043F\u043E\u043D\u044F\u0442\u043D\u043E,
+    \u043F\u043E\u0441\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0440\u0430\u0437\u0434\u0435\u043B
+    \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u044F \u0432 \u043C\u0435\u043D\u044E
+    \u0438\u0433\u0440\u044B."
+  en: 'Advice:
+
+    If something is unclear, refer to the learning section in the
+    game menu.'
+  tr: "\u0130pucu:\nHerhangi bir \u015Fey net de\u011Filse, oyun men\xFCs\xFCndeki
+    e\u011Fitim b\xF6l\xFCm\xFCne bak\u0131n."
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo:\nSi algo no est\xE1 claro, consulte la secci\xF3n de aprendizaje
+    en el men\xFA del juego."
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat:\nWenn Ihnen etwas nicht klar ist, lesen Sie den Lernabschnitt im Spielmen\xFC."
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5
 --- !u!1 &5579830409719380235
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,10 +955,10 @@ RectTransform:
   - {fileID: 5604778874644391688}
   m_Father: {fileID: 5027763353778953581}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12665127, y: 0.21281756}
-  m_AnchorMax: {x: 0.8715658, y: 0.444455}
-  m_AnchoredPosition: {x: 1, y: -2.4001465}
-  m_SizeDelta: {x: -54, y: -4}
+  m_AnchorMin: {x: 0.12744649, y: 0.31170744}
+  m_AnchorMax: {x: 0.8715536, y: 0.5793313}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -53, y: -42}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8372739340408109885
 CanvasRenderer:
@@ -659,6 +1077,278 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pushSound: {fileID: 0}
   _selectSound: {fileID: 0}
+--- !u!1 &6232967806487042336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79913853877534053}
+  - component: {fileID: 2328142291409561124}
+  m_Layer: 5
+  m_Name: TextHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &79913853877534053
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232967806487042336}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3581183617499467090}
+  - {fileID: 3391907768748243608}
+  - {fileID: 8900019020365286987}
+  - {fileID: 2863153860015196866}
+  - {fileID: 9035789596439687173}
+  - {fileID: 1753031472636115775}
+  m_Father: {fileID: 5027763353778953581}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.25636366, y: 0.16700001}
+  m_AnchorMax: {x: 0.74518186, y: 0.33756253}
+  m_AnchoredPosition: {x: 0.7091675, y: -29.594421}
+  m_SizeDelta: {x: -530.9005, y: -76.681305}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2328142291409561124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6232967806487042336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7252ad05fb9e4048b904554375ea458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _texts:
+  - {fileID: 2669123781760238494}
+  - {fileID: 8918541856836507594}
+  - {fileID: 7847896239830575692}
+  - {fileID: 781145555157945532}
+  - {fileID: 4072901849793015978}
+  - {fileID: 1603667425880561970}
+--- !u!1 &6295560545149832276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753031472636115775}
+  - component: {fileID: 4315024456889896101}
+  - component: {fileID: 1603667425880561970}
+  - component: {fileID: 5940099472837294259}
+  m_Layer: 5
+  m_Name: Advice6Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1753031472636115775
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295560545149832276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4315024456889896101
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295560545149832276}
+  m_CullTransparentMesh: 1
+--- !u!114 &1603667425880561970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295560545149832276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442:\n\u0412 \u043C\u0435\u043D\u044E \u0432\u044B
+    \u043C\u043E\u0436\u0435\u0442\u0435 \u043D\u0430\u0439\u0442\u0438 \u0438\u0433\u0440\u043E\u0432\u043E\u0439
+    \u043C\u0430\u0433\u0430\u0437\u0438\u043D, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C
+    \u043C\u043E\u0436\u043D\u043E \u043A\u0443\u043F\u0438\u0442\u044C \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0438 \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435
+    \u0443\u043A\u0440\u0430\u0448\u0435\u043D\u0438\u044F \u0441\u044E\u0440\u0438\u043A\u0435\u043D\u043E\u0432."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5940099472837294259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6295560545149832276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1603667425880561970}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442:\n\u0412 \u043C\u0435\u043D\u044E \u0432\u044B
+    \u043C\u043E\u0436\u0435\u0442\u0435 \u043D\u0430\u0439\u0442\u0438 \u0438\u0433\u0440\u043E\u0432\u043E\u0439
+    \u043C\u0430\u0433\u0430\u0437\u0438\u043D, \u0432 \u043A\u043E\u0442\u043E\u0440\u043E\u043C
+    \u043C\u043E\u0436\u043D\u043E \u043A\u0443\u043F\u0438\u0442\u044C \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0438 \u043A\u043E\u0441\u043C\u0435\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435
+    \u0443\u043A\u0440\u0430\u0448\u0435\u043D\u0438\u044F \u0441\u044E\u0440\u0438\u043A\u0435\u043D\u043E\u0432."
+  en: 'Advice:
+
+    There is a game store on the menu where you can buy shuriken
+    boosters and cosmetics.'
+  tr: "\u0130pucu:\nMen\xFCde shuriken amplifikat\xF6rleri ve kozmetik \xFCr\xFCnleri
+    sat\u0131n alabilece\u011Finiz bir oyun ma\u011Fazas\u0131 var."
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo:\nHay una tienda de juegos en el men\xFA donde puedes comprar potenciadores
+    Shuriken y joyas cosm\xE9ticas."
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat:\nEs gibt einen Spieleladen auf der Speisekarte, in dem Shuriken-Verst\xE4rker
+    und Sch\xF6nheitsschmuck gekauft werden k\xF6nnen."
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5
 --- !u!1 &6909903084895932168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,6 +1729,448 @@ MonoBehaviour:
   processTranslateLabel: 5/5 completed
   componentTextField: 1
   countLang: 5
+--- !u!1 &7199695167972241452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8900019020365286987}
+  - component: {fileID: 4280976154657626096}
+  - component: {fileID: 7847896239830575692}
+  - component: {fileID: 3065381619121133665}
+  m_Layer: 5
+  m_Name: Advice3Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8900019020365286987
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199695167972241452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4280976154657626096
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199695167972241452}
+  m_CullTransparentMesh: 1
+--- !u!114 &7847896239830575692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199695167972241452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442:\n\u0412\u0441\u0435\u0433\u0434\u0430
+    \u0434\u0435\u043B\u0430\u0439\u0442\u0435 \u043F\u043E\u043F\u0440\u0430\u0432\u043A\u0443
+    \u043D\u0430 \u0432\u0435\u0442\u0435\u0440, \u0435\u0441\u043B\u0438 \u043E\u043D
+    \u0435\u0441\u0442\u044C \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435! \u0427\u0435\u043C
+    \u0432\u044B\u0448\u0435 \u0435\u0433\u043E \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C,
+    \u0442\u0435\u043C \u0441\u0438\u043B\u044C\u043D\u0435\u0435 \u043E\u043D \u0441\u043C\u0435\u0441\u0442\u0438\u0442
+    \u0441\u044E\u0440\u0438\u043A\u0435\u043D \u0432 \u043F\u043E\u043B\u0435\u0442\u0435.
+    \u0422\u0430\u043A\u0436\u0435, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+    \u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E \u043E\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0442\u044C
+    \u0432\u0435\u0442\u0435\u0440 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E
+    \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u044F."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3065381619121133665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7199695167972241452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 7847896239830575692}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442:\n\u0412\u0441\u0435\u0433\u0434\u0430 \u0434\u0435\u043B\u0430\u0439\u0442\u0435
+    \u043F\u043E\u043F\u0440\u0430\u0432\u043A\u0443 \u043D\u0430 \u0432\u0435\u0442\u0435\u0440,
+    \u0435\u0441\u043B\u0438 \u043E\u043D \u0435\u0441\u0442\u044C \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435!
+    \u0427\u0435\u043C \u0432\u044B\u0448\u0435 \u0435\u0433\u043E \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C,
+    \u0442\u0435\u043C \u0441\u0438\u043B\u044C\u043D\u0435\u0435 \u043E\u043D \u0441\u043C\u0435\u0441\u0442\u0438\u0442
+    \u0441\u044E\u0440\u0438\u043A\u0435\u043D \u0432 \u043F\u043E\u043B\u0435\u0442\u0435.
+    \u0422\u0430\u043A\u0436\u0435, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+    \u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E \u043E\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0442\u044C
+    \u0432\u0435\u0442\u0435\u0440 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E
+    \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u044F."
+  en: 'Advice:
+
+    Always make allowances for the wind, if there is one on the level!
+    The higher his speed, the more he will displace the shuriken in flight. You can
+    also temporarily stop the wind using an amplifier'
+  tr: "\u0130pucu:\nVarsa daima r\xFCzgara uyum sa\u011Flay\u0131n! H\u0131z\u0131
+    ne kadar y\xFCksek olursa, u\xE7u\u015F s\u0131ras\u0131nda shuriken'in yerini
+    o kadar fazla alacakt\u0131r. Alternatif olarak, bir amplifikat\xF6r kullanarak
+    r\xFCzgar\u0131 ge\xE7ici olarak durdurabilirsiniz."
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo:\n\xA1Siempre aj\xFAstate al viento, si hay uno! Cuanto mayor sea
+    su velocidad, m\xE1s reemplazar\xE1 al Shuriken en vuelo. Adem\xE1s, puede detener
+    temporalmente el viento con un amplificador."
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat:\nPassen Sie sich immer dem Wind an, wenn es einen gibt! Je h\xF6her seine
+    Geschwindigkeit ist, desto mehr ersetzt er den Shuriken im Flug. Au\xDFerdem
+    k\xF6nnen Sie den Wind vor\xFCbergehend mit einem Verst\xE4rker stoppen."
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5
+--- !u!1 &7209007805283235862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3581183617499467090}
+  - component: {fileID: 928288081512137941}
+  - component: {fileID: 2669123781760238494}
+  - component: {fileID: 1925254665877076804}
+  m_Layer: 5
+  m_Name: Advice1Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3581183617499467090
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209007805283235862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &928288081512137941
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209007805283235862}
+  m_CullTransparentMesh: 1
+--- !u!114 &2669123781760238494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209007805283235862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041D\u0430\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0442\u0435 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0438 \u0432\u0441\u0435
+    \u0431\u0443\u0434\u0435\u0442 \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1925254665877076804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209007805283235862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 2669123781760238494}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0442\u0435 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0438 \u0432\u0441\u0435
+    \u0431\u0443\u0434\u0435\u0442 \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  en: "Advice: \nCan't complete the level multiple times? After completing the previous
+    levels, accumulate gold again. Buy amps in the store, and everything will become
+    much easier!"
+  tr: "\u0130pucu: \nSeviyeyi birka\xE7 kez tamamlayam\u0131yor musunuz? \xD6nceki
+    seviyeleri tamamlad\u0131ktan sonra tekrar alt\u0131n biriktirin. Ma\u011Fazadan
+    amper sat\u0131n al\u0131n ve i\u015Fler \xE7ok daha kolay hale gelecektir!"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo: \nNo se puede pasar el nivel varias veces? Despu\xE9s de completar
+    los niveles anteriores, vuelve a acumular oro. \xA1Compra amplificadores en la
+    tienda y todo ser\xE1 mucho m\xE1s f\xE1cil!"
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat: \nSie k\xF6nnen das Level nicht mehrmals passieren? Nachdem Sie die vorherigen
+    Level abgeschlossen haben, sammeln Sie wieder Gold an. Kaufen Sie Verst\xE4rker
+    im Laden und alles wird viel einfacher!"
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5
 --- !u!1 &8717664867270557711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,3 +2223,229 @@ MonoBehaviour:
   _innerContainer: {fileID: 3280023920025487235}
   _retryButton: {fileID: 502586341687332833}
   _menuButton: {fileID: 7784524217547447911}
+--- !u!1 &9021024707398824742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3391907768748243608}
+  - component: {fileID: 8544960886840401680}
+  - component: {fileID: 8918541856836507594}
+  - component: {fileID: 2529137326811518355}
+  m_Layer: 5
+  m_Name: Advice2Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &3391907768748243608
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021024707398824742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 79913853877534053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 1000, y: 280}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8544960886840401680
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021024707398824742}
+  m_CullTransparentMesh: 1
+--- !u!114 &8918541856836507594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021024707398824742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u0421\u043E\u0432\u0435\u0442:\n\u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439\u0442\u0435
+    \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438.
+    \u041E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u0442\u044F\u0436\u0435\u043B\u044B\u0435 \u044D\u0442\u0430\u043F\u044B \u0438
+    \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435
+    \u043E\u0447\u043A\u043E\u0432 \u043D\u0430 \u0443\u0436\u0435 \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u043D\u044B\u0445.
+    \u041C\u0435\u043D\u044E \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0435\u0439
+    \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u043F\u0440\u0438
+    \u043D\u0430\u0436\u0430\u0442\u0438\u0438 \u043D\u0430 \u0447\u0435\u0440\u043D\u0443\u044E
+    \u0441\u0442\u0440\u0435\u043B\u043A\u0443 \u0432 \u043B\u0435\u0432\u043E\u0439
+    \u0447\u0430\u0441\u0442\u0438 \u044D\u043A\u0440\u0430\u043D\u0430."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 0250e69a0bf364e4dad68a068c2ffd96, type: 2}
+  m_sharedMaterial: {fileID: 3020401678732043696, guid: 0250e69a0bf364e4dad68a068c2ffd96,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2529137326811518355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9021024707398824742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 8918541856836507594}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0421\u043E\u0432\u0435\u0442: \n\u041D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+    \u0440\u0430\u0437 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u043E\u0434\u0438\u043D \u0443\u0440\u043E\u0432\u0435\u043D\u044C? \u041F\u043E\u0434\u043A\u043E\u043F\u0438\u0442\u0435
+    \u0437\u043E\u043B\u043E\u0442\u043E, \u0437\u0430\u043D\u043E\u0432\u043E \u043F\u0440\u043E\u0439\u0434\u044F
+    \u043F\u0440\u0435\u0434\u044B\u0434\u0443\u0449\u0438\u0435 \u0443\u0440\u043E\u0432\u043D\u0438.
+    \u041A\u0443\u043F\u0438\u0432 \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438
+    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435, \u0432\u0441\u0435 \u0431\u0443\u0434\u0435\u0442
+    \u0433\u043E\u0440\u0430\u0437\u0434\u043E \u043F\u0440\u043E\u0449\u0435!"
+  ru: "\u0421\u043E\u0432\u0435\u0442:\n\u041D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439\u0442\u0435
+    \u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u044C \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0438.
+    \u041E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442 \u043F\u0440\u043E\u0439\u0442\u0438
+    \u0442\u044F\u0436\u0435\u043B\u044B\u0435 \u044D\u0442\u0430\u043F\u044B \u0438
+    \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435
+    \u043E\u0447\u043A\u043E\u0432 \u043D\u0430 \u0443\u0436\u0435 \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u043D\u044B\u0445.
+    \u041C\u0435\u043D\u044E \u0443\u0441\u0438\u043B\u0438\u0442\u0435\u043B\u0435\u0439
+    \u043E\u0442\u043A\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F \u043F\u0440\u0438
+    \u043D\u0430\u0436\u0430\u0442\u0438\u0438 \u043D\u0430 \u0447\u0435\u0440\u043D\u0443\u044E
+    \u0441\u0442\u0440\u0435\u043B\u043A\u0443 \u0432 \u043B\u0435\u0432\u043E\u0439
+    \u0447\u0430\u0441\u0442\u0438 \u044D\u043A\u0440\u0430\u043D\u0430."
+  en: "Advice: \nDon't forget to use amplifiers. They will help you complete difficult
+    stages and earn more points for what you have already completed. Tap the black
+    arrow on the left side of the screen to open the amp menu."
+  tr: "\u0130pucu:\nAmplifikat\xF6rleri kullanmay\u0131 unutmay\u0131n. Zor a\u015Famalardan
+    ge\xE7menize ve daha \xF6nce tamamlad\u0131klar\u0131n\u0131z i\xE7in daha fazla
+    puan kazanman\u0131za yard\u0131mc\u0131 olacaklar. Ekran\u0131n sol taraf\u0131ndaki
+    siyah oka dokundu\u011Funuzda amplifikat\xF6r men\xFCs\xFC a\xE7\u0131lacakt\u0131r."
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: "Consejo:\nNo te olvides de usar amplificadores. Te ayudar\xE1n a pasar las
+    etapas dif\xEDciles y ganar m\xE1s puntos por los que ya has pasado. El men\xFA
+    del amplificador se abre al hacer clic en la flecha negra en el lado izquierdo
+    de la pantalla."
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: "Rat:\nVergessen Sie nicht, Verst\xE4rker zu verwenden. Sie werden helfen,
+    schwierige Phasen zu durchlaufen und mehr Punkte f\xFCr diejenigen zu verdienen,
+    die bereits bestanden haben. Das Verst\xE4rkermen\xFC wird ge\xF6ffnet, wenn
+    Sie auf den schwarzen Pfeil auf der linken Seite des Bildschirms tippen."
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 5/5 completed
+  componentTextField: 1
+  countLang: 5

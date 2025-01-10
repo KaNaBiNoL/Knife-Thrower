@@ -55,21 +55,27 @@ namespace KnifeThrower
             {
                 IsThrowPrepared = true;
                 _isPowerShotBoosterUsed = false;
+                
             }
             else if (_isOnStartPosition && Input.GetButtonDown("Fire1"))
             {
                 IsThrowPrepared = true;
                 _startMousePosition = _inputPosition.MouseYPoint;
             }
+            
+            _endMousePosition = _inputPosition.MouseYPoint;
+            CalculateMouseMagnitude();
+            
         }
 
         private void SetEndMousePosition()
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                IsThrowPrepared = false;
                 _endMousePosition = _inputPosition.MouseYPoint;
                 CalculateMouseMagnitude();
+                IsThrowPrepared = false;
+                
             }
         }
 

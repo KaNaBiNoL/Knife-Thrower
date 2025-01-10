@@ -16,7 +16,6 @@ namespace KnifeThrower
 
         [SerializeField] private RectTransform[] _ShopShurikensRT;
         [SerializeField] private RectTransform[] _ShopTrailsRT;
-        
 
         public static int ShopShurikenNumber
         {
@@ -53,13 +52,11 @@ namespace KnifeThrower
         private void SetActiveShuriken()
         {
             _ActiveShurikenVariantRT.localPosition = _ShopShurikensRT[ShopShurikenNumber].localPosition;
-            _ActiveShurikenVariantRT.anchoredPosition = _ShopShurikensRT[ShopShurikenNumber].anchoredPosition;
         }
 
         private void SetActiveTrail()
         {
             _ActiveTrailVariantRT.localPosition = _ShopTrailsRT[ShopTrailNumber].localPosition;
-            _ActiveTrailVariantRT.anchoredPosition = _ShopTrailsRT[ShopTrailNumber].anchoredPosition;
         }
 
         private void OnDisable()

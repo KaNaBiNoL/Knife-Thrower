@@ -1,6 +1,7 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace KnifeThrower.Game
@@ -10,7 +11,7 @@ namespace KnifeThrower.Game
         [SerializeField] private Rigidbody _rb;
         private IRemainingTargetsService _remainingTargetsService;
 
-        private bool _isTargetHit;
+        [NonSerialized] public bool IsTargetHit;
 
         [Inject]
         public void Construct(IRemainingTargetsService remainingTargetsService)
@@ -20,12 +21,12 @@ namespace KnifeThrower.Game
 
         private void Start()
         {
-            _isTargetHit = false;
+            IsTargetHit = false;
         }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (_isTargetHit == false)
+            if (IsTargetHit == false)
             {
                 if (collision.gameObject.CompareTag(Tags.ShurikenWithForce) || 
                     collision.gameObject.CompareTag(Tags.LeftShurikenClone) ||
@@ -37,7 +38,7 @@ namespace KnifeThrower.Game
                     _rb.isKinematic = false;
                     _remainingTargetsService.RemainingTargets--;
                     Debug.Log($"{_remainingTargetsService.RemainingTargets}");
-                    _isTargetHit = true;
+                    IsTargetHit = true;
                     gameObject.tag = Tags.Environment;
                     Destroy(this);
                 }

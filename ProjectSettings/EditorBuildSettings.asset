@@ -38,4 +38,64 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 8.unity
     guid: 2e706946f8025404a9fdc1a0471cbee9
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: 71f3e862a7a23f440918f15e7841fab9
+  - enabled: 1
+    path: Assets/Scenes/Level 10.unity
+    guid: ba1d7fd254a29ef46af534cd11aead02
+  - enabled: 1
+    path: Assets/Scenes/Level 11.unity
+    guid: 3de565a69fad0cf48af175ffd852af5a
+  - enabled: 1
+    path: Assets/Scenes/Level 12.unity
+    guid: 81208f200268ace43bc7c50eb656a182
+  - enabled: 1
+    path: Assets/Scenes/Level 13.unity
+    guid: a7b4b1b657df5d9469bf05335a410851
+  - enabled: 1
+    path: Assets/Scenes/Level 14.unity
+    guid: 9b0bf078afdda244f8b1c11662f5650e
+  - enabled: 1
+    path: Assets/Scenes/Level 15.unity
+    guid: d26bd2a27313ecc44ac4ae36abe9f42f
+  - enabled: 1
+    path: Assets/Scenes/Level 16.unity
+    guid: 921a8f48c7a97c94f870519470257195
+  - enabled: 1
+    path: Assets/Scenes/Level 17.unity
+    guid: b13b0dca4fc52124ea193d0b13b82bdc
+  - enabled: 1
+    path: Assets/Scenes/Level 18.unity
+    guid: cd327234e2b342949b85cba1cf23e14a
+  - enabled: 1
+    path: Assets/Scenes/Level 19.unity
+    guid: 5f7945e0b6a3d32439f4f8b0909eae2d
+  - enabled: 1
+    path: Assets/Scenes/Level 20.unity
+    guid: 063800b723099be4088462445929ab84
+  - enabled: 1
+    path: Assets/Scenes/Level 21.unity
+    guid: 58564935249071e44b214bd5bdc72dad
+  - enabled: 1
+    path: Assets/Scenes/Level 22.unity
+    guid: 138dd0d1fceb2624287a7eb41c8f7c9b
+  - enabled: 1
+    path: Assets/Scenes/Level 23.unity
+    guid: 36325aab54777804ba3c30ae3325cf0b
+  - enabled: 1
+    path: Assets/Scenes/Level 24.unity
+    guid: cd2a722c8ba955b42845779a2a723280
+  - enabled: 1
+    path: Assets/Scenes/Level 25.unity
+    guid: 463250d43dfe2ee4eab7827b0753e2be
+  - enabled: 1
+    path: Assets/Scenes/Level 26.unity
+    guid: 5723a35d4d84ada4583fb1d7793f9fbf
+  - enabled: 1
+    path: Assets/Scenes/Level 27.unity
+    guid: 1b48797ed5fb601479ecff7c24876e1f
+  - enabled: 1
+    path: Assets/Scenes/GameCompleteScene.unity
+    guid: e53a4acb060d46e418a9078eefd2015f
   m_configObjects: {}

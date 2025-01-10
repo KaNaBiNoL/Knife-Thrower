@@ -13,8 +13,8 @@ namespace KnifeThrower
         [SerializeField] private RectTransform _pages;
         [SerializeField] private Image[] _pagesObjects;
         [SerializeField] private GameObject[] _page1Childs;
-       // [SerializeField] private GameObject[] _page2Childs;
-      //  [SerializeField] private GameObject[] _page3Childs;
+        [SerializeField] private GameObject[] _page2Childs;
+        //  [SerializeField] private GameObject[] _page3Childs;
 
         [SerializeField] private Vector3 _swipeOffset;
         [SerializeField] private float _duration;
@@ -31,8 +31,13 @@ namespace KnifeThrower
 
         private void Awake()
         {
+            
+        }
+
+        private void Start()
+        {
             _pagesCount = 1;
-            _rectPos.x = _pages.rect.x;
+            _rectPos.x = _pages.rect.x + _pages.rect.width/2;
             SwipeDownCircle();
         }
 
@@ -41,6 +46,7 @@ namespace KnifeThrower
             if (_pagesCount < _numberOfPages)
             {
                 _targetPos.x = _rectPos.x - _swipeOffset.x;
+                Debug.Log($"rect {_rectPos.x} - offset {_swipeOffset} = target {_targetPos.x}");
                 _rectPos.x = _targetPos.x;
                 _pages.DOAnchorPosX(_targetPos.x, _duration).SetEase(_ease);
                 _pagesCount++;
@@ -78,14 +84,16 @@ namespace KnifeThrower
                     {
                         i.SetActive(true);
                     }
-                /*    foreach (GameObject i in _page2Childs)
+
+                    foreach (GameObject i in _page2Childs)
                     {
                         i.SetActive(false);
                     }
-                    foreach (GameObject i in _page3Childs)
-                    {
-                        i.SetActive(false);
-                    } */
+
+                    /*   foreach (GameObject i in _page3Childs)
+                       {
+                           i.SetActive(false);
+                       } */
                     break;
                 case 2:
                     _circleImages[0].transform.localScale = new Vector3(_smallScale, _smallScale, _smallScale);
@@ -101,16 +109,18 @@ namespace KnifeThrower
                     {
                         i.SetActive(false);
                     }
-                  /*  foreach (GameObject i in _page2Childs)
+
+                    foreach (GameObject i in _page2Childs)
                     {
                         i.SetActive(true);
                     }
-                    foreach (GameObject i in _page3Childs)
-                    {
-                        i.SetActive(false);
-                    } */
-                    break; 
-                    
+
+                    /*   foreach (GameObject i in _page3Childs)
+                       {
+                           i.SetActive(false);
+                       } */
+                    break;
+
                 case 3:
                     _circleImages[0].transform.localScale = new Vector3(_smallScale, _smallScale, _smallScale);
                     _circleImages[1].transform.localScale = new Vector3(_smallScale, _smallScale, _smallScale);
@@ -125,15 +135,17 @@ namespace KnifeThrower
                     {
                         i.SetActive(false);
                     }
-                 /*   foreach (GameObject i in _page2Childs)
+
+                    foreach (GameObject i in _page2Childs)
                     {
                         i.SetActive(false);
                     }
-                    foreach (GameObject i in _page3Childs)
-                    {
-                        i.SetActive(true);
-                    } */
-                    break; 
+
+                    /*   foreach (GameObject i in _page3Childs)
+                       {
+                           i.SetActive(true);
+                       } */
+                    break;
             }
         }
     }

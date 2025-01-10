@@ -12,8 +12,9 @@ namespace KnifeThrower
 
         void Awake()
         {
-            PlayerPrefs.DeleteAll();
+            
             int unlockedLevel = YandexGame.savesData.UnlockedLevels;
+            Debug.Log($"{unlockedLevel}");
             for (int i = 0; i < _buttons.Length; i++)
             {
                 _buttons[i].interactable = false;
@@ -21,6 +22,7 @@ namespace KnifeThrower
 
             for (int i = 0; i < unlockedLevel; i++)
             {
+                Debug.Log($"{_buttons[i]}");
                 _buttons[i].interactable = true;
             }
 

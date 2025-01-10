@@ -84,6 +84,7 @@ namespace KnifeThrower
                 Destroy(_rb);
                 transform.parent = collision.transform;
             }
+
             StartCoroutine(TrailOff());
         }
 

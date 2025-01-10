@@ -14,15 +14,20 @@ namespace KnifeThrower
         [SerializeField] private AudioSource _pushSound;
         [SerializeField] private AudioSource _selectSound;
 
+        private bool _isDesktopPlatform;
         void Start()
         {
+            if (YandexGame.EnvironmentData.isDesktop)
+            {
+                _isDesktopPlatform = true;
+            }
             _thisButton = gameObject.GetComponent<Button>();
             _thisButton.onClick.AddListener(PlayPushSound);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_thisButton.interactable && YandexGame.EnvironmentData.isDesktop)
+            if (_thisButton.interactable && _isDesktopPlatform)
             {
                 _selectSound.Play();
             }

@@ -12,6 +12,7 @@ namespace KnifeThrower
 
         [SerializeField] private ShurikenCollision _shurikenCollision;
         [SerializeField] private WindInfluence _wind;
+        
 
         private Transform _playerShuriken;
         private Vector3 _throwDirection;
