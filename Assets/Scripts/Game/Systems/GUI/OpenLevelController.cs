@@ -14,19 +14,27 @@ namespace KnifeThrower
         {
             
             int unlockedLevel = YandexGame.savesData.UnlockedLevels;
-            Debug.Log($"{unlockedLevel}");
-            for (int i = 0; i < _buttons.Length; i++)
+            if (unlockedLevel < 32)
             {
-                _buttons[i].interactable = false;
-            }
+                Debug.Log($"{unlockedLevel}");
+                for (int i = 0; i < _buttons.Length; i++)
+                {
+                    _buttons[i].interactable = false;
+                }
 
-            for (int i = 0; i < unlockedLevel; i++)
+                for (int i = 0; i < unlockedLevel; i++)
+                {
+                    Debug.Log($"{_buttons[i]}");
+                    _buttons[i].interactable = true;
+                }
+
+                Debug.Log($"Unlocked level int = {unlockedLevel}");
+            }
+            else
             {
-                Debug.Log($"{_buttons[i]}");
-                _buttons[i].interactable = true;
+                YandexGame.savesData.UnlockedLevels = 32;
+                unlockedLevel = YandexGame.savesData.UnlockedLevels;
             }
-
-            Debug.Log($"Unlocked level int = {unlockedLevel}");
         }
 
         

@@ -51,5 +51,10 @@ namespace KnifeThrower
         {
             _speed = WindController.WindSpeed * -0.02f;
         }
+
+        private void OnDestroy()
+        {
+            ShurikenCollision.OnShurikenCollide.RemoveListener(StopInfluence);
+        }
     }
 }

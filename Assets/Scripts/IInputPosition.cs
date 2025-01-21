@@ -39,10 +39,7 @@ namespace KnifeThrower
         
         
 
-        public void Init()
-        {
-            
-        }
+        
 
         private void GetMouseCoordinates()
         {

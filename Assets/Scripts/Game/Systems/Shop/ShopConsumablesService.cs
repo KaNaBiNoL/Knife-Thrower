@@ -16,25 +16,30 @@ namespace KnifeThrower
         [SerializeField] private Button _buySecondBoosterButton;
         [SerializeField] private Button _buyThirdBoosterButton;
         [SerializeField] private Button _buyFourthBoosterButton;
+        [SerializeField] private Button _buyFifthBoosterButton;
         [SerializeField] private TextMeshProUGUI _firstBoosterPriceText;
         [SerializeField] private TextMeshProUGUI _secondBoosterPriceText;
         [SerializeField] private TextMeshProUGUI _thirdBoosterPriceText;
         [SerializeField] private TextMeshProUGUI _fourthBoosterPriceText;
+        [SerializeField] private TextMeshProUGUI _fifthBoosterPriceText;
         [SerializeField] private TextMeshProUGUI _firstBoosterCountText;
         [SerializeField] private TextMeshProUGUI _secondBoosterCountText;
         [SerializeField] private TextMeshProUGUI _thirdBoosterCountText;
         [SerializeField] private TextMeshProUGUI _fourthBoosterCountText;
+        [SerializeField] private TextMeshProUGUI _fifthBoosterCountText;
         [SerializeField] private TextMeshProUGUI _PlayerCashText;
 
         private int _firstBoosterCount;
         private int _secondBoosterCount;
         private int _thirdBoosterCount;
         private int _fourthBoosterCount;
+        private int _fifthBoosterCount;
 
-        private int _firstBoosterPrice = 50;
-        private int _secondBoosterPrice = 80;
-        private int _thirdBoosterPrice = 100;
+        private int _firstBoosterPrice = 30;
+        private int _secondBoosterPrice = 50;
+        private int _thirdBoosterPrice = 80;
         private int _fourthBoosterPrice = 120;
+        private int _fifthBoosterPrice = 150;
 
         public static int PlayerCash
         {
@@ -48,16 +53,13 @@ namespace KnifeThrower
             _buySecondBoosterButton.onClick.AddListener(SecondBoosterBuy);
             _buyThirdBoosterButton.onClick.AddListener(ThirdBoosterBuy);
             _buyFourthBoosterButton.onClick.AddListener(FourthBoosterBuy);
+            _buyFifthBoosterButton.onClick.AddListener(FifthBoosterBuy);
             CosmeticShop.IsPurchaseDone.AddListener(CheckInteractible);
         }
 
         
 
-        private void GetCash()
-        {
-            PlayerCash += 1000;
-            SetPlayerCash();
-        }
+        
 
         private void Awake()
         {
@@ -65,6 +67,7 @@ namespace KnifeThrower
             _secondBoosterCount = YandexGame.savesData.BoostersCount[1];
             _thirdBoosterCount = YandexGame.savesData.BoostersCount[2];
             _fourthBoosterCount = YandexGame.savesData.BoostersCount[3];
+            _fifthBoosterCount = YandexGame.savesData.AddedBoosterCount;
             PlayerCash = YandexGame.savesData.PlayerMoney;
         }
 
@@ -75,10 +78,12 @@ namespace KnifeThrower
             _secondBoosterPriceText.text = $"{_secondBoosterPrice}";
             _thirdBoosterPriceText.text = $"{_thirdBoosterPrice}";
             _fourthBoosterPriceText.text = $"{_fourthBoosterPrice}";
+            _fifthBoosterPriceText.text = $"{_fifthBoosterPrice}";
             SetCountOfBooster(_firstBoosterCountText, _firstBoosterCount);
             SetCountOfBooster(_secondBoosterCountText, _secondBoosterCount);
             SetCountOfBooster(_thirdBoosterCountText, _thirdBoosterCount);
             SetCountOfBooster(_fourthBoosterCountText, _fourthBoosterCount);
+            SetCountOfBooster(_fifthBoosterCountText, _fifthBoosterCount);
             SetPlayerCash();
         }
         private void CheckInteractible()
@@ -87,6 +92,7 @@ namespace KnifeThrower
             BuyAvailableCheck(_buySecondBoosterButton, _secondBoosterPrice);
             BuyAvailableCheck(_buyThirdBoosterButton, _thirdBoosterPrice);
             BuyAvailableCheck(_buyFourthBoosterButton, _fourthBoosterPrice);
+            BuyAvailableCheck(_buyFifthBoosterButton, _fifthBoosterPrice);
         }
 
         private void BuyAvailableCheck(Button button, int boosterPrice)
@@ -142,6 +148,15 @@ namespace KnifeThrower
             SetCountOfBooster(_fourthBoosterCountText, _fourthBoosterCount);
             SetPlayerCash();
         }
+        
+        private void FifthBoosterBuy()
+        {
+            PlayerCash -= _fifthBoosterPrice;
+            _fifthBoosterCount++;
+            CosmeticShop.IsPurchaseDone.Invoke();
+            SetCountOfBooster(_fifthBoosterCountText, _fifthBoosterCount);
+            SetPlayerCash();
+        }
 
         private void OnDisable()
         {
@@ -150,11 +165,13 @@ namespace KnifeThrower
             YandexGame.savesData.BoostersCount[1] = _secondBoosterCount;
             YandexGame.savesData.BoostersCount[2] = _thirdBoosterCount;
             YandexGame.savesData.BoostersCount[3] = _fourthBoosterCount;
+            YandexGame.savesData.AddedBoosterCount = _fifthBoosterCount;
             YandexGame.SaveProgress();
             _buyFirstBoosterButton.onClick.RemoveListener(FirstBoosterBuy);
             _buySecondBoosterButton.onClick.RemoveListener(SecondBoosterBuy);
             _buyThirdBoosterButton.onClick.RemoveListener(ThirdBoosterBuy);
             _buyFourthBoosterButton.onClick.RemoveListener(FourthBoosterBuy);
+            _buyFifthBoosterButton.onClick.RemoveListener(FifthBoosterBuy);
             CosmeticShop.IsPurchaseDone.RemoveListener(CheckInteractible);
 
             

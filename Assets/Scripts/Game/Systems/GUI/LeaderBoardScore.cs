@@ -8,16 +8,16 @@ namespace KnifeThrower
     public class LeaderBoardScore : MonoBehaviour
     {
         public int WholeGameScore { get; set; }
-        void Awake()
+        void Start()
         {
             SetScoreInLB();
         }
 
         private void SetScoreInLB()
         {
-            for (int i = 0; i < YandexGame.savesData.LevelScores.Length; i++)
+            for (int i = 0; i < YandexGame.savesData.ScoreOnLevel.Length; i++)
             {
-                WholeGameScore += YandexGame.savesData.LevelScores[i];
+                WholeGameScore += YandexGame.savesData.ScoreOnLevel[i];
             }
 
             if (WholeGameScore > YandexGame.savesData.LevelsScoreSum)

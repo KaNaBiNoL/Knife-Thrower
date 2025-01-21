@@ -72,14 +72,11 @@ namespace KnifeThrower.Game
 
         
 
-        private void OnDestroy()
-        {
-            _remainingTargetsService.OnWin -= ShowWinScreen;
-        }
+        
 
         private void ShowWinScreen(bool isGameWon)
         {
-            UnlockNewLevel();
+            
             _innerObject.SetActive(isGameWon);
             _guiControl.IsGameOn = false;
             _guiControl.IsGameWinOrLost = true;
@@ -125,10 +122,12 @@ namespace KnifeThrower.Game
                 FullLevelScore = _scoreService.LevelScore + ((_remainingShurikens.ShurikenCount) * 100) +
                     (Convert.ToInt32(_levelTimer.Timer) * 10);
                 _levelScoreText.text = $"{FullLevelScore}";
-                _goldForLevel.GoldReward += 20;
+                _goldForLevel.GoldReward += 30;
                 _levelGoldText.text = $"{_goldForLevel.GoldReward}";
                 SaveScore();
             }
+            
+            UnlockNewLevel();
         }
         
         private void Rewarded(int id)
@@ -146,10 +145,9 @@ namespace KnifeThrower.Game
         private void SaveScore()
         {
             int sceneNumber = (SceneManager.GetActiveScene().buildIndex - 1);
-            if (FullLevelScore > YandexGame.savesData.LevelScores[sceneNumber])
+            if (FullLevelScore > YandexGame.savesData.ScoreOnLevel[sceneNumber])
             {
-                YandexGame.savesData.LevelScores[sceneNumber] = FullLevelScore;
-                YandexGame.SaveProgress();
+                YandexGame.savesData.ScoreOnLevel[sceneNumber] = FullLevelScore;
             }
         }
 
@@ -176,6 +174,8 @@ namespace KnifeThrower.Game
         {
             _sceneLoadingService.Load(1);
         }
+        
+        
 
         private void OnDisable()
         {

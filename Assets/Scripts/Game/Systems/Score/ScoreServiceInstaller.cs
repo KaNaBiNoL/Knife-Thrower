@@ -6,7 +6,7 @@ namespace KnifeThrower.Game
     {
         public override void InstallBindings()
         {
-            Container.Bind<IScoreService>().To<ScoreService>().AsSingle().NonLazy();
+            Container.Bind<IScoreService>().To<ScoreService>().FromNewComponentOnNewGameObject().AsSingle().NonLazy();
         }
     }
 }

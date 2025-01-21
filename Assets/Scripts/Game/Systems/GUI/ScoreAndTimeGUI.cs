@@ -35,7 +35,8 @@ namespace KnifeThrower.Game
 
         private void SwitchShurikenCountText()
         {
-            _remainingShurikensText.text = $" = {_remainingShurikens.ShurikenCount - 1} ";
+            _startShurikensText--;
+            _remainingShurikensText.text = $" = {_startShurikensText}";
         }
 
         private void Update()

@@ -14,11 +14,10 @@ namespace KnifeThrower
 
         private int _index = 0;
 
-        public void Init()
+        public void Start()
         {
             _shurikenList = GameObject.FindGameObjectsWithTag(Tags.ShurikenModel);
             ShurikenCount = _shurikenList.Length + 1; // +1 is a player started shuriken
-            Debug.Log("set");
             ShurikenSpawn.OnShurikenThrowed.AddListener(DecreaseCount);
         }
 
@@ -43,7 +42,7 @@ namespace KnifeThrower
         private void GameEventsEnd()
         {
             ShurikenSpawn.OnShurikenThrowed.RemoveAllListeners();
-            ShurikenCollision.OnShurikenCollide.RemoveAllListeners();
+            ShurikenCollision.OnShurikenCollide.RemoveAllListeners(); 
         }
     }
 }

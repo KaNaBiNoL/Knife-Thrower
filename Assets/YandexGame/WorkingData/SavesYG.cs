@@ -17,13 +17,13 @@ namespace YG
         public int money = 1;                       // Можно задать полям значения по умолчанию
         public string newPlayerName = "Hello!";
         public bool[] openLevels = new bool[27];
-
-        public bool IsGamePlayedFirstTime = true;
+        
         public int PlayerMoney = 0;
         public int UnlockedLevels = 1;
-        public int[] LevelScores = new int[28];
+        public int[] ScoreOnLevel = new int[60];
         public int LevelsScoreSum = 0;
         public int[] BoostersCount = new int[4];
+        public int AddedBoosterCount;
 
         public bool[] IsItemPurchased = new bool[11];
         public int ShopNumberOfSetShuriken = 0;
@@ -39,40 +39,47 @@ namespace YG
 
             openLevels[1] = true;
 
-            LevelScores[0] = 0;
-            LevelScores[1] = 0;
-            LevelScores[2] = 0;
-            LevelScores[3] = 0;
-            LevelScores[4] = 0;
-            LevelScores[5] = 0;
-            LevelScores[6] = 0;
-            LevelScores[7] = 0;
-            LevelScores[8] = 0;
-            LevelScores[9] = 0;
-            LevelScores[10] = 0;
-            LevelScores[11] = 0;
-            LevelScores[12] = 0;
-            LevelScores[13] = 0;
-            LevelScores[14] = 0;
-            LevelScores[15] = 0;
-            LevelScores[16] = 0;
-            LevelScores[17] = 0;
-            LevelScores[18] = 0;
-            LevelScores[19] = 0;
-            LevelScores[20] = 0;
-            LevelScores[21] = 0;
-            LevelScores[22] = 0;
-            LevelScores[23] = 0;
-            LevelScores[24] = 0;
-            LevelScores[25] = 0;
-            LevelScores[26] = 0;
-            LevelScores[27] = 0;
+            ScoreOnLevel[0] = 0;
+            ScoreOnLevel[1] = 0;
+            ScoreOnLevel[2] = 0;
+            ScoreOnLevel[3] = 0;
+            ScoreOnLevel[4] = 0;
+            ScoreOnLevel[5] = 0;
+            ScoreOnLevel[6] = 0;
+            ScoreOnLevel[7] = 0;
+            ScoreOnLevel[8] = 0;
+            ScoreOnLevel[9] = 0;
+            ScoreOnLevel[10] = 0;
+            ScoreOnLevel[11] = 0;
+            ScoreOnLevel[12] = 0;
+            ScoreOnLevel[13] = 0;
+            ScoreOnLevel[14] = 0;
+            ScoreOnLevel[15] = 0;
+            ScoreOnLevel[16] = 0;
+            ScoreOnLevel[17] = 0;
+            ScoreOnLevel[18] = 0;
+            ScoreOnLevel[19] = 0;
+            ScoreOnLevel[20] = 0;
+            ScoreOnLevel[21] = 0;
+            ScoreOnLevel[22] = 0;
+            ScoreOnLevel[23] = 0;
+            ScoreOnLevel[24] = 0;
+            ScoreOnLevel[25] = 0;
+            ScoreOnLevel[26] = 0;
+            ScoreOnLevel[27] = 0;
+            ScoreOnLevel[28] = 0;
+            ScoreOnLevel[29] = 0;
+            ScoreOnLevel[30] = 0;
+            ScoreOnLevel[31] = 0;
+            ScoreOnLevel[32] = 0;
+            ScoreOnLevel[33] = 0;
             
 
-            BoostersCount[0] = 0;
-            BoostersCount[1] = 0;
-            BoostersCount[2] = 0;
-            BoostersCount[3] = 0;
+            BoostersCount[0] = 1;
+            BoostersCount[1] = 1;
+            BoostersCount[2] = 1;
+            BoostersCount[3] = 1;
+            AddedBoosterCount = 1;
 
             IsItemPurchased[0] = true;
             IsItemPurchased[1] = false;

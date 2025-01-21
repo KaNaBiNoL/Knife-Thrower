@@ -10,11 +10,11 @@ namespace KnifeThrower
         public bool IsGameOn { get; set; }
         public bool IsGameWinOrLost{ get; set; }
 
-        public void Init()
+        public void Start()
         {
             IsGameOn = true;
             IsGamePaused = false;
-            IsGameWinOrLost = false;
+            IsGameWinOrLost = false; 
         }
     }
 }

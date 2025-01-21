@@ -7,6 +7,8 @@ namespace KnifeThrower.Game
         event Action<bool> OnChanged;
         bool IsPaused { get; }
 
+        
+
         void TogglePause();
     }
 }

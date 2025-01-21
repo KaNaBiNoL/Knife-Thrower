@@ -16,6 +16,7 @@ namespace KnifeThrower.Game
                 TogglePause();
             }
         }
+        
 
         public void TogglePause()
         {

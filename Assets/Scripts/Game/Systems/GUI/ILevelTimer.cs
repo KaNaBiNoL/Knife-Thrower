@@ -4,9 +4,7 @@
     {
         float Timer { get; set; }
         
-        public void Init()
-        {
-        }
+        
 
         void TimerTick();
 

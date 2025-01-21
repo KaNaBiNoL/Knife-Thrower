@@ -8,9 +8,6 @@ namespace KnifeThrower.Game
          bool IsGameWon { get; }
         event Action<bool> OnWin;
 
-        public void Init()
-        {
-            
-        }
+        
     }
 }

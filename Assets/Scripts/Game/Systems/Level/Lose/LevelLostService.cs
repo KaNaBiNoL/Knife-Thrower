@@ -17,25 +17,29 @@ namespace KnifeThrower.Game
             _remainingTargetsService = remainingTargetsService;
         }
 
-         public void Init()
-         {
-             ShurikenCollision.OnLastShurikenCollide.AddListener(EndGame);
-             IsGameEnd = false;
-             IsGameLost = false;
-         }
+        public void Start()
+        {
+            ShurikenCollision.OnLastShurikenCollide.AddListener(EndGame);
+            IsGameEnd = false;
+            IsGameLost = false;
+        }
 
-         private void Update()
-         {
-             if (IsGameEnd && _remainingTargetsService.RemainingTargets > 0)
-             {
-                 IsGameLost = true;
-             }
-             
-         }
+        private void Update()
+        {
+            if (IsGameEnd && _remainingTargetsService.RemainingTargets > 0)
+            {
+                IsGameLost = true;
+            }
+        }
 
-         private void EndGame()
-         {
-             IsGameEnd = true;
-         }
+        private void EndGame()
+        {
+            IsGameEnd = true;
+        }
+
+        private void OnDisable()
+        {
+            ShurikenCollision.OnLastShurikenCollide.RemoveListener(EndGame);
+        }
     }
 }

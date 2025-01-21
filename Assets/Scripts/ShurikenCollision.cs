@@ -16,6 +16,7 @@ namespace KnifeThrower
         [SerializeField] private GameObject _canvasHolder;
         [SerializeField] private GameObject _shotEffect;
         [SerializeField] private AudioSource _hitSound;
+        [SerializeField] private AudioSource _targetHitSound;
         [SerializeField] private GameObject _trailHolder;
 
         private Transform _scoreTransform;
@@ -57,6 +58,7 @@ namespace KnifeThrower
             _shotEffect.SetActive(true);
             if (collision.gameObject.CompareTag(Tags.Target))
             {
+                _targetHitSound.Play();
                 OnShurikenCollideWithTarget.Invoke();
                 AllowToAppear(_shotScoreText.transform);
                 _shotScoreText.text = _scoreService.ScoreForShot.ToString();
@@ -84,6 +86,7 @@ namespace KnifeThrower
                 Destroy(_rb);
                 transform.parent = collision.transform;
             }
+            
 
             StartCoroutine(TrailOff());
         }
@@ -122,5 +125,7 @@ namespace KnifeThrower
                 yield return new WaitForSeconds(0.5f);
             }
         }
+
+        
     }
 }

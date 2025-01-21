@@ -43,7 +43,7 @@ namespace KnifeThrower
 
         public void SwipeNext()
         {
-            if (_pagesCount < _numberOfPages)
+            if (_pagesCount < _numberOfPages-1)
             {
                 _targetPos.x = _rectPos.x - _swipeOffset.x;
                 Debug.Log($"rect {_rectPos.x} - offset {_swipeOffset} = target {_targetPos.x}");
@@ -121,7 +121,7 @@ namespace KnifeThrower
                        } */
                     break;
 
-                case 3:
+              /*  case 3:
                     _circleImages[0].transform.localScale = new Vector3(_smallScale, _smallScale, _smallScale);
                     _circleImages[1].transform.localScale = new Vector3(_smallScale, _smallScale, _smallScale);
                     _circleImages[2].transform.localScale = new Vector3(1f, 1f, 1f);
@@ -141,11 +141,11 @@ namespace KnifeThrower
                         i.SetActive(false);
                     }
 
-                    /*   foreach (GameObject i in _page3Childs)
+                       foreach (GameObject i in _page3Childs)
                        {
                            i.SetActive(true);
-                       } */
-                    break;
+                       } 
+                    break; */
             }
         }
     }

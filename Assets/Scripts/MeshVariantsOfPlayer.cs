@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -100,6 +101,10 @@ namespace KnifeThrower
             yield return null;
         }
 
-        
+        private void OnDisable()
+        {
+            BoostersService.PowerShotPressed.RemoveListener(SetLightningActive);
+            ShurikenCollision.OnShurikenCollide.RemoveListener(OffLightning);
+        }
     }
 }

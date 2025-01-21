@@ -23,14 +23,21 @@ namespace KnifeThrower
             _sceneLoadingService = sceneLoadingService;
         }
 
-        private void Start()
+        private void OnEnable()
         {
             _thisButton.onClick.AddListener(LoadLevel);
         }
 
+        
+
         private void LoadLevel()
         {
             _sceneLoadingService.Load(_loadedSceneIndex);
+        }
+
+        private void OnDisable()
+        {
+            _thisButton.onClick.RemoveListener(LoadLevel);
         }
     }
 }

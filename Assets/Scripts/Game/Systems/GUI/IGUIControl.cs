@@ -6,6 +6,6 @@
         public bool IsGameOn { get; set; }
         public bool IsGameWinOrLost{ get; set; }
 
-        public void Init(){}
+        
     }
 }

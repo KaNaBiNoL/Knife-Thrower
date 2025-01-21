@@ -41,10 +41,13 @@ namespace KnifeThrower
 
         private void OnEnable()
         {
-            BoostersService.MultiShurikenPressed.AddListener(SwithToMultiShuriken);
+            
         }
 
-        
+        public void Start()
+        {
+            BoostersService.MultiShurikenPressed.AddListener(SwitchToMultiShuriken);
+        }
 
         private void Update()
         {
@@ -82,7 +85,7 @@ namespace KnifeThrower
            
         }
         
-        private void SwithToMultiShuriken()
+        private void SwitchToMultiShuriken()
         {
             _isSpawnBoosterUsed = true;
         }
@@ -107,8 +110,8 @@ namespace KnifeThrower
         }
         
         private void OnDisable()
-        {
-            BoostersService.MultiShurikenPressed.RemoveListener(SpawnMultiShuriken);
+        { 
+            BoostersService.MultiShurikenPressed.RemoveListener(SwitchToMultiShuriken);
         }
     }
 }

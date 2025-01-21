@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,9 @@ namespace KnifeThrower
         private Vector3 _throwForce;
         private Vector3 _throwDirection;
 
+        private bool _isPathFull;
+        private float _boosterTime = 10f;
+
         private IInputPosition _inputPosition;
         private IGUIControl _guiControl;
         [Inject]
@@ -29,16 +33,23 @@ namespace KnifeThrower
             _inputPosition = inputPosition;
         }
 
+        private void OnEnable()
+        {
+            BoostersService.TrajectoryShowPressed.AddListener(ShowFullPath);
+        }
+
         // Start is called before the first frame update
         void Start()
         {
             if (SceneManager.GetActiveScene().buildIndex > 3)
             {
+                _isPathFull = false;
                 _lineRenderer.material = _shortLenghtMaterial;
             }
 
             else
             {
+                _isPathFull = true;
                 _lineRenderer.material = _fullLenghtMaterial;
             }
         }
@@ -73,7 +84,7 @@ namespace KnifeThrower
             {
                 float time = i * 0.02f;
                 points[i] = origin + speed * time + Physics.gravity * time * time / 2f;
-                if (SceneManager.GetActiveScene().buildIndex > 3)
+                if (!_isPathFull)
                 {
                     if (points[i].z > -8f)
                     {
@@ -106,6 +117,36 @@ namespace KnifeThrower
             }
 
             ShowTrajectory(_startPosition, _throwForce);
+        }
+        
+        private void ShowFullPath()
+        {
+            _isPathFull = true;
+            _lineRenderer.material = _fullLenghtMaterial;
+            StartCoroutine(Booster());
+        }
+
+        IEnumerator Booster()
+        {
+
+            for (int i = 10; i > 0; i--)
+            {
+                _boosterTime--;
+                if (_boosterTime == 0)
+                {
+                    _isPathFull = false;
+                    _lineRenderer.material = _shortLenghtMaterial;
+                    StopCoroutine(Booster());
+                    _boosterTime = 10f;
+                }
+
+                yield return new WaitForSeconds(1f);
+            }
+        }
+
+        private void OnDisable()
+        {
+            BoostersService.TrajectoryShowPressed.RemoveListener(ShowFullPath);
         }
     }
 }

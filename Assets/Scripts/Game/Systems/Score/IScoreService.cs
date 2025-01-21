@@ -5,10 +5,7 @@
         int LevelScore { get; set; }
         int ScoreForShot { get; set; }
         
-        public void Init()
-        {
-            
-        }
+        
 
         void IncrementScore();
 

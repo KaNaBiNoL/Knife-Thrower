@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace KnifeThrower.Game
@@ -18,7 +19,7 @@ namespace KnifeThrower.Game
             _isWinMessageCanBeSend = true;
         }
 
-        public void Init()
+        public void Start()
         {
             _allTargets = GameObject.FindGameObjectsWithTag(Tags.Target);
             RemainingTargets = _allTargets.Length;
@@ -35,8 +36,26 @@ namespace KnifeThrower.Game
 
         private void SendWinMessage()
         {
-            IsGameWon = true;
-            OnWin?.Invoke(IsGameWon);
+            StartCoroutine(WinCoroutine());
+            
+        }
+
+        IEnumerator WinCoroutine()
+        {
+
+            for (int i = 2; i > 0; i--)
+            {
+
+                if (i == 1)
+                {
+                    IsGameWon = true;
+                    OnWin?.Invoke(IsGameWon);
+                    StopCoroutine(WinCoroutine());
+
+                }
+
+                yield return new WaitForSeconds(0.5f);
+            }
         }
     }
 }

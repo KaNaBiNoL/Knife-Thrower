@@ -10,7 +10,7 @@ namespace KnifeThrower
         public GameObject PlayerShuriken;
         public MeshRenderer PlayerMesh { get; private set; }
 
-        public void Init()
+        public void Start()
         {
             PlayerShuriken = GameObject.FindGameObjectWithTag(Tags.PlayerShuriken);
             PlayerMesh = PlayerShuriken.GetComponent<MeshRenderer>();

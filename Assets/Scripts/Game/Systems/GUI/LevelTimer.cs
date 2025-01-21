@@ -20,7 +20,7 @@ namespace KnifeThrower.Game
             _guiControl = guiControl;
         }
 
-        public void Init()
+        public void Start()
         {
             BoostersService.TimeStopPressed.AddListener(BoosterTimeStop);
             Timer = _timeStart;

@@ -10,6 +10,8 @@ namespace KnifeThrower.Game
     public class PauseScreen : MonoBehaviour
     {
         [SerializeField] private GameObject _innerObject;
+        [SerializeField] private Button _pauseButton;
+        
 
         [SerializeField] private Button _resumeButton;
         [SerializeField] private Button _restartButton;
@@ -30,13 +32,18 @@ namespace KnifeThrower.Game
 
         private void OnEnable()
         {
+            _pauseButton.onClick.AddListener(PauseByButton);
             _resumeButton.onClick.AddListener(ResumeGame);
             _restartButton.onClick.AddListener(RestartLevel);
             _ExitButton.onClick.AddListener(GoToMenu);
             _pauseService.OnChanged += PauseChanged;
         }
 
-        
+        private void PauseByButton()
+        {
+            _pauseService.TogglePause();
+            _guiControl.IsGamePaused = true;
+        }
 
         private void Awake()
         {
@@ -78,8 +85,10 @@ namespace KnifeThrower.Game
 
         private void OnDisable()
         {
+            _pauseButton.onClick.RemoveListener(PauseByButton);
             _resumeButton.onClick.RemoveListener(ResumeGame);
             _restartButton.onClick.RemoveListener(RestartLevel);
+            _ExitButton.onClick.RemoveListener(GoToMenu);
             _pauseService.OnChanged -= PauseChanged;
         }
     }

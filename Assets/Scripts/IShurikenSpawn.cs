@@ -6,10 +6,7 @@ namespace KnifeThrower
     {
         public static UnityEvent OnShurikenThrowed = new UnityEvent();
         
-        public void Init()
-        {
-            
-        }
+        
 
         private void SpawnToThrow()
         {

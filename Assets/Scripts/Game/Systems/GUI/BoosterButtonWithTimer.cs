@@ -50,6 +50,7 @@ namespace KnifeThrower
         private void OnDestroy()
         {
             OnDisable();
+            Button.onClick.RemoveListener(StartTimer);
         }
     }
 }

@@ -23,6 +23,10 @@ namespace KnifeThrower
             }
             _thisButton = gameObject.GetComponent<Button>();
             _thisButton.onClick.AddListener(PlayPushSound);
+            _pushSound.volume = 0.5f;
+            _pushSound.pitch = 0.5f;
+            _selectSound.volume = 0.5f;
+            _selectSound.pitch = 0.5f;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

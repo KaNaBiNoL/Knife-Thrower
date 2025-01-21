@@ -7,9 +7,7 @@ namespace KnifeThrower
         public int ShurikenCount { get; }
         bool IsLastShurikenWillBeThrowed { get; }
 
-        public void Init()
-        {
-        }
+        
 
         private void DecreaseCount()
         {

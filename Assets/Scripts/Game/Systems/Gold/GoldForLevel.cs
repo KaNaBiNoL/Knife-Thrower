@@ -9,11 +9,11 @@ namespace KnifeThrower
     public class GoldForLevel : MonoBehaviour, IGoldForLevel
     {
         public int GoldReward { get; set; }
-        private int _randomMin = 2;
-        private int _randomMax = 4;
+        private int _randomMin = 4;
+        private int _randomMax = 7;
         private int _shotGold;
 
-        public void Init()
+        public void Start()
         {
             ShurikenCollision.OnShurikenCollideWithTarget.AddListener(GoldForShot);
         }
@@ -24,9 +24,9 @@ namespace KnifeThrower
             GoldReward += _shotGold;
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            ShurikenCollision.OnShurikenCollideWithTarget.RemoveAllListeners();
+            ShurikenCollision.OnShurikenCollideWithTarget.RemoveListener(GoldForShot);
         }
     }
 }

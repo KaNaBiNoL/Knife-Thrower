@@ -816,6 +816,7 @@ GameObject:
   - component: {fileID: 7275709578125586087}
   - component: {fileID: 8176034825792809606}
   - component: {fileID: 2799140026599663980}
+  - component: {fileID: 7700403707290881409}
   m_Layer: 5
   m_Name: RecordText
   m_TagString: Untagged
@@ -940,6 +941,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7700403707290881409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7003581074761480833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 2799140026599663980}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: "\u0420\u0435\u043A\u043E\u0440\u0434:"
+  ru: "\u0420\u0435\u043A\u043E\u0440\u0434:"
+  en: 'Record:'
+  tr: "Kay\u0131t:"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 'Registro:'
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 'Aufzeichnen:'
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 0/5 completed
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &7359927511698586185
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +1048,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f76a610c0522b846a94e8d224a8426a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 5206462356999347325}
   _recordText: {fileID: 3098008481903699764}
   _levelNumber: 1

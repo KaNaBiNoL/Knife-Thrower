@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using YG;
 
 namespace KnifeThrower
 {
@@ -67,12 +68,46 @@ namespace KnifeThrower
         {
             if (IsWindActive)
             {
-                _windSpeedText.text = $"{WindSpeed} m/s";
+                switch (YandexGame.EnvironmentData.language)
+                {
+                    case "ru":
+                        _windSpeedText.text = $"{WindSpeed} м/с";
+                        break;
+                    case "en":
+                        _windSpeedText.text = $"{WindSpeed} m/s";
+                        break;
+                    case "tr":
+                        _windSpeedText.text = $"{WindSpeed} m/sn";
+                        break;
+                    case "de":
+                        _windSpeedText.text = $"{WindSpeed} M pro S";
+                        break;
+                    case "es":
+                        _windSpeedText.text = $"{WindSpeed} m/seg";
+                        break;
+                }
             }
 
             else
             {
-                _windSpeedText.text = "0 m/s";
+                switch (YandexGame.EnvironmentData.language)
+                {
+                    case "ru":
+                        _windSpeedText.text = $"0 м/с";
+                        break;
+                    case "en":
+                        _windSpeedText.text = $"0 m/s";
+                        break;
+                    case "tr":
+                        _windSpeedText.text = $"0 m/sn";
+                        break;
+                    case "de":
+                        _windSpeedText.text = $"0 M pro S";
+                        break;
+                    case "es":
+                        _windSpeedText.text = $"0 m/seg";
+                        break;
+                }
             }
             
         }

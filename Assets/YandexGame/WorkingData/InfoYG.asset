@@ -42,7 +42,92 @@ MonoBehaviour:
     methodName: _SaveProgress
   leaderboardEnable: 1
   saveScoreAnonymousPlayers: 1
-  leaderboardSimulation: []
+  leaderboardSimulation:
+  - technoName: Leaders
+    entries: 
+    isDefault: 1
+    isInvertSortOrder: 0
+    decimalOffset: 0
+    type: 
+    players:
+    - rank: 0
+      name: Jack
+      score: 16540
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Sara
+      score: 86553
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Sam
+      score: 5542
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Misha
+      score: 567
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Tanya
+      score: 8765
+      photo: 
+      uniqueID: 000
+    - rank: 0
+      name: Tyler
+      score: 66578
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Harry
+      score: 91867
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Tom
+      score: 7498
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Tim
+      score: 500
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Lara
+      score: 54998
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Gary
+      score: 5387
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Alex
+      score: 17546
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: TTT
+      score: 175464
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Tolik
+      score: 17549
+      photo: 
+      uniqueID: 
+    - rank: 0
+      name: Mitti
+      score: 1800
+      photo: 
+      uniqueID: 
+    thisPlayer:
+      rank: 0
+      score: 54000
   LocalizationEnable: 1
   callingLanguageCheck: 1
   translateMethod: 0

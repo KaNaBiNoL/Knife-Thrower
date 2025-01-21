@@ -6,10 +6,7 @@ namespace KnifeThrower
     {
         public MeshRenderer PlayerMesh { get; }
 
-        public void Init()
-        {
-            
-        }
+        
         private void ThrowImpossible()
         {
             

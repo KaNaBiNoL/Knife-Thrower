@@ -46,12 +46,12 @@ namespace KnifeThrower
         
         
 
-        public void Init()
+        public void Start()
         {
             BoostersService.MultiShurikenPressed.AddListener(AllowToGetClonesCoordinates);
             BoostersService.PowerShotPressed.AddListener(AllowBoosterPowerShot);
             _mainCamera = Camera.main;
-            IsPowerShotUsed = false;
+            IsPowerShotUsed = false; 
         }
 
         
@@ -111,7 +111,7 @@ namespace KnifeThrower
         private void OnDisable()
         {
             BoostersService.MultiShurikenPressed.RemoveListener(AllowToGetClonesCoordinates);
-            BoostersService.PowerShotPressed.RemoveListener(AllowBoosterPowerShot);
+            BoostersService.PowerShotPressed.RemoveListener(AllowBoosterPowerShot); 
         }
     }
 }

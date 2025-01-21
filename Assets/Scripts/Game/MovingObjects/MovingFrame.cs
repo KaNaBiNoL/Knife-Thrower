@@ -13,6 +13,8 @@ namespace KnifeThrower
         [SerializeField] private float _durationToDown;
         [SerializeField] private float _startDelay;
         [SerializeField] private float _midDelay;
+        [SerializeField] private Ease _ease;
+        
 
         private Tween _tween;
 
@@ -27,6 +29,7 @@ namespace KnifeThrower
                 .AppendInterval(_midDelay)
                 .Append(transform.DOMove(_upPoint.position, _durationToUp))
                 .SetLoops(-1)
+                .SetEase(_ease)
                 .SetUpdate(UpdateType.Fixed);
             _tween = sequence;
         }

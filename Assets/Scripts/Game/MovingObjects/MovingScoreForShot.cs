@@ -24,7 +24,7 @@ namespace KnifeThrower
         // Update is called once per frame
         void Update()
         {
-            if (_shurikenCollision._isScoreCanShow == true)
+            if (_shurikenCollision._isScoreCanShow)
             {
                 Play();
                 _shurikenCollision._isScoreCanShow = false;

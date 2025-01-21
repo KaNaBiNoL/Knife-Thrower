@@ -7,8 +7,6 @@ namespace KnifeThrower.Infrastructure
 {
     public class GameSceneLauncher : BaseLauncher
     {
-        public const string SceneName = "SampleScene";
-    
         private IActiveShurikenController _activeShurikenController;
         private IRemainingShurikens _remainingShurikens;
         private IInputPosition _inputPosition;
@@ -19,13 +17,14 @@ namespace KnifeThrower.Infrastructure
         private IScoreService _scoreService;
         private IGoldForLevel _goldForLevel;
         private IGUIControl _guiControl;
+        private IPauseService _pauseService;
 
         [Inject]
         public void Construct(IActiveShurikenController
-            activeShurikenController, IRemainingShurikens remainingShurikens, IInputPosition inputPosition,
-            IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService, 
-            ILevelLostService levelLostService, ILevelTimer levelTimer, IScoreService scoreService, 
-            IGoldForLevel goldForLevel, IGUIControl guiControl)
+                activeShurikenController, IRemainingShurikens remainingShurikens, IInputPosition inputPosition,
+            IShurikenSpawn shurikenSpawn, IRemainingTargetsService remainingTargetsService,
+            ILevelLostService levelLostService, ILevelTimer levelTimer, IScoreService scoreService,
+            IGoldForLevel goldForLevel, IGUIControl guiControl, IPauseService pauseService)
         {
             _guiControl = guiControl;
             _levelLostService = levelLostService;
@@ -37,20 +36,22 @@ namespace KnifeThrower.Infrastructure
             _levelTimer = levelTimer;
             _scoreService = scoreService;
             _goldForLevel = goldForLevel;
+            _pauseService = pauseService;
         }
 
         protected override void Launch()
         {
-            _guiControl.Init();
-            _remainingTargetsService.Init();
+          /*  _remainingTargetsService.Init();
             _shurikenSpawn.Init();
-            _inputPosition.Init();
             _activeShurikenController.Init();
             _remainingShurikens.Init();
             _levelLostService.Init();
             _levelTimer.Init();
             _scoreService.Init();
             _goldForLevel.Init();
+            _guiControl.Init(); 
+            _inputPosition.Init();
+            _pauseService.Init(); */
         }
     }
 }

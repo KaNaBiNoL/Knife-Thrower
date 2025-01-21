@@ -4,7 +4,6 @@
     {
         public bool IsGameEnd { get;  set; }
         bool IsGameLost { get; set; }
-
-        public void Init();
+        
     }
 }
